@@ -8,7 +8,7 @@ RewriteRule ^(.*)$ https://yenswape.herokuapp.com/$1 [L,R=301,NC]
         Options -MultiViews
     </IfModule>
 
-    #RewriteEngine On
+    RewriteEngine On
 
     # Redirect Trailing Slashes...
     RewriteRule ^(.*)/$ /$1 [L,R=301]
