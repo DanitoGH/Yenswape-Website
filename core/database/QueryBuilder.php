@@ -659,11 +659,9 @@ class QueryBuilder
 
    public function counterCategory($category,$status)
    {
-    $statement = $this->pdo->prepare("SELECT main_cat FROM `ads` WHERE main_cat='{$category}' AND status='{$status}'");
-    if($statement){
-      $statement->execute();
-      return $statement->rowCount();
-    }
+   $statement = $this->pdo->prepare("SELECT main_cat FROM `ads` WHERE main_cat='{$category}' AND status='{$status}'");
+   $statement->execute();
+   return $statement->rowCount();
    }
 
 
