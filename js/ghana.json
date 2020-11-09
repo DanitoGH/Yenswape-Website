@@ -1,0 +1,2167 @@
+[
+ {
+  "id":"1",
+  "name":"Accra",
+  "parent_id":"0"
+ },
+ {
+  "id":"2",
+  "name":"Kumasi",
+  "parent_id":"0"
+ },
+ {
+  "id":"3",
+  "name":"Takoradi",
+  "parent_id":"0"
+},
+{
+ "id":"4",
+ "name":"Ashanti",
+ "parent_id":"0"
+},
+{
+ "id":"5",
+ "name":"Brong Ahafo",
+ "parent_id":"0"
+},
+{
+ "id":"6",
+ "name":"Central",
+ "parent_id":"0"
+},
+{
+ "id":"7",
+ "name":"Eastern",
+ "parent_id":"0"
+},
+{
+ "id":"8",
+ "name":"Greater Accra",
+ "parent_id":"0"
+},
+{
+ "id":"9",
+ "name":"Northern",
+ "parent_id":"0"
+},
+{
+ "id":"10",
+ "name":"Upper East",
+ "parent_id":"0"
+},
+{
+  "id":"11",
+  "name":"Upper West",
+  "parent_id":"0"
+},
+{
+  "id":"12",
+  "name":"Volta Region",
+  "parent_id":"0"
+},
+{
+  "id":"13",
+  "name":"Western Region",
+  "parent_id":"0"
+}
+,
+{
+  "id":"14",
+  "name":"Abeka La Paz",
+  "parent_id":"1"
+},
+{
+  "id":"15",
+  "name":"Accra Central",
+  "parent_id":"1"
+},
+{
+  "id":"16",
+  "name":"Abelemkpe",
+  "parent_id":"1"
+},
+{
+  "id":"17",
+  "name":"Ablorh Adjei",
+  "parent_id":"1"
+}
+,
+{
+  "id":"18",
+  "name":"Abokobi",
+  "parent_id":"1"
+}
+,
+{
+  "id":"19",
+  "name":"Aborfu",
+  "parent_id":"1"
+}
+,
+{
+  "id":"20",
+  "name":"Abossey Okai",
+  "parent_id":"1"
+}
+,
+{
+  "id":"21",
+  "name":"Accra n. Town",
+  "parent_id":"1"
+}
+,
+{
+  "id":"22",
+  "name":"Achimota",
+  "parent_id":"1"
+}
+,
+{
+  "id":"23",
+  "name":"Adabraka",
+  "parent_id":"1"
+}
+,
+{
+  "id":"24",
+  "name":"Adenta",
+  "parent_id":"1"
+}
+,
+{
+  "id":"25",
+  "name":"Adjankote",
+  "parent_id":"1"
+}
+,
+{
+  "id":"26",
+  "name":"Adjiriganor",
+  "parent_id":"1"
+}
+,
+{
+  "id":"27",
+  "name":"Agbogba",
+  "parent_id":"1"
+}
+,
+{
+  "id":"28",
+  "name":"Agbogbloshie",
+  "parent_id":"1"
+}
+,
+{
+  "id":"30",
+  "name":"Akatsi Abor",
+  "parent_id":"1"
+}
+,
+{
+  "id":"31",
+  "name":"Akweteman",
+  "parent_id":"1"
+}
+,
+{
+  "id":"32",
+  "name":"Alajo",
+  "parent_id":"1"
+}
+,
+{
+  "id":"33",
+  "name":"Apenkwa",
+  "parent_id":"1"
+}
+,
+{
+  "id":"34",
+  "name":"Ashaley Botwe",
+  "parent_id":"1"
+}
+,
+{
+  "id":"35",
+  "name":"Avenor",
+  "parent_id":"1"
+}
+,
+{
+  "id":"36",
+  "name":"Awoshie",
+  "parent_id":"1"
+}
+,
+{
+  "id":"37",
+  "name":"Ashongman Estates",
+  "parent_id":"1"
+}
+,
+{
+  "id":"38",
+  "name":"Asylum Down",
+  "parent_id":"1"
+}
+,
+{
+  "id":"39",
+  "name":"Asylum Down",
+  "parent_id":"1"
+}
+,
+{
+  "id":"40",
+  "name":"Banana Inn",
+  "parent_id":"1"
+}
+,
+{
+  "id":"41",
+  "name":"Bubuashie",
+  "parent_id":"1"
+}
+,
+{
+  "id":"42",
+  "name":"Bukom",
+  "parent_id":"1"
+}
+,
+{
+  "id":"43",
+  "name":"Burma Camp",
+  "parent_id":"1"
+}
+,
+{
+  "id":"44",
+  "name":"Cantonments",
+  "parent_id":"1"
+}
+,
+{
+  "id":"45",
+  "name":"Carprice",
+  "parent_id":"1"
+}
+,
+{
+  "id":"46",
+  "name":"Chantang",
+  "parent_id":"1"
+}
+,
+{
+  "id":"47",
+  "name":"Chorkor",
+  "parent_id":"1"
+}
+,
+{
+  "id":"48",
+  "name":"Circle",
+  "parent_id":"1"
+}
+,
+{
+  "id":"49",
+  "name":"Dansoman",
+  "parent_id":"1"
+}
+,
+{
+  "id":"50",
+  "name":"Darkuman",
+  "parent_id":"1"
+}
+,
+{
+  "id":"51",
+  "name":"Dome",
+  "parent_id":"1"
+}
+,
+{
+  "id":"52",
+  "name":"Dzorwulu",
+  "parent_id":"1"
+}
+,
+{
+  "id":"53",
+  "name":"Dansoman",
+  "parent_id":"1"
+}
+,
+{
+  "id":"54",
+  "name":"Darkuman",
+  "parent_id":"1"
+}
+,
+{
+  "id":"55",
+  "name":"Dome",
+  "parent_id":"1"
+}
+,
+{
+  "id":"56",
+  "name":"Dzorwulu",
+  "parent_id":"1"
+}
+,
+{
+  "id":"57",
+  "name":"East Legon",
+  "parent_id":"1"
+}
+,
+{
+  "id":"58",
+  "name":"East Legon (Okponglo)",
+  "parent_id":"1"
+}
+,
+{
+  "id":"59",
+  "name":"Gbawe",
+  "parent_id":"1"
+}
+,
+{
+  "id":"60",
+  "name":"Haatso",
+  "parent_id":"1"
+}
+,
+{
+  "id":"61",
+  "name":"Kanda Estate",
+  "parent_id":"1"
+}
+,
+{
+  "id":"62",
+  "name":"Kaneshie",
+  "parent_id":"1"
+}
+,
+{
+  "id":"63",
+  "name":"Kantamanto",
+  "parent_id":"1"
+}
+,
+{
+  "id":"64",
+  "name":"Kokomlemle",
+  "parent_id":"1"
+}
+,
+{
+  "id":"65",
+  "name":"Korle Gonno",
+  "parent_id":"1"
+}
+,
+{
+  "id":"66",
+  "name":"Korle-Bu",
+  "parent_id":"1"
+}
+,
+{
+  "id":"67",
+  "name":"Kotobabi",
+  "parent_id":"1"
+}
+,
+{
+  "id":"68",
+  "name":"Kwabenya",
+  "parent_id":"1"
+}
+,
+{
+  "id":"69",
+  "name":"Kwabenya",
+  "parent_id":"1"
+}
+,
+{
+  "id":"70",
+  "name":"Kwabenya",
+  "parent_id":"1"
+}
+,
+{
+  "id":"71",
+  "name":"Kwashieman",
+  "parent_id":"1"
+}
+,
+{
+  "id":"72",
+  "name":"La-Aborm",
+  "parent_id":"1"
+}
+,
+{
+  "id":"73",
+  "name":"Labone",
+  "parent_id":"1"
+}
+,
+{
+  "id":"74",
+  "name":"Lashibi",
+  "parent_id":"1"
+}
+,
+{
+  "id":"75",
+  "name":"Legon",
+  "parent_id":"1"
+}
+,
+{
+  "id":"76",
+  "name":"Lartebiokorshie",
+  "parent_id":"1"
+}
+,
+{
+  "id":"77",
+  "name":"Mallam",
+  "parent_id":"1"
+}
+,
+{
+  "id":"78",
+  "name":"Mallam Atta",
+  "parent_id":"1"
+}
+,
+{
+  "id":"79",
+  "name":"Mamobi",
+  "parent_id":"1"
+}
+,
+{
+  "id":"80",
+  "name":"Mamprobi",
+  "parent_id":"1"
+}
+,
+{
+  "id":"81",
+  "name":"Madina",
+  "parent_id":"1"
+}
+,
+{
+  "id":"82",
+  "name":"Mataheko",
+  "parent_id":"1"
+}
+,
+{
+  "id":"83",
+  "name":"Mataheko",
+  "parent_id":"1"
+}
+,
+{
+  "id":"84",
+  "name":"McCarthy Hill",
+  "parent_id":"1"
+}
+,
+{
+  "id":"85",
+  "name":"New Achimota",
+  "parent_id":"1"
+}
+,
+{
+  "id":"86",
+  "name":"New Fadama",
+  "parent_id":"1"
+}
+,
+{
+  "id":"87",
+  "name":"New Ashongman",
+  "parent_id":"1"
+}
+,
+{
+  "id":"88",
+  "name":"New Aplaku Mandela",
+  "parent_id":"1"
+}
+,
+{
+  "id":"89",
+  "name":"North Mamprobi",
+  "parent_id":"1"
+}
+,
+{
+  "id":"90",
+  "name":"New Weija",
+  "parent_id":"1"
+}
+,
+{
+  "id":"91",
+  "name":"Nii Boi Town",
+  "parent_id":"1"
+}
+,
+{
+  "id":"92",
+  "name":"Nima",
+  "parent_id":"1"
+}
+,
+{
+  "id":"93",
+  "name":"North Kaneshie",
+  "parent_id":"1"
+}
+,
+{
+  "id":"94",
+  "name":"North Legon",
+  "parent_id":"1"
+}
+,
+{
+  "id":"95",
+  "name":"North Ridge",
+  "parent_id":"1"
+}
+,
+{
+  "id":"96",
+  "name":"Nungua",
+  "parent_id":"1"
+}
+,
+{
+  "id":"97",
+  "name":"Nungua East",
+  "parent_id":"1"
+}
+,
+{
+  "id":"98",
+  "name":"Nungua Old Town",
+  "parent_id":"1"
+}
+,
+{
+  "id":"99",
+  "name":"Nun.-Zongo",
+  "parent_id":"1"
+}
+,
+{
+  "id":"100",
+  "name":"Odorkor",
+  "parent_id":"1"
+}
+,
+{
+  "id":"101",
+  "name":"Osu",
+  "parent_id":"1"
+}
+,
+{
+  "id":"102",
+  "name":"Osu Ako-Adjei",
+  "parent_id":"1"
+}
+,
+{
+  "id":"103",
+  "name":"Oyarifa",
+  "parent_id":"1"
+}
+,
+{
+  "id":"104",
+  "name":"Pokuase",
+  "parent_id":"1"
+}
+,
+{
+  "id":"105",
+  "name":"Ridge",
+  "parent_id":"1"
+}
+,
+{
+  "id":"106",
+  "name":"Roman Ridge",
+  "parent_id":"1"
+}
+,
+{
+  "id":"107",
+  "name":"Ringway Estates",
+  "parent_id":"1"
+}
+,
+{
+  "id":"108",
+  "name":"Sakaman",
+  "parent_id":"1"
+}
+,
+{
+  "id":"109",
+  "name":"Shiashie",
+  "parent_id":"1"
+}
+,
+{
+  "id":"110",
+  "name":"South La",
+  "parent_id":"1"
+}
+,
+{
+  "id":"111",
+  "name":"South Odorkor",
+  "parent_id":"1"
+}
+,
+{
+  "id":"112",
+  "name":"Spintex",
+  "parent_id":"1"
+}
+,
+{
+  "id":"113",
+  "name":"Sukura",
+  "parent_id":"1"
+}
+,
+{
+  "id":"114",
+  "name":"T/Junction",
+  "parent_id":"1"
+}
+,
+{
+  "id":"115",
+  "name":"Taifa",
+  "parent_id":"1"
+}
+,
+{
+  "id":"116",
+  "name":"Tantra Hill",
+  "parent_id":"1"
+}
+,
+{
+  "id":"117",
+  "name":"Tesano",
+  "parent_id":"1"
+}
+,
+{
+  "id":"118",
+  "name":"Teshie New Town",
+  "parent_id":"1"
+}
+,
+{
+  "id":"119",
+  "name":"Teshie Old Town",
+  "parent_id":"1"
+}
+,
+{
+  "id":"120",
+  "name":"Teshie-Nungua Estates",
+  "parent_id":"1"
+}
+,
+{
+  "id":"121",
+  "name":"Trassacco Valley Estates",
+  "parent_id":"1"
+}
+,
+{
+  "id":"122",
+  "name":"West Legon",
+  "parent_id":"1"
+}
+,
+{
+  "id":"123",
+  "name":"Adum",
+  "parent_id":"2"
+}
+,
+{
+  "id":"124",
+  "name":"Ayeduase",
+  "parent_id":"2"
+}
+,
+{
+  "id":"125",
+  "name":"Aboabo",
+  "parent_id":"2"
+}
+,
+{
+  "id":"126",
+  "name":"Ahinsan",
+  "parent_id":"2"
+}
+,
+{
+  "id":"127",
+  "name":"Ahodwo",
+  "parent_id":"2"
+}
+,
+{
+  "id":"128",
+  "name":"Amakom",
+  "parent_id":"2"
+}
+,
+{
+  "id":"129",
+  "name":"Anloga",
+  "parent_id":"2"
+}
+,
+{
+  "id":"130",
+  "name":"Anwomaso",
+  "parent_id":"2"
+},
+{
+  "id":"131",
+  "name":"Apatrapa",
+  "parent_id":"2"
+},
+{
+  "id":"132",
+  "name":"Asafo",
+  "parent_id":"2"
+},
+{
+  "id":"133",
+  "name":"Asawasi",
+  "parent_id":"2"
+}
+,
+{
+  "id":"134",
+  "name":"Ashanti New Town",
+  "parent_id":"2"
+},
+{
+  "id":"135",
+  "name":"Asokwa",
+  "parent_id":"2"
+},
+{
+  "id":"136",
+  "name":"Atonsu-Agogo",
+  "parent_id":"2"
+},
+{
+  "id":"137",
+  "name":"Ayigya",
+  "parent_id":"2"
+}
+,
+{
+  "id":"138",
+  "name":"Asokore Mampong",
+  "parent_id":"2"
+},
+{
+  "id":"139",
+  "name":"Bantama",
+  "parent_id":"2"
+},
+{
+  "id":"140",
+  "name":"Boadi",
+  "parent_id":"2"
+},
+{
+  "id":"141",
+  "name":"Bomso",
+  "parent_id":"2"
+},
+{
+  "id":"142",
+  "name":"Breman",
+  "parent_id":"2"
+}
+,
+{
+  "id":"143",
+  "name":"Buokrom/Buokrom Estate",
+  "parent_id":"2"
+}
+,
+{
+  "id":"144",
+  "name":"Daban",
+  "parent_id":"2"
+}
+,
+{
+  "id":"145",
+  "name":"Dakwadwom",
+  "parent_id":"2"
+}
+,
+{
+  "id":"146",
+  "name":"Dichemso",
+  "parent_id":"2"
+}
+,
+{
+  "id":"147",
+  "name":"Dompoase",
+  "parent_id":"2"
+}
+,
+{
+  "id":"148",
+  "name":"Edwenase",
+  "parent_id":"2"
+}
+,
+{
+  "id":"149",
+  "name":"Gyinyasi",
+  "parent_id":"2"
+}
+,
+{
+  "id":"150",
+  "name":"Kaase",
+  "parent_id":"2"
+}
+,
+{
+  "id":"151",
+  "name":"Kejetia",
+  "parent_id":"2"
+}
+,
+{
+  "id":"152",
+  "name":"Kumasi Metropolitan",
+  "parent_id":"2"
+}
+,
+{
+  "id":"153",
+  "name":"Kokoben",
+  "parent_id":"2"
+}
+,
+{
+  "id":"154",
+  "name":"Kwadaso Nsuom",
+  "parent_id":"2"
+}
+,
+{
+  "id":"155",
+  "name":"Manhyia",
+  "parent_id":"2"
+}
+,
+{
+  "id":"156",
+  "name":"Mbrom",
+  "parent_id":"2"
+}
+,
+{
+  "id":"157",
+  "name":"Moshie Zongo",
+  "parent_id":"2"
+}
+,
+{
+  "id":"158",
+  "name":"New Suame",
+  "parent_id":"2"
+}
+,
+{
+  "id":"159",
+  "name":"New Tafo",
+  "parent_id":"2"
+}
+,
+{
+  "id":"160",
+  "name":"Nhyiaeso",
+  "parent_id":"2"
+}
+,
+{
+  "id":"161",
+  "name":"Nsenie",
+  "parent_id":"2"
+},
+{
+  "id":"162",
+  "name":"Nyankyerenease",
+  "parent_id":"2"
+},
+{
+  "id":"163",
+  "name":"Oforikrom",
+  "parent_id":"2"
+}
+,
+{
+  "id":"164",
+  "name":"Old Tafo",
+  "parent_id":"2"
+}
+,
+{
+  "id":"165",
+  "name":"Pankrono",
+  "parent_id":"2"
+}
+,
+{
+  "id":"166",
+  "name":"Patase",
+  "parent_id":"2"
+}
+,
+{
+  "id":"167",
+  "name":"Santasi",
+  "parent_id":"2"
+}
+,
+{
+  "id":"168",
+  "name":"Sawaba",
+  "parent_id":"2"
+}
+,
+{
+  "id":"169",
+  "name":"Sokoban",
+  "parent_id":"2"
+},
+{
+  "id":"170",
+  "name":"Suame",
+  "parent_id":"2"
+}
+,
+{
+  "id":"171",
+  "name":"KNUST",
+  "parent_id":"2"
+},
+{
+  "id":"172",
+  "name":"Tarkwa Maakro",
+  "parent_id":"2"
+}
+,
+{
+  "id":"173",
+  "name":"Anaji",
+  "parent_id":"3"
+}
+,
+{
+  "id":"174",
+  "name":"Adiembra",
+  "parent_id":"3"
+}
+,
+{
+  "id":"175",
+  "name":"Apremdo",
+  "parent_id":"3"
+}
+,
+{
+  "id":"176",
+  "name":"Assakae",
+  "parent_id":"3"
+}
+,
+{
+  "id":"177",
+  "name":"Beach Road",
+  "parent_id":"3"
+}
+,
+{
+  "id":"178",
+  "name":"Butumagyebu",
+  "parent_id":"3"
+}
+,
+{
+  "id":"179",
+  "name":"Chapel Hill",
+  "parent_id":"3"
+}
+,
+{
+  "id":"180",
+  "name":"Effia",
+  "parent_id":"3"
+}
+,
+{
+  "id":"181",
+  "name":"Effia Nkwanta",
+  "parent_id":"3"
+}
+,
+{
+  "id":"182",
+  "name":"Essipon",
+  "parent_id":"3"
+},
+{
+  "id":"183",
+  "name":"Kojokrom",
+  "parent_id":"3"
+},
+{
+  "id":"184",
+  "name":"Kwesimintsim",
+  "parent_id":"3"
+}
+,
+{
+  "id":"185",
+  "name":"Market Circle",
+  "parent_id":"3"
+},
+{
+  "id":"186",
+  "name":"Mpintsin",
+  "parent_id":"3"
+},
+{
+  "id":"187",
+  "name":"New Takoradi",
+  "parent_id":"3"
+}
+,
+{
+  "id":"188",
+  "name":"Ntankoful",
+  "parent_id":"3"
+},
+{
+  "id":"189",
+  "name":"Pipe Ano",
+  "parent_id":"3"
+},
+{
+  "id":"190",
+  "name":"Sekondi",
+  "parent_id":"3"
+}
+,
+{
+  "id":"191",
+  "name":"Sekondi (Township)",
+  "parent_id":"3"
+}
+,
+{
+  "id":"192",
+  "name":"Tanokrom",
+  "parent_id":"3"
+}
+,
+{
+  "id":"192",
+  "name":"Takoradi",
+  "parent_id":"3"
+}
+,
+{
+  "id":"193",
+  "name":"Adansi North",
+  "parent_id":"4"
+}
+,
+{
+  "id":"194",
+  "name":"Adansi South",
+  "parent_id":"4"
+},
+{
+  "id":"195",
+  "name":"Atwima Nwabiagya",
+  "parent_id":"4"
+},
+{
+  "id":"196",
+  "name":"Afigya-Kwabre",
+  "parent_id":"4"
+},
+{
+  "id":"197",
+  "name":"Ahafo Ano North",
+  "parent_id":"4"
+},
+{
+  "id":"198",
+  "name":"Amansie West",
+  "parent_id":"4"
+}
+,
+{
+  "id":"199",
+  "name":"Ahafo Ano South",
+  "parent_id":"4"
+},
+{
+  "id":"200",
+  "name":"Amansie West",
+  "parent_id":"4"
+},
+{
+  "id":"201",
+  "name":"Asante Akim Central Municipal",
+  "parent_id":"4"
+},
+{
+  "id":"202",
+  "name":"Asante Akim North",
+  "parent_id":"4"
+}
+,
+{
+  "id":"203",
+  "name":"Asante Akim South",
+  "parent_id":"4"
+},
+{
+  "id":"204",
+  "name":"Asokore Mampong Municipal",
+  "parent_id":"4"
+},
+{
+  "id":"205",
+  "name":"Atwima Kwanwoma",
+  "parent_id":"4"
+},
+{
+  "id":"206",
+  "name":"Atwima Mponua",
+  "parent_id":"4"
+},
+{
+  "id":"207",
+  "name":"Bekwai Municipal",
+  "parent_id":"4"
+},
+{
+  "id":"208",
+  "name":"Bosome Freho",
+  "parent_id":"4"
+},
+{
+  "id":"209",
+  "name":"Bosomtwe",
+  "parent_id":"4"
+},
+{
+  "id":"210",
+  "name":"Ejisu-Juaben Municipal",
+  "parent_id":"4"
+},
+{
+  "id":"211",
+  "name":"Ejura / Sekyedumase",
+  "parent_id":"4"
+},
+{
+  "id":"212",
+  "name":"Kwabre East",
+  "parent_id":"4"
+},
+{
+  "id":"214",
+  "name":"Kumawu",
+  "parent_id":"4"
+},
+{
+  "id":"215",
+  "name":"Mampong Municipal",
+  "parent_id":"4"
+},
+{
+  "id":"216",
+  "name":"Obuasi Municipal",
+  "parent_id":"4"
+},
+{
+  "id":"217",
+  "name":"Offinso North",
+  "parent_id":"4"
+}
+,
+{
+  "id":"218",
+  "name":"Offinso South Municipal",
+  "parent_id":"4"
+}
+,
+{
+  "id":"219",
+  "name":"Sekyere Central",
+  "parent_id":"4"
+}
+,
+{
+  "id":"220",
+  "name":"Sekyere East",
+  "parent_id":"4"
+}
+,
+{
+  "id":"221",
+  "name":"Sekyere South",
+  "parent_id":"4"
+}
+,
+{
+  "id":"222",
+  "name":"Asunafo South",
+  "parent_id":"5"
+},
+{
+  "id":"223",
+  "name":"Asutifi",
+  "parent_id":"5"
+},
+{
+  "id":"224",
+  "name":"Asutifi South",
+  "parent_id":"5"
+},
+{
+  "id":"225",
+  "name":"Asunafo North Municipal",
+  "parent_id":"5"
+}
+,
+{
+  "id":"226",
+  "name":"Atebubu-Amantin Municipal",
+  "parent_id":"5"
+},
+{
+  "id":"227",
+  "name":"Berekum Municipal",
+  "parent_id":"5"
+}
+,
+{
+  "id":"228",
+  "name":"Dormaa Municipal",
+  "parent_id":"5"
+},
+{
+  "id":"229",
+  "name":"Dormaa East",
+  "parent_id":"5"
+},
+{
+  "id":"230",
+  "name":"Jaman North",
+  "parent_id":"5"
+}
+,
+{
+  "id":"231",
+  "name":"Jaman South",
+  "parent_id":"5"
+},
+{
+  "id":"232",
+  "name":"Kintampo North Municipal",
+  "parent_id":"5"
+},
+{
+  "id":"233",
+  "name":"Kintampo South",
+  "parent_id":"5"
+},
+{
+  "id":"234",
+  "name":"Nkoranza North",
+  "parent_id":"5"
+},
+{
+  "id":"235",
+  "name":"Nkoranza South",
+  "parent_id":"5"
+},
+{
+  "id":"235",
+  "name":"Pru",
+  "parent_id":"5"
+},
+{
+  "id":"236",
+  "name":"Sunyani Municipal",
+  "parent_id":"5"
+},
+{
+  "id":"237",
+  "name":"Sunyani West",
+  "parent_id":"5"
+},
+{
+  "id":"238",
+  "name":"Sene West",
+  "parent_id":"5"
+},
+{
+  "id":"239",
+  "name":"Techiman Municipal",
+  "parent_id":"5"
+},
+{
+  "id":"240",
+  "name":"Tain",
+  "parent_id":"5"
+},
+{
+  "id":"238",
+  "name":"Tano North",
+  "parent_id":"5"
+}
+,
+{
+  "id":"239",
+  "name":"Tano South",
+  "parent_id":"5"
+},
+{
+  "id":"240",
+  "name":"Techiman North",
+  "parent_id":"5"
+},
+{
+  "id":"241",
+  "name":"Wenchi Municipal",
+  "parent_id":"5"
+}
+,
+{
+  "id":"242",
+  "name":"Agona West Municipal",
+  "parent_id":"6"
+},
+{
+  "id":"243",
+  "name":"Awutu-Senya-East",
+  "parent_id":"6"
+},
+{
+  "id":"244",
+  "name":"Abura",
+  "parent_id":"6"
+},
+{
+  "id":"245",
+  "name":"Asebu",
+  "parent_id":"6"
+},
+{
+  "id":"246",
+  "name":"Asikuma Odoben",
+  "parent_id":"6"
+},
+{
+  "id":"247",
+  "name":"Abirem Municipal",
+  "parent_id":"6"
+},
+{
+  "id":"248",
+  "name":"Assin North Municipal",
+  "parent_id":"6"
+},
+{
+  "id":"249",
+  "name":"Assin South",
+  "parent_id":"6"
+},
+{
+  "id":"250",
+  "name":"Awutu-Senya",
+  "parent_id":"6"
+},
+{
+  "id":"251",
+  "name":"Kwamankese",
+  "parent_id":"6"
+}
+,
+{
+  "id":"252",
+  "name":"Agona East",
+  "parent_id":"6"
+},
+{
+  "id":"253",
+  "name":"Ajumako",
+  "parent_id":"6"
+},
+{
+  "id":"254",
+  "name":"Enyan",
+  "parent_id":"6"
+},
+{
+  "id":"255",
+  "name":"Essiam",
+  "parent_id":"6"
+},
+{
+  "id":"256",
+  "name":"Brakwa",
+  "parent_id":"6"
+},
+{
+  "id":"257",
+  "name":"Cape Coast Metropolitan",
+  "parent_id":"6"
+},
+{
+  "id":"258",
+  "name":"Effutu Municipal",
+  "parent_id":"6"
+},
+{
+  "id":"259",
+  "name":"Ekumfi",
+  "parent_id":"6"
+},
+{
+  "id":"260",
+  "name":"Gomoa  East",
+  "parent_id":"6"
+},
+{
+  "id":"261",
+  "name":"Gomoa  West",
+  "parent_id":"6"
+}
+,
+{
+  "id":"262",
+  "name":"Komenda",
+  "parent_id":"6"
+},
+{
+  "id":"263",
+  "name":"Edina",
+  "parent_id":"6"
+},
+{
+  "id":"264",
+  "name":"Eguafo",
+  "parent_id":"6"
+},
+{
+  "id":"265",
+  "name":"Twifo-Ati Mokwa",
+  "parent_id":"6"
+},
+{
+  "id":"266",
+  "name":"Twifo",
+  "parent_id":"6"
+},
+{
+  "id":"267",
+  "name":"Heman",
+  "parent_id":"6"
+},
+{
+  "id":"268",
+  "name":"Lower Denkyira",
+  "parent_id":"6"
+}
+,
+{
+  "id":"269",
+  "name":"Upper Denkyira East",
+  "parent_id":"6"
+},
+{
+  "id":"270",
+  "name":"Upper Denkyira West",
+  "parent_id":"6"
+}
+,
+{
+  "id":"271",
+  "name":"Akropong",
+  "parent_id":"7"
+}
+,
+{
+  "id":"272",
+  "name":"Akuapim South",
+  "parent_id":"7"
+},
+{
+  "id":"273",
+  "name":"Afram Plains South",
+  "parent_id":"7"
+},
+{
+  "id":"273",
+  "name":"Akuapim North",
+  "parent_id":"7"
+},
+{
+  "id":"274",
+  "name":"Akuapim South Municipal",
+  "parent_id":"7"
+},
+{
+  "id":"275",
+  "name":"Akyemansa",
+  "parent_id":"7"
+},
+{
+  "id":"276",
+  "name":"Ahafo Ano North",
+  "parent_id":"7"
+},
+{
+  "id":"277",
+  "name":"Asuogyaman",
+  "parent_id":"7"
+},
+{
+  "id":"278",
+  "name":"Atiwa",
+  "parent_id":"7"
+},
+{
+  "id":"279",
+  "name":"Ayensuano",
+  "parent_id":"7"
+},
+{
+  "id":"280",
+  "name":"Ahafo Ano South",
+  "parent_id":"7"
+},
+
+{
+  "id":"281",
+  "name":"Birim North",
+  "parent_id":"7"
+},
+{
+  "id":"282",
+  "name":"Birim South",
+  "parent_id":"7"
+},
+{
+  "id":"283",
+  "name":"Birim Central Municipal",
+  "parent_id":"7"
+},
+{
+  "id":"284",
+  "name":"Denkyembour",
+  "parent_id":"7"
+},
+{
+  "id":"285",
+  "name":"East Akim Municipal",
+  "parent_id":"7"
+},
+{
+  "id":"286",
+  "name":"Fanteakwa",
+  "parent_id":"7"
+},
+{
+  "id":"287",
+  "name":"Koforidua",
+  "parent_id":"7"
+},
+{
+  "id":"288",
+  "name":"Kwaebibirem",
+  "parent_id":"7"
+},
+{
+  "id":"289",
+  "name":"Kwahu East",
+  "parent_id":"7"
+},
+{
+  "id":"290",
+  "name":"Kwahu North",
+  "parent_id":"7"
+},
+{
+  "id":"291",
+  "name":"Kwahu South",
+  "parent_id":"7"
+},
+{
+  "id":"292",
+  "name":"Kwahu West Municipal",
+  "parent_id":"7"
+},
+{
+  "id":"293",
+  "name":"New-Juaben Municipal",
+  "parent_id":"7"
+},
+{
+  "id":"294",
+  "name":"Suhum/Kraboa/Coaltar",
+  "parent_id":"7"
+},
+{
+  "id":"295",
+  "name":"Upper Manya Krobo",
+  "parent_id":"7"
+},
+{
+  "id":"296",
+  "name":"Upper West Akim",
+  "parent_id":"7"
+},
+{
+  "id":"297",
+  "name":"Yilo Krobo",
+  "parent_id":"7"
+},
+{
+  "id":"298",
+  "name":"Ada West",
+  "parent_id":"8"
+},
+{
+  "id":"299",
+  "name":"Adentan Municipal",
+  "parent_id":"8"
+},
+{
+  "id":"300",
+  "name":"Adjiriganno",
+  "parent_id":"8"
+}
+,
+{
+  "id":"301",
+  "name":"Afienya",
+  "parent_id":"8"
+},
+{
+  "id":"302",
+  "name":"Ashaiman Municipal",
+  "parent_id":"8"
+},
+{
+  "id":"303",
+  "name":"Dangme East",
+  "parent_id":"8"
+},
+{
+  "id":"304",
+  "name":"Dangme West",
+  "parent_id":"8"
+},
+{
+  "id":"305",
+  "name":"Ga Central",
+  "parent_id":"8"
+},
+{
+  "id":"306",
+  "name":"Ga West  Municipal",
+  "parent_id":"8"
+},
+{
+  "id":"307",
+  "name":"Ga East  Municipal",
+  "parent_id":"8"
+},
+{
+  "id":"308",
+  "name":"Ga South Municipal",
+  "parent_id":"8"
+},
+{
+  "id":"309",
+  "name":"Kpone Katamanso",
+  "parent_id":"8"
+},
+{
+  "id":"310",
+  "name":"La Dade-Kotopon",
+  "parent_id":"8"
+},
+{
+  "id":"311",
+  "name":"La-Nkwantanang-Madina",
+  "parent_id":"8"
+}
+,
+{
+  "id":"312",
+  "name":"Ledzokuku-Krowor",
+  "parent_id":"8"
+},
+{
+  "id":"313",
+  "name":"Ningo/ Prampam",
+  "parent_id":"8"
+},
+{
+  "id":"314",
+  "name":"Oyibi",
+  "parent_id":"8"
+},
+{
+  "id":"315",
+  "name":"Tema",
+  "parent_id":"8"
+},
+{
+  "id":"316",
+  "name":"Tema Metropolitan",
+  "parent_id":"8"
+}
+,
+{
+  "id":"317",
+  "name":"Bole",
+  "parent_id":"9"
+},
+{
+  "id":"318",
+  "name":"Chereponi",
+  "parent_id":"9"
+},
+{
+  "id":"319",
+  "name":"East Gonja",
+  "parent_id":"9"
+}
+,
+{
+  "id":"320",
+  "name":"Kpandai",
+  "parent_id":"9"
+},
+{
+  "id":"321",
+  "name":"North Gonja",
+  "parent_id":"9"
+}
+,
+
+
+{
+  "id":"322",
+  "name":"Sagnarigu",
+  "parent_id":"9"
+},
+{
+  "id":"323",
+  "name":"Sawla-Tuna-Kalba",
+  "parent_id":"9"
+},
+{
+  "id":"324",
+  "name":"Savelugu/ Nanton",
+  "parent_id":"9"
+},
+{
+  "id":"325",
+  "name":"Tolon",
+  "parent_id":"9"
+}
+,
+{
+  "id":"327",
+  "name":"Tamale Metropolitan",
+  "parent_id":"9"
+},
+{
+  "id":"328",
+  "name":"West Mamprusi",
+  "parent_id":"9"
+}
+,
+{
+  "id":"329",
+  "name":"Yendi Municipal",
+  "parent_id":"9"
+}
+,
+{
+  "id":"330",
+  "name":"Bawku Municipal",
+  "parent_id":"10"
+},
+{
+  "id":"331",
+  "name":"Bawku West",
+  "parent_id":"10"
+},
+{
+  "id":"332",
+  "name":"Bongo",
+  "parent_id":"10"
+},
+{
+  "id":"333",
+  "name":"Builsa",
+  "parent_id":"10"
+},
+{
+  "id":"334",
+  "name":"Bolgatanga Municipal",
+  "parent_id":"10"
+}
+,
+{
+  "id":"335",
+  "name":"Biakoye",
+  "parent_id":"10"
+},
+{
+  "id":"336",
+  "name":"Garu-Tempane",
+  "parent_id":"10"
+},
+{
+  "id":"337",
+  "name":"Kassena Nankana East",
+  "parent_id":"10"
+},
+{
+  "id":"338",
+  "name":"Kassena Nankana West",
+  "parent_id":"10"
+},
+{
+  "id":"339",
+  "name":"Pusiga",
+  "parent_id":"10"
+},
+{
+  "id":"340",
+  "name":"Talensi",
+  "parent_id":"10"
+},
+{
+  "id":"341",
+  "name":"Nkwanta North",
+  "parent_id":"10"
+}
+,
+{
+  "id":"342",
+  "name":"Nkwanta South",
+  "parent_id":"10"
+},
+{
+  "id":"343",
+  "name":"North Dayi",
+  "parent_id":"10"
+},
+{
+  "id":"344",
+  "name":"North Tongu",
+  "parent_id":"10"
+},
+{
+  "id":"345",
+  "name":"South Dayi",
+  "parent_id":"10"
+},
+{
+  "id":"346",
+  "name":"South Tongu",
+  "parent_id":"10"
+}
+,
+{
+  "id":"347",
+  "name":"Jirapa",
+  "parent_id":"11"
+},
+{
+  "id":"348",
+  "name":"Lawra",
+  "parent_id":"11"
+},
+{
+  "id":"349",
+  "name":"Wa Municipal",
+  "parent_id":"11"
+},
+{
+  "id":"350",
+  "name":"Akatsi North",
+  "parent_id":"12"
+}
+,
+{
+  "id":"351",
+  "name":"Akatsi South",
+  "parent_id":"12"
+},
+{
+  "id":"352",
+  "name":"Biakoye",
+  "parent_id":"12"
+},
+{
+  "id":"353",
+  "name":"Central Tongu",
+  "parent_id":"12"
+},
+{
+  "id":"354",
+  "name":"Denu",
+  "parent_id":"12"
+}
+,
+{
+  "id":"355",
+  "name":"Ho West",
+  "parent_id":"12"
+},
+{
+  "id":"356",
+  "name":"Ho Municipal",
+  "parent_id":"12"
+},
+{
+  "id":"357",
+  "name":"Hohoe Municipal",
+  "parent_id":"12"
+},
+{
+  "id":"358",
+  "name":"Keta Municipal",
+  "parent_id":"12"
+}
+,
+{
+  "id":"359",
+  "name":"Ketu South Municipal",
+  "parent_id":"12"
+},
+{
+  "id":"360",
+  "name":"Kpando Municipal",
+  "parent_id":"12"
+},
+{
+  "id":"361",
+  "name":"Ketu North",
+  "parent_id":"12"
+},
+{
+  "id":"362",
+  "name":"Krachi East",
+  "parent_id":"12"
+},
+{
+  "id":"363",
+  "name":"Krachi West",
+  "parent_id":"12"
+}
+,
+{
+  "id":"364",
+  "name":"Nkwanta North",
+  "parent_id":"12"
+}
+,
+{
+  "id":"365",
+  "name":"Nkwanta South",
+  "parent_id":"12"
+}
+,
+{
+  "id":"366",
+  "name":"North Dayi",
+  "parent_id":"12"
+},
+{
+  "id":"367",
+  "name":"North Tongu",
+  "parent_id":"12"
+},
+{
+  "id":"368",
+  "name":"South Dayi",
+  "parent_id":"12"
+},
+{
+  "id":"369",
+  "name":"South Tongu",
+  "parent_id":"12"
+},
+{
+  "id":"370",
+  "name":"Ahanta West",
+  "parent_id":"13"
+}
+,
+{
+  "id":"371",
+  "name":"Anhwiaso",
+  "parent_id":"13"
+},
+{
+  "id":"372",
+  "name":"Aowin",
+  "parent_id":"13"
+},
+{
+  "id":"373",
+  "name":"Suaman",
+  "parent_id":"13"
+},
+{
+  "id":"374",
+  "name":"Bia",
+  "parent_id":"13"
+},
+{
+  "id":"375",
+  "name":"Bibiani",
+  "parent_id":"13"
+},
+{
+  "id":"376",
+  "name":"Bekwai",
+  "parent_id":"13"
+},
+{
+  "id":"377",
+  "name":"Ellembele",
+  "parent_id":"13"
+},
+{
+  "id":"378",
+  "name":"Jomoro",
+  "parent_id":"13"
+},
+{
+  "id":"379",
+  "name":"Juaboso",
+  "parent_id":"13"
+},
+{
+  "id":"380",
+  "name":"Mpohor",
+  "parent_id":"13"
+}
+,
+{
+  "id":"381",
+  "name":"Wassa East",
+  "parent_id":"13"
+},
+{
+  "id":"382",
+  "name":"Nzema East Municipal",
+  "parent_id":"13"
+},
+{
+  "id":"383",
+  "name":"Prestea-Huni Valley",
+  "parent_id":"13"
+},
+{
+  "id":"384",
+  "name":"Shama",
+  "parent_id":"13"
+}
+,
+{
+  "id":"385",
+  "name":"Suaman",
+  "parent_id":"13"
+},
+{
+  "id":"386",
+  "name":"Sekondi Takoradi Metro.",
+  "parent_id":"13"
+},
+{
+  "id":"387",
+  "name":"Sefwi-Wiawso",
+  "parent_id":"13"
+}
+,
+{
+  "id":"388",
+  "name":"Tarkwa Nsuaem Municipal",
+  "parent_id":"13"
+},
+{
+  "id":"389",
+  "name":"Wasa Amenfi East",
+  "parent_id":"13"
+},
+{
+  "id":"390",
+  "name":"Wasa Amenfi West",
+  "parent_id":"13"
+}
+
+]
