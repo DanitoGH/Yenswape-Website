@@ -4,11 +4,12 @@
  header('Access-Control-Allow-Methods: POST, GET, OPTIONS');
  ini_set('memory_limit','512M'); //Increasing Mysql memory size to handle more data and to avoid future errors
 
- class UsersController
-  {
+ class UsersController{
  //PC Load latest ads on index page load
  public function Latestlistings(){
+
    $limit = (deviceDetector() == "Computer") ? 20 : 13;
+   
    if($latest_ads = App::get('database')->latestadsInfo($limit)){
        $adInfo = array();
        $adImges = array();

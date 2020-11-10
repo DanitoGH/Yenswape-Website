@@ -36,7 +36,6 @@ $new_seven_bit_msg = $new_seven_bit_msg;
 
 $seven_bit_msg = $new_seven_bit_msg;
 
-
 $transient_errors = array(
 40 => 1 # Temporarily unavailable
 );
