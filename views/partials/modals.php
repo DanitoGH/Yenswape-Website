@@ -1,101 +1,99 @@
-  <div id="login_mod" class="modal login_modal">
+<div id="login_mod" class="modal login_modal">
   <div class="modal-content">
-  <h5>Log in</h5>
-  <div class="row">
-  <div class="input-field">
-      <input id="mobile" name="mobile" type="text" autocomplete="off" class="validate">
-      <label for="mobile">Mobile</label>
+    <h5>Log in</h5>
+    <div class="row">
+    <div class="input-field">
+        <input id="mobile" name="mobile" type="text" autocomplete="off" class="validate">
+        <label for="mobile">Mobile</label>
+    </div>
+    <label class="errors" id="mobile_error"></label>
+    </div>
+    <div class="row">
+    <div class="input-field">
+        <input id="pin" name="pin" type="password" autocomplete="off" class="validate">
+        <label for="pin">Pin</label>
+    </div>
+    <label id="pin_error" class="errors"></label>
+    </div>
+    <div class="input-field"> <span> 
+        <input type="checkbox" id="remember_me" checked="checked"/>
+        <label for="remember_me">Stay signed in</label> </span> 
+    </div>
+    <div class="login_div"> <a id="login" class="btn blue">
+        <i id="login_spinner" class="fa" aria-hidden="true">
+        </i>Log in</a> 
+    </div>
+    <section class="login_bottom">
+    <p>
+        <a href="#" id="recover_acc" class="recover_account">Forgot your Pin?</a>
+    </p>
+    <p>Don't have an account? <a href="#" id="register">Register now</a></p>
+    </section>
   </div>
-  <label class="errors" id="mobile_error"></label>
-  </div>
-  <div class="row">
-  <div class="input-field">
-      <input id="pin" name="pin" type="password" autocomplete="off" class="validate">
-      <label for="pin">Pin</label>
-  </div>
-  <label id="pin_error" class="errors"></label>
-  </div>
-  <div class="input-field"> <span> <input type="checkbox" id="remember_me" checked="checked"/> <label for="remember_me">Stay signed in</label> </span> </div>
-  <div class="login_div"> <a id="login" class="btn blue"><i id="login_spinner" class="fa" aria-hidden="true"></i>Log in</a> </div>
-  <div class="or_label">
-  <label> -- OR -- </label>
-  </div>
-  <div class="facebook">
-  <a class="btn blue facebook_login"></a>
-  </div>
-  <section class="login_bottom">
-  <p><a href="#" id="recover_acc" class="recover_account"> Forgot your Pin?</a></p>
-  <p>Don't have an account? <a href="#" id="register">Register now</a></p>
-  </section>
-  </div>
-  </div>
-  <div id="register_mod" class="modal login_modal register_user">
-  <div class="modal-content" style="padding-top:5px;">
+</div>
+
+<div id="register_mod" class="modal login_modal register_user">
+ <div class="modal-content" style="padding-top:5px;">
   <div class="col s12 m12">
-  <h6 class="right-align"><span class="close_account_model"><i class="fa fa-times" aria-hidden="true"></i></span></h6></div>
-  <h5 class="left-align">Register</h5>
-  <div><span id="pin-sent" style="color:#7cb342;"></span></div>
-  <section class="pin_sender animated">
-  <div class="row">
-      <div class="input-field">
-          <input id="mob_register" type="text" autocomplete="off" class="validate">
-          <label for="mob_register">Mobile number</label>
-      </div>
-      <label id="pin_sender-error" class="errors"></label>
-  </div>
-  <div class="send_pin"> <a style="text-transform:none;" class="btn blue send-pinbtn"><i id="spinner" class="fa" aria-hidden="true"></i>Send my pin</a> </div>
-  </section>
-  <section class="register animated">
-  <div class="row">
-      <div class="input-field">
-          <input id="first_name" type="text" autocomplete="off" class="validate">
-          <label for="first_name">Firstname *</label>
-      </div>
-      <label id="fname-error" class="errors"></label>
-  </div>
-  <div class="row">
-      <div class="input-field">
-          <input id="last_name" type="text" autocomplete="off" class="validate">
-          <label for="last_name">Lastname *</label>
-      </div>
-      <label id="lname-error" class="errors"></label>
-  </div>
-  <div class="row">
-      <div class="input-field">
-          <input id="reg_mobile" type="text" autocomplete="off" class="validate">
-          <label for="reg_mobile">Mobile number</label>
-      </div>
-      <label id="remob-error" class="errors"></label>
-  </div>
-  <div class="row">
-      <div class="input-field">
-          <input id="reg_pin" type="password" autocomplete="off" class="validate">
-          <label for="reg_pin">Pin</label>
-      </div>
-      <label id="repin-error" class="errors"></label>
-  </div>
-  <div class="input-field">
-      <p>Didn't get your Pin? <a id="resend" href="#">resend</a></p>
-  </div>
-  <div class="login_div">
-      <a class="btn blue register-btn"> <i id="register-spinner" class="fa" aria-hidden="true"></i>Register</a>
-  </div>
-  </section>
-  <div class="or_label">
-  <label> -- OR -- </label>
-  </div>
-  <div class="facebook">
-  <a class="btn blue"> </a>
-  </div>
-  <section class="register_bottom">
-  <p>Already have an account ?<a href="#" id="rec_login"> Login</a></p>
-  </section>
-  <section class="register_agreement">
-  <p>Creating an account means you've agreed to all Yenswape's <a href="/user-agreement">Terms of Use</a> and <a href="/user-privacy">Privacy Policy</a></p>
-  </section>
-  </div>
-  </div>
-  <div id="recover_mod" class="modal login_modal">
+   <h6 class="right-align"><span class="close_account_model"><i class="fa fa-times" aria-hidden="true"></i></span></h6></div>
+   <h5 class="left-align">Register</h5>
+   <div><span id="pin-sent" style="color:#7cb342;"></span></div>
+    <section class="pin_sender animated">
+    <div class="row">
+     <div class="input-field">
+       <input id="mob_register" type="text" autocomplete="off" class="validate">
+        <label for="mob_register">Mobile number</label>
+     </div>
+     <label id="pin_sender-error" class="errors"></label>
+    </div>
+    <div class="send_pin"> <a style="text-transform:none;" class="btn blue send-pinbtn"><i id="spinner" class="fa" aria-hidden="true"></i>Send my pin</a> </div>
+    </section>
+    <section class="register animated">
+    <div class="row">
+        <div class="input-field">
+            <input id="first_name" type="text" autocomplete="off" class="validate">
+            <label for="first_name">Firstname *</label>
+        </div>
+        <label id="fname-error" class="errors"></label>
+    </div>
+    <div class="row">
+        <div class="input-field">
+            <input id="last_name" type="text" autocomplete="off" class="validate">
+            <label for="last_name">Lastname *</label>
+        </div>
+        <label id="lname-error" class="errors"></label>
+    </div>
+    <div class="row">
+        <div class="input-field">
+            <input id="reg_mobile" type="text" autocomplete="off" class="validate">
+            <label for="reg_mobile">Mobile number</label>
+        </div>
+        <label id="remob-error" class="errors"></label>
+    </div>
+    <div class="row">
+        <div class="input-field">
+            <input id="reg_pin" type="password" autocomplete="off" class="validate">
+            <label for="reg_pin">Pin</label>
+        </div>
+        <label id="repin-error" class="errors"></label>
+    </div>
+    <div class="input-field">
+        <p>Didn't get your Pin? <a id="resend" href="#">resend</a></p>
+    </div>
+    <div class="login_div">
+        <a class="btn blue register-btn"> <i id="register-spinner" class="fa" aria-hidden="true"></i>Register</a>
+    </div>
+    </section>
+    <section class="register_bottom">
+        <p>Already have an account ?<a href="#" id="rec_login"> Login</a></p>
+    </section>
+    <section class="register_agreement">
+        <p>Creating an account means you've agreed to all Yenswape's <a href="/user-agreement">Terms of Use</a> and <a href="/user-privacy">Privacy Policy</a></p>
+    </section>
+    </div>
+ </div>
+
+ <div id="recover_mod" class="modal login_modal">
   <div class="modal-content">
   <h5>Recover your Pin</h5>
   <div class="row">
@@ -107,7 +105,8 @@
   </div>
   <div class="send_pin"> <a class="btn blue recover-btn"><i id="pin-rec_spinner" class="fa" aria-hidden="true"></i>Send my pin</a> </div>
   </div>
-  </div>
+ </div>
+
   <div id="mob-filter_mod" class="modal login_modal mobile_filter">
   <div class="modal-content">
   <h5>Filters</h5>
@@ -124,13 +123,14 @@
   </form>
   </div>
   </div>
+
   <div id="report_ad" class="modal report_modal">
   <div class="modal-content" style="padding-top:5px !important;">
   <div class="col s12 m12">
   <h6 class="right-align"><span class="exit_report"><i class="fa fa-times" aria-hidden="true"></i></span></h6></div>
   <div class="col l12 xl12 s12 m12">
   <div class="row">
-      <label class "message_labels">Select reason:</label>
+      <label class="message_labels">Select reason:</label>
       <div class="row">
           <div class="input-field">
               <select id="report_reason" class="browser-default">
@@ -159,6 +159,7 @@
   </div>
   </div>
   </div>
+
   <?php // Filters configurations@$item=htmlspecialchars(trim($_GET['item']));@$location=htmlspecialchars(trim($_GET['location']));$get_uri=(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));$url_parts=explode('/',$get_uri);$category=$url_parts[1];@$subcategory=$url_parts[2];?>
   <div id="filter_mod" class="modal results_modal">
   <div class="modal-content" style="padding-top:5px !important;">
@@ -209,6 +210,7 @@
   </div>
   </div>
   </div>
+
   <div id="form-2" class="modal upload_form">
   <div class="modal-content" style="padding-top:5px !important;">
   <div class="col s12 m12">
@@ -493,7 +495,7 @@
           <label id="wislist" class="errors-4"></label>
       </div>
       <div class="row item_conditon_div_wrapper">
-          <label style="margin-left:12px; !important; font-size:14px;">Item Condition*</label>
+          <label style="margin-left:12px !important; font-size:14px;">Item Condition*</label>
           <div class="input-field col l12 s12 m12">
               <select id="item-condition" class="browser-default">
                   <option disabled selected>select</option>
@@ -545,7 +547,6 @@
   </section>
 
   <!-- Post update modal section blocks -->
-
   <section id="cars-section" class="update-vehicle-cars animated">
       <div>
           <h6>Vehicles <i class="fa fa-long-arrow-right" aria-hidden="true"></i> cars</h6></div>
@@ -556,7 +557,7 @@
           </select>
       </div>
       <input type="hidden" name="make" id="hidd_make_update" />
-      <input type="hidden" name "new_make" id="hidd_make" value="<?php echo @$ad_datail->make;?>" />
+      <input type="hidden" name="new_make" id="hidd_make" value="<?php echo @$ad_datail->make;?>" />
       <div class="row">
           <label id="up_model_error" class="model_label">Model*</label>
           <select name="model" class="browser-default" id="model_update">
@@ -837,7 +838,7 @@
           <label id="up_wislist" class="errors-4"></label>
       </div>
       <div class="row">
-          <label style="margin-left:12px; !important; font-size:14px;">Item Condition*</label>
+          <label style="margin-left:12px !important; font-size:14px;">Item Condition*</label>
           <div class="input-field col l12 s12 m12">
               <select id="up_item-condition" class="browser-default">
                   <option value="<?php echo @$ad_datail->item_condit;?>" selected>
@@ -889,9 +890,12 @@
   </section>
   </div>
   </div>
+  
   <div id="contact_info" class="modal call_modal login_modal">
   <div class="modal-content">
-  <div class="right-align"><span class="copy-number" style="color:#fff; float:left; cursor:pointer;">Copy to clipboard</span><span style="color:#fff;" class="exit_ownerbumber"><i class="fa fa-times" aria-hidden="true"></i></span></div>
+  <div class="right-align">
+      <span class="copy-number" style="color:#fff; float:left; cursor:pointer;">Copy to clipboard</span><span style="color:#fff;" class="exit_ownerbumber"><i class="fa fa-times" aria-hidden="true"></i></span>
+  </div>
   <div class="center-align">
       <input style="color:dimgray; font-size:15px;" type="text" id="contact-owner" /> </div>
   </div>

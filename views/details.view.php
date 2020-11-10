@@ -12,7 +12,7 @@
  <!-- Counting and getting visitors info -->
  <?php countVisitors();?>
  <div style="margin-left:50px" class="col l12 x112 details-breadcrumb-div-wrapper">
-  <a href="/">Home</a> <i class="fa fa-angle-right"></i><a href="/<?php echo $item->main_cat; ?>"><?php echo $item->main_cat; ?></a><i class="fa fa-angle-right"></i><a href="/<?php echo $item->main_cat."/".$item->subcategory; ?>"> <?php echo $item->subcategory; ?></a>
+  <a href="https://www.yenswape.com">Home</a> <i class="fa fa-angle-right"></i><a href="/<?php echo $item->main_cat; ?>"><?php echo $item->main_cat; ?></a><i class="fa fa-angle-right"></i><a href="/<?php echo $item->main_cat."/".$item->subcategory; ?>"> <?php echo $item->subcategory; ?></a>
   <i class="fa fa-angle-right"></i><a class="black-text  active-category"> <?php echo $item->title; ?> </a>
  </div>
  <!-- PC side-menu ends here -->
@@ -43,17 +43,18 @@
    echo"
    <div class='details-item-specs  z-depth-1'>
    <div class='col l6 xl6'>
-      <div class=''><span class=''>Make:</span> $item->make</div>
-      <div class=''><span class=''>Type of car:</span> $item->car_type</div>
-      <div class=''><span class=''>Mileage:</span>$item->miles km</div>
-      <div class=''><span class=''>Condition:</span> $item->item_condit</div>
+   <div class=''><span class=''>Make:</span> $item->make</div>
+   <div class=''><span class=''>Type of car:</span> $item->car_type</div>
+   <div class=''><span class=''>Mileage:</span>$item->miles km</div>
+   <div class=''><span class=''>Condition:</span> $item->item_condit</div>
    </div>
    <div class='col l6 xl6'>
-      <div class=''><span class=''>Model:</span> $item->model</div>
-      <div class=''><span class=''>Transm:</span> $item->transmission</div>
-      <div class=''><span class=''>Year:</span> $item->year</div>
+   <div class=''><span class=''>Model:</span> $item->model</div>
+   <div class=''><span class=''>Transm:</span> $item->transmission</div>
+   <div class=''><span class=''>Year:</span> $item->year</div>
    </div>
-  </div>";
+  </div>
+   ";
  }elseif($item->main_cat =='vehicles' && $item->subcategory =='motorcycles'){
    echo
    "<div class='details-item-specs  z-depth-1'>
@@ -67,8 +68,8 @@
     echo"
    <div class='details-item-specs  z-depth-1'>
      <div class='col l12 x12'>
-        <div class=''><span class=''>Company:</span> $item->company_employer</div>
-        <div class=''><span class=''>Min. qualification:</span> $item->min_qualific</div>
+     <div class=''><span class=''>Company:</span> $item->company_employer</div>
+     <div class=''><span class=''>Min. qualification:</span> $item->min_qualific</div>
     </div>
    <div class='col l6 xl6'>
       <div class=''><span class=''>Min. experience:</span> $item->min_exp yrs</div>
@@ -153,7 +154,7 @@
 <?php foreach($userInfo as $user_info):?>
  <div class="col l6  xl6">
  <div class="details-item-poster z-depth-1">
- <div style="white-space:nowrap; overflow:hidden; text-overflow:ellipsis;" class="col l6"><span  style='color:#828485;'>Ad posted by: </span> <span  style='color:#828485; font-weight:bold;'>HouseParty</span></div>
+ <div style="white-space:nowrap; overflow:hidden; text-overflow:ellipsis;" class="col l6"><span  style='color:#828485;'>Ad posted by: </span> <span  style='color:#828485; font-weight:bold;'><?php echo $user_info->fname;?> </span></div>
  <div class="col l6"><span  style='color:#828485;'><a class="mob-results_title" href="/shop-id/<?php echo $user_info->user_ref;?>">View all ads from user</a></span></div>
  </div>
  </div>
@@ -164,9 +165,9 @@
  <div class="col l3"><span  style='color:#828485; font-weight:bold;'>Likes</span></div>
  <div class="col l6"><span  style='color:#828485; font-weight:bold;'>Share this ad</span></div>
 
- <div class="col l3 values " style="padding-top:5px;"><span style='color:#828485;'><i class="fa fa-eye" aria-hidden="true"></i>   <?php echo @$views_update;?></span></div>
- <div class="col l3 values" style="padding-top:5px;"><span style='color:#828485;'><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> <span id="likes_count"><?php echo count($ad_likes);?></span></span></div>
- <div class="col l6 values" id="shares"></div>
+ <div class="col l3 values " style="padding-top:5px;"><span  style='color:#828485;'><i class="fa fa-eye" aria-hidden="true"></i>   <?php echo @$views_update;?></span></div>
+ <div class="col l3 values" style="padding-top:5px;"><span  style='color:#828485;'><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> <span id="likes_count"><?php echo count($ad_likes);?></span></span></div>
+ <div class="col l6 values" style="" id="shares"></div>
   <!-- Google adsense div wrapper -->
  <div style="height:auto"  class="hide-on-med-and-down">
    <!-- Google adsense Code goes here -->
@@ -175,18 +176,10 @@
  </div>
 </div>
 
-<!-- Side div content -->
-<div class="col l3 xl3">
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <ins class="adsbygoogle"
-       style="display:block"
-       data-ad-format="fluid"
-       data-ad-layout-key="-6s+ed+2g-1n-4q"
-       data-ad-client="ca-pub-8233825381055176"
-       data-ad-slot="5176059195"></ins>
-  <script>
-       (adsbygoogle = window.adsbygoogle || []).push({});
-  </script>
+ <!-- Side div content -->
+<div class="col l3 xl3  hide-on-med-and-down">
+   <img  src='../images/side_ad.jpg'  class='responsive-img' alt='$item->title'/>
+</div>
 </div>
 
 <input type="hidden" id="user_id"  value="<?php echo $user = isLoggedIn();?>" />
@@ -197,8 +190,7 @@
 <?php endforeach; ?>
 
 <!-- Modals goes here -->
- <!-- <?php require ('partials/modals.php'); ?> -->
-
+<?php require ('partials/modals.php'); ?>
 <!-- PC footer goes HERE -->
 <?php require ('partials/footer.php'); ?>
 <!--==================================================================

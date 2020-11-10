@@ -560,10 +560,9 @@ if(!strlen($message) < 5){
  }
 
 
-
  public function pinSender()
    {
-   $mobile =  htmlspecialchars(trim($_POST['mobile']));
+     $mobile =  htmlspecialchars(trim($_POST['mobile']));
     if(!App::get('database')->query('SELECT * FROM users WHERE  mobile=:mobile', array(':mobile'=>$mobile))){
        if(App::get('database')->query('SELECT * FROM codes WHERE mobile=:mobile', array(':mobile'=>$mobile))){
          App::get('database')->query('DELETE FROM codes WHERE mobile=:mobile LIMIT 1', array(':mobile'=>$mobile));
@@ -584,8 +583,8 @@ if(!strlen($message) < 5){
                      echo "\\";
                      echo "Your pin has been sent to".' '.$mobile.'.';
                      }else {
-                     echo 'Error occured, please try again.';
-                  }
+                       echo 'Error occured, please try again.';
+                     }
                 }else {
                   echo 'Invalid mobile number!';
                 }

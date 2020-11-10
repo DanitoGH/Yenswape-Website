@@ -24,7 +24,7 @@
      <div class="slider">
        <ul class="slides">
         <li>
-          <img id="banner_img" class="blur" src="images/_Front-banner.png"  alt="" style="height:275px; width:100%;">
+          <img id="banner_img" class="blur" src="https://yenswape.s3.eu-west-2.amazonaws.com/static_images/_Front-banner_.png"  alt="" style="height:275px; width:100%;">
         </li>
       </ul>
     </div>

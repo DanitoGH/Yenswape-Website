@@ -34,7 +34,7 @@ $seven_bit_msg = '';
 
 $new_seven_bit_msg = $new_seven_bit_msg;
 
-echo $seven_bit_msg = $new_seven_bit_msg;
+$seven_bit_msg = $new_seven_bit_msg;
 
 
 $transient_errors = array(
