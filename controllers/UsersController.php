@@ -571,23 +571,20 @@ if(!strlen($message) < 5){
          if(!empty($mobile)){
               if (preg_match('/[0-9_]+/', $mobile)){
                 if(strlen($mobile) == 10) {
+                  
                   $code = sms_code();
                   $msg_body = 'Your account pin code is,'.' '.$code;  //Sms body
                   $msg_reciever = $mobile; //SMS sender number
                   include_once 'Messages.php';
 
-                  // echo "success";
-                  //  if (!empty($code && $mobile)){
-                  //    App::get('database')->insert('codes',[
-                  //     'code' =>password_hash($code, PASSWORD_BCRYPT),
-                  //     'mobile' =>$mobile
-                  //    ]);
-                  //    echo "success";
-                  //    echo "\\";
-                  //    echo "Your pin has been sent to".' '.$mobile.'.';
-                  //    }else {
-                  //      echo 'Error occured, please try again.';
-                  //    }
+                   if (!empty($code && $mobile)){
+                     App::get('database')->insert('codes',[
+                      'code' =>password_hash($code, PASSWORD_BCRYPT),
+                      'mobile' =>$mobile
+                     ]);
+                     }else {
+                       echo 'Error occured, please try again.';
+                     }
                 }else {
                   echo 'Invalid mobile number!';
                 }
