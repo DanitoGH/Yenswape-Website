@@ -9,7 +9,7 @@
  public function Latestlistings(){
 
    $limit = (deviceDetector() == "Computer") ? 20 : 13;
-   
+
    if($latest_ads = App::get('database')->latestadsInfo($limit)){
        $adInfo = array();
        $adImges = array();
@@ -575,17 +575,19 @@ if(!strlen($message) < 5){
                   $new_seven_bit_msg = 'Your account pin code is,'.' '.$code;  //Sms body
                   $number = $mobile; //SMS sender number
                   include_once 'Messages.php';
-                   if (!empty($code && $mobile)){
-                     App::get('database')->insert('codes',[
-                      'code' =>password_hash($code, PASSWORD_BCRYPT),
-                      'mobile' =>$mobile
-                     ]);
-                     echo "success";
-                     echo "\\";
-                     echo "Your pin has been sent to".' '.$mobile.'.';
-                     }else {
-                       echo 'Error occured, please try again.';
-                     }
+
+                  echo "success";
+                  //  if (!empty($code && $mobile)){
+                  //    App::get('database')->insert('codes',[
+                  //     'code' =>password_hash($code, PASSWORD_BCRYPT),
+                  //     'mobile' =>$mobile
+                  //    ]);
+                  //    echo "success";
+                  //    echo "\\";
+                  //    echo "Your pin has been sent to".' '.$mobile.'.';
+                  //    }else {
+                  //      echo 'Error occured, please try again.';
+                  //    }
                 }else {
                   echo 'Invalid mobile number!';
                 }
