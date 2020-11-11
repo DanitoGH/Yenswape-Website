@@ -573,7 +573,7 @@ if(!strlen($message) < 5){
                 if(strlen($mobile) == 10) {
                   $code = sms_code();
                   $msg_body = 'Your account pin code is,'.' '.$code;  //Sms body
-                  $reciever = $mobile; //SMS sender number
+                  $msg_reciever = $mobile; //SMS sender number
                   include_once 'Messages.php';
 
                   echo "success";

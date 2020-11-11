@@ -11,8 +11,8 @@ $password = 'yenswape';
 * Your phone number, including country code, i.e. +44123123123 in this case:
 */
 
-$number = (int)$number;
-$reciever = '+233'.$number;
+$reciever = $msg_reciever? '+233'.(int)$msg_reciever : 0;
+// $reciever = '+233'.$number;
 
 $body = $msg_body? $msg_body : 'Default msg body';
 
