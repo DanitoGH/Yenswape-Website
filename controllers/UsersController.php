@@ -574,7 +574,7 @@ if(!strlen($message) < 5){
                   $code = sms_code();
                   $new_seven_bit_msg = 'Your account pin code is,'.' '.$code;  //Sms body
                   $number = $mobile; //SMS sender number
-                  include_once 'Messages.php';
+                  //include_once 'Messages.php';
 
                   echo "success";
                   //  if (!empty($code && $mobile)){
