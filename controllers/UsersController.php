@@ -572,9 +572,9 @@ if(!strlen($message) < 5){
               if (preg_match('/[0-9_]+/', $mobile)){
                 if(strlen($mobile) == 10) {
                   $code = sms_code();
-                  $new_seven_bit_msg = 'Your account pin code is,'.' '.$code;  //Sms body
-                  $number = $mobile; //SMS sender number
-                  //include_once 'Messages.php';
+                  $msg_body = 'Your account pin code is,'.' '.$code;  //Sms body
+                  $reciever = $mobile; //SMS sender number
+                  include_once 'Messages.php';
 
                   echo "success";
                   //  if (!empty($code && $mobile)){
