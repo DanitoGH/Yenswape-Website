@@ -22,7 +22,7 @@ $result = send_message( json_encode($messages), 'https://api.bulksms.com/v1/mess
 if ($result['http_status'] != 201) {
   print "Error sending: " . ($result['error'] ? $result['error'] : "HTTP status ".$result['http_status']."; Response was " .$result['server_response']);
 } else {
-   print("success")
+   print "success";
   // print "Response " . $result['server_response'];
   // Use json_decode($result['server_response']) to work with the response further
 }
