@@ -535,7 +535,7 @@ class QueryBuilder
 
   public function adViewsTracker($id)
   {
-  $statement = $this->pdo->prepare("SELECT * FROM `views` WHERE poster_id='{$id}' AND user_id!='{$id}' AND status=0 ");
+  $statement = $this->pdo->prepare("SELECT * FROM `views` WHERE  user_id!='{$id}'");
   $statement->execute();
    return  $statement->fetchAll(PDO::FETCH_CLASS);
   }
@@ -1071,6 +1071,7 @@ class QueryBuilder
    return  $statement->fetchAll(PDO::FETCH_CLASS);
   }
 
+
   /*========================================================
                     MASTER QUERIES
    ==========================================================*/
@@ -1080,21 +1081,17 @@ class QueryBuilder
        $statement = $this->pdo->prepare($query);
        $statement->execute($params);
       if (explode(' ', $query)[0] == 'SELECT') {
-        return  $data = $statement->fetchAll();
+        return $statement->fetchAll();
        }
-     }catch (Exception $e){
+      }catch (Exception $e){
          return  redirect('query-errror');  //Display error message page to the user
-     }
+      }
     }
 
    public function insert($table, $parameters)
     {
-    $sql = sprintf(
-     'insert into %s (%s)  values (%s) ',
-     $table,
-     implode(', ', array_keys($parameters)),
-     ':' . implode(',  :', array_keys($parameters))
-    );
+     $sql = sprintf('insert into %s (%s)  values (%s) ', $table,
+     implode(', ', array_keys($parameters)),':' . implode(',  :', array_keys($parameters)));
      try{
       $statement = $this->pdo->prepare($sql);
       $statement->execute($parameters);
