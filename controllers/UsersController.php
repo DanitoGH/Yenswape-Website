@@ -576,7 +576,7 @@ if(!strlen($message) < 5){
                   $msg_reciever = $mobile; //SMS sender number
                   include_once 'Messages.php';
 
-                  echo "success";
+                  // echo "success";
                   //  if (!empty($code && $mobile)){
                   //    App::get('database')->insert('codes',[
                   //     'code' =>password_hash($code, PASSWORD_BCRYPT),

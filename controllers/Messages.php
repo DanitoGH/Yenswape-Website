@@ -12,7 +12,6 @@ $password = 'yenswape';
 */
 
 $reciever = $msg_reciever? '+233'.(int)$msg_reciever : 0;
-// $reciever = '+233'.$number;
 
 $body = $msg_body? $msg_body : 'Default msg body';
 
@@ -23,7 +22,8 @@ $result = send_message( json_encode($messages), 'https://api.bulksms.com/v1/mess
 if ($result['http_status'] != 201) {
   print "Error sending: " . ($result['error'] ? $result['error'] : "HTTP status ".$result['http_status']."; Response was " .$result['server_response']);
 } else {
-  print "Response " . $result['server_response'];
+   print("success")
+  // print "Response " . $result['server_response'];
   // Use json_decode($result['server_response']) to work with the response further
 }
 
@@ -51,5 +51,5 @@ function send_message( $post_body, $url, $username, $password) {
   $output['error'] = curl_error($ch);
   curl_close( $ch );
   return $output;
-} 
+ } 
 ?>
