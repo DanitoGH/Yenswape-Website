@@ -490,17 +490,15 @@ function isLoggedIn()
         array(':device'=>$device,':brand'=>$brand,':OS'=>$os,':browser'=>$browser,':ip'=>ip2long($ip),':user_ref'=>isLoggedIn(),':datetime'=>date('Y-m-d H:i:s')));
       }
      }else{
-      
       /*  Uncomment this block of code only on live server   */
-
-      //  $visitor_results = App::get('database')->query('SELECT `user_count` FROM `visitors` WHERE ip=:user_ip', array(':user_ip'=>ip2long($ip)))[0]['user_count'];
-      //  $visitor_id = App::get('database')->query('SELECT `id` FROM `visitors` WHERE ip=:user_ip', array(':user_ip'=>ip2long($ip)))[0]['id'];
-      //  if(count($visitor_results) > 0){
-      //   App::get('database')->query('UPDATE `visitors` SET user_count=:count,ip=:new_ip,datetime=:new_datetime WHERE id=:visitor', array(':count'=>$visitor_results + 1,':new_ip'=>ip2long($ip),':new_datetime'=>date('Y-m-d H:i:s'),'visitor'=>$visitor_id));
-      //  }else{
-      //   App::get('database')->query('INSERT INTO  `visitors`  VALUES (id,:device,:brand,:OS,:browser,:ip,user_ref,user_count,:datetime)',
-      //   array(':device'=>$device,':brand'=>$brand,':OS'=>$os,':browser'=>$browser,':ip'=>ip2long($ip),':datetime'=>date('Y-m-d H:i:s')));
-      // }
+       $visitor_results = App::get('database')->query('SELECT `user_count` FROM `visitors` WHERE ip=:user_ip', array(':user_ip'=>ip2long($ip)))[0]['user_count'];
+       $visitor_id = App::get('database')->query('SELECT `id` FROM `visitors` WHERE ip=:user_ip', array(':user_ip'=>ip2long($ip)))[0]['id'];
+       if(count($visitor_results) > 0){
+        App::get('database')->query('UPDATE `visitors` SET user_count=:count,ip=:new_ip,datetime=:new_datetime WHERE id=:visitor', array(':count'=>$visitor_results + 1,':new_ip'=>ip2long($ip),':new_datetime'=>date('Y-m-d H:i:s'),'visitor'=>$visitor_id));
+       }else{
+        App::get('database')->query('INSERT INTO  `visitors`  VALUES (id,:device,:brand,:OS,:browser,:ip,user_ref,user_count,:datetime)',
+        array(':device'=>$device,':brand'=>$brand,':OS'=>$os,':browser'=>$browser,':ip'=>ip2long($ip),':datetime'=>date('Y-m-d H:i:s')));
+      }
      }
    }
  }
