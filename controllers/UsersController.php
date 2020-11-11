@@ -526,8 +526,9 @@ if(!strlen($message) < 5){
                            if(App::get('database')->query('SELECT * FROM login_security WHERE user_ref=:user_ref', array(':user_ref'=>$user_id))){
                              if(!App::get('database')->query('SELECT * FROM login_security WHERE user_ref=:user_ref  AND ip=:ip', array(':user_ref'=>$user_id,':ip'=>$ip))){
                                if(App::get('database')->query('SELECT * FROM notifications WHERE user_ref=:user_ref AND unknown_device_logins=:unknown_device_logins', array(':user_ref'=>$user_id,':unknown_device_logins'=>1))){
-                                 $new_seven_bit_msg = 'Your Yenswape Account was just signed in to from a new'." $os ".' device with '." $browser ".'browser. You\'re getting this SMS to make sure it was you.';  //Sms body
-                                 $number = $mobile; //SMS sender number
+                                 $msg_body = 'Your Yenswape Account was just signed in to from a new'." $os ".' device with '." $browser ".'browser. You\'re getting this SMS to make sure it was you.';  //Sms body
+                                 $msg_reciever = $mobile; //SMS sender number
+                                 
                                  include_once 'Messages.php';
                                  App::get('database')->query('INSERT INTO login_security VALUES (id, :ip, :device, :brand, :browser, :OS, :user_ref)', array(':ip'=>$ip,':device'=>$device,':brand'=>$brand,':browser'=>$browser,':OS'=>$os, ':user_ref'=>$user_id));
                                }
@@ -560,7 +561,6 @@ if(!strlen($message) < 5){
   }
  }
 
-
  public function pinSender()
    {
      $mobile =  htmlspecialchars(trim($_POST['mobile']));
@@ -571,17 +571,18 @@ if(!strlen($message) < 5){
          if(!empty($mobile)){
               if (preg_match('/[0-9_]+/', $mobile)){
                 if(strlen($mobile) == 10) {
-                  
+
                   $code = sms_code();
                   $msg_body = 'Your account pin code is,'.' '.$code;  //Sms body
                   $msg_reciever = $mobile; //SMS sender number
                   include_once 'Messages.php';
 
                    if (!empty($code && $mobile)){
-                     App::get('database')->insert('codes',[
-                      'code' =>password_hash($code, PASSWORD_BCRYPT),
-                      'mobile' =>$mobile
-                     ]);
+                      App::get('database')->insert('codes',[
+                        'code' =>password_hash($code, PASSWORD_BCRYPT),
+                        'mobile' =>$mobile
+                      ]);
+                      echo 'success';
                      }else {
                        echo 'Error occured, please try again.';
                      }
@@ -716,8 +717,8 @@ if(!strlen($message) < 5){
     if(is_numeric($reset_number)){
       if(App::get('database')->query('SELECT mobile FROM users WHERE mobile=:mobile', array(':mobile'=>$reset_number))) {
         App::get('database')->query('UPDATE users SET pin=:pin WHERE mobile=:mobile', array(':mobile'=>$reset_number,':pin'=>password_hash($code, PASSWORD_BCRYPT)));
-        $new_seven_bit_msg = 'This is your new PIN to your account  ;' .$code. ' thanks.';  //Sms body
-        $number = $reset_number; //SMS sender number
+        $msg_body = 'This is your new PIN to your account  ;' .$code. ' thanks.';  //Sms body
+        $msg_reciever = $reset_number; //SMS sender number
         include_once 'Messages.php';
         echo 'New pin has been sent to your phone.';
        }else {
@@ -958,9 +959,12 @@ public function Adimages(){
   App::get('database')->query('DELETE FROM `ads` WHERE user_id=:user_id AND custom_id=:custom_id', array(':user_id'=> isLoggedIn(),':custom_id'=>$_SESSION['ad_id']));
   App::get('database')->query('DELETE FROM `images` WHERE user_id=:user_id AND ad_id=:ad_id', array(':user_id'=> isLoggedIn(),':ad_id'=>$_SESSION['ad_id']));
   //Unsetting all sessions on upload fail
-  if(isset($_SESSION["img_errors"])){ unset($_SESSION["img_errors"]); }
-   }
-  }}else { $img_errors = 'Please select at least 1 photo for your ad'; }
+  if(isset($_SESSION["img_errors"])){ 
+      unset($_SESSION["img_errors"]);
+    }
+  }
+  }
+   }else { $img_errors = 'Please select at least 1 photo for your ad'; }
  }
 
 
@@ -994,15 +998,15 @@ public function Live_ad_sms(){
     if(App::get('database')->query('SELECT * FROM notifications WHERE user_ref=:user_ref  AND approved_ads=:approved_ads', array(':user_ref'=>$user,':approved_ads'=>1))){
       $url = $title.' '.$unique;
       $url = seoUrl($url);
-      $new_seven_bit_msg = 'Congratulations, your ad is now online, you can share it with freinds or customers,'.'  '.'http://www.yenswape.com/item/'.$url;  //Sms body
-      $number = $mobile; //SMS sender number
+      $msg_body = 'Congratulations, your ad is now online, you can share it with freinds or customers,'.'  '.'http://www.yenswape.com/item/'.$url;  //Sms body
+      $msg_reciever = $mobile; //SMS sender number
       include_once 'Messages.php';
     }
   }else{
     $url = $title.' '.$unique;
     $url = seoUrl($url);
-    $new_seven_bit_msg = 'Congratulations, your ad is now online, you can share it with freinds or  ,'.'  '.'http://www.yenswape.com/item'.$url;  //Sms body
-    $number = $mobile; //SMS sender number
+    $msg_body = 'Congratulations, your ad is now online, you can share it with freinds or  ,'.'  '.'http://www.yenswape.com/item'.$url;  //Sms body
+    $msg_reciever = $mobile; //SMS sender number
     include_once 'Messages.php';
  }
 }
@@ -1050,15 +1054,15 @@ public function unreadChats(){
            $ownerdate = date("Y-m-d", $datefortmated);
           if($dateNow != $ownerdate){
               $message = "Hi ".$fname .','.' you have received one new chat message regarding your ad '." $ad_title ".' '.', plz login to your account to reply :)'.',  https://www.yenswape.com';
-              $new_seven_bit_msg = $message;
-              $number = $mobile; //SMS sender number
+              $msg_body = $message;
+              $msg_reciever = $mobile; //SMS sender number
               include_once 'Messages.php';
               App::get('database')->query('UPDATE sent_notifications SET datetime=:datetime WHERE session_id=:session_id  AND  receiver=:receiver', array(':receiver'=>$ownerid,':session_id'=>$session,':datetime'=>date('Y-m-d H:i:s')));
             }
         }else {
           $message = "Hi ".$fname .','.' you have received one new chat message regarding your ad '." $ad_title ".' '.', plz login to your account to reply :)'.',  https://www.yenswape.com';
-          $new_seven_bit_msg = $message;
-          $number = $mobile; //SMS sender number
+          $msg_body = $message;
+          $msg_reciever = $mobile; //SMS sender number
           include_once 'Messages.php';
           App::get('database')->query('INSERT INTO sent_notifications VALUES (id,:unread_chats,:general_notif,:receiver,:session_id,:datetime)', array(':unread_chats'=>1,':general_notif'=>0,':receiver'=>$ownerid,':session_id'=>$session,':datetime'=>date('Y-m-d H:i:s')));
         }
@@ -1083,15 +1087,15 @@ public function unreadChats(){
              $buyerdate = date("Y-m-d", $datefortmated);
             if($dateNow != $buyerdate){
               $message = "Hi ".$fname .','.' you have received one new chat message reply from '." $owner_name ".'  regarding the ad '." $ad_title ".' '.', plz login to your account to read :)'.',  https://www.yenswape.com';
-              $new_seven_bit_msg = $message;
-              $number = $mobile; //SMS sender number
+              $msg_body = $message;
+              $msg_reciever = $mobile; //SMS sender number
               include_once 'Messages.php';
               App::get('database')->query('UPDATE sent_notifications SET datetime=:datetime WHERE session_id=:session_id  AND  receiver=:receiver', array(':receiver'=>$buyer,':session_id'=>$session,':datetime'=>date('Y-m-d H:i:s')));
               }
           }else {
             $message = "Hi ".$fname .','.' you have received one new chat message reply from '." $owner_name ".'  regarding the ad '." $ad_title ".' '.', plz login to your account to read :)'.',  https://www.yenswape.com';
-            $new_seven_bit_msg = $message;
-            $number = $mobile; //SMS sender number
+            $msg_body = $message;
+            $msg_reciever = $mobile; //SMS sender number
             include_once 'Messages.php';
             App::get('database')->query('INSERT INTO sent_notifications VALUES (id,:unread_chats,:general_notif,:receiver,:session_id,:datetime)', array(':unread_chats'=>1,':general_notif'=>0,':receiver'=>$buyer,':session_id'=>$session,':datetime'=>date('Y-m-d H:i:s')));
           }
@@ -1819,8 +1823,8 @@ public function appUniversallinkShop(){
              if (preg_match('/[0-9_]+/', $mobile)){
                if(strlen($mobile) == 10) {
                  $code = sms_code();
-                 $new_seven_bit_msg = 'Your account pin code is'.' '.$code;  //Sms body
-                 $number = $mobile; //SMS sender number
+                 $msg_body = 'Your account pin code is'.' '.$code;  //Sms body
+                 $msg_reciever = $mobile; //SMS sender number
                  include_once 'Messages.php';
                   if (!empty($code && $mobile)){
                     App::get('database')->insert('codes',[
@@ -2018,8 +2022,8 @@ public function appUniversallinkShop(){
                           if(App::get('database')->query('SELECT * FROM login_security WHERE user_ref=:user_ref', array(':user_ref'=>$user_id))){
                             if(!App::get('database')->query('SELECT * FROM login_security WHERE user_ref=:user_ref  AND ip=:ip', array(':user_ref'=>$user_id,':ip'=>$ip))){
                               if(App::get('database')->query('SELECT * FROM notifications WHERE user_ref=:user_ref AND unknown_device_logins=:unknown_device_logins', array(':user_ref'=>$user_id,':unknown_device_logins'=>1))){
-                                $new_seven_bit_msg = 'Your Yenswape Account was just signed in to from a new'." $os ".' device with '." $browser ".'browser. You\'re getting this SMS to make sure it was you.';  //Sms body
-                                $number = $mobile; //SMS sender number
+                                $msg_body = 'Your Yenswape Account was just signed in to from a new'." $os ".' device with '." $browser ".'browser. You\'re getting this SMS to make sure it was you.';  //Sms body
+                                $msg_reciever = $mobile; //SMS sender number
                                 include_once 'Messages.php';
                                 App::get('database')->query('INSERT INTO login_security VALUES (id, :ip, :device, :brand, :browser, :OS, :user_ref)', array(':ip'=>$ip,':device'=>$device,':brand'=>$brand,':browser'=>$browser,':OS'=>$os, ':user_ref'=>$user_id));
                               }
@@ -2065,8 +2069,8 @@ public function appRecoverPin()
   if(is_numeric($reset_number)){
     if(App::get('database')->query('SELECT mobile FROM users WHERE mobile=:mobile', array(':mobile'=>$reset_number))) {
       App::get('database')->query('UPDATE users SET pin=:pin WHERE mobile=:mobile', array(':mobile'=>$reset_number,':pin'=>password_hash($code, PASSWORD_BCRYPT)));
-      $new_seven_bit_msg = 'Your new pin code is, '.$code.'.';  //Sms body
-      $number = $reset_number; //SMS sender number
+      $msg_body = 'Your new pin code is, '.$code.'.';  //Sms body
+      $msg_reciever = $reset_number; //SMS sender number
       include_once 'Messages.php';
       echo 'Success';
      }else {
@@ -3040,10 +3044,9 @@ public function appSendchat(){
  public function sendSMS(){
     $mobile =  htmlspecialchars(trim($_POST['mobile']));
     $message =  htmlspecialchars(trim($_POST['message']));
-    $new_seven_bit_msg = $message;  //Sms body
-    $number = $mobile; //SMS sender number
+    $msg_body = $message;  //Sms body
+    $msg_reciever = $mobile; //SMS sender number
     include_once 'Messages.php';
-    echo "success";
   }
 
   public function countTraffic(){
