@@ -4,10 +4,13 @@
  header('Access-Control-Allow-Methods: POST, GET, OPTIONS');
  ini_set('memory_limit','512M'); //Increasing Mysql memory size to handle more data and to avoid future errors
 
+ require 'vendor/autoload.php';
+	
  class UsersController{
+
  //PC Load latest ads on index page load
  public function Latestlistings(){
-
+   
    $limit = (deviceDetector() == "Computer") ? 20 : 13;
 
    if($latest_ads = App::get('database')->latestadsInfo($limit)){
@@ -813,11 +816,13 @@ public function Business_info(){
      }
    }}
 
-  public function postAd()
-  {
+  public function postAd(){
+
   if(isset($_POST['negotiable'])){
    $negotiable = ucfirst(trim(htmlspecialchars($_POST['negotiable'])));
-  }else { $negotiable = ""; }
+  }else {
+   $negotiable = ""; 
+  }
 
   $title = ucfirst(strtolower(trim(htmlspecialchars($_POST['title']))));
   $main_cat = strtolower(trim(htmlspecialchars($_POST['main_cat'])));
@@ -926,43 +931,103 @@ public function Business_info(){
    echo $errors;
  }
 }
+
 //End of info insert
 
 public function Adimages(){
+
  if(isset($_POST['unique'])){
    $Unique_id =  htmlspecialchars(trim($_POST['unique']));
    $_SESSION['ad_id'] = $Unique_id;
   }
+
+  // AWS Info
+  $bucketName = 'yenswape';
+  $IAM_KEY = 'AKIAVX5U2BG4LQKENW6E';
+  $IAM_SECRET = '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';
+
   $count = 0;
  if(isset($_FILES['files']['tmp_name']) && !empty($_FILES['files']['tmp_name'])){
   foreach($_FILES['files']['name'] as $i => $name){
+
    $file_name = $_FILES['files']['name'][$i];
    $file_type = $_FILES['files']['type'][$i];
    $file_size = $_FILES['files']['size'][$i];
    $file_tmp  = $_FILES['files']['tmp_name'][$i];
+
    //Uploading smaller image
-  imageUploader1($file_name,$file_tmp,$file_size,100,"images/user-submitted/thumb/xs/");
-  $img_errors = @$_SESSION['img_errors'];
- if(!isset($img_errors)){
+  // imageUploader1($file_name,$file_tmp,$file_size,100,"images/user-submitted/thumb/xs/");
+  // $img_errors = @$_SESSION['img_errors'];
+
+  	// Connect to AWS
+	try {
+		// You may need to change the region. It will say in the URL when the bucket is open
+        // and on creation.
+      // Instantiate an Amazon S3 client.
+      $s3 = new Aws\S3\S3Client([
+          'version' => 'latest',
+          'region'  => 'us-west-2',
+          'credentials' => array(
+              'key' => $IAM_KEY,
+              'secret' => $IAM_SECRET
+          )
+      ]);
+	} catch (Exception $e) {
+		// We use a die, so if this fails. It stops here. Typically this is a REST call so this would
+		// return a json object.
+		die("Error: " . $e->getMessage());
+	}
+
+	// For this, I would generate a unqiue random string for the key name. But you can do whatever.
+	$keyName = 'test_example/' . basename($_FILES["files"]['tmp_name']);
+	$pathInS3 = 'https://s3.us-east-2.amazonaws.com/' . $bucketName . '/' . $keyName;
+
+	// Add it to S3
+	try {
+
+		// Uploaded:
+		$s3->putObject(
+			array(
+            'Bucket' => $bucketName,
+            'Key'    => $keyName,
+            'Body'   => $file_name,
+            'ACL'    => 'public-read',
+			)
+		);
+
+	} catch (Aws\S3\Exception\S3Exception $e) {
+		die('Error:' . $e->getMessage());
+	} catch (Exception $e) {
+		die('Error:' . $e->getMessage());
+	}
+
+	// echo 'Done';
+
+  $img_errors = "";
+ if(!$img_errors){
   App::get('database')->query('INSERT INTO images VALUES (id,:user_id,:ad_id,:images
     )', array('user_id' => isLoggedIn(),':ad_id' => $_SESSION['ad_id'],
     ':images'=> $_SESSION['image_new_name']));
     $uploaded = 'true';
+
   //Uploading large image image
-  if($uploaded == 'true'){
-     imageUploader2($file_name,$file_tmp,$file_size,450,"images/user-submitted/thumb/");
-   }
+  // if($uploaded == 'true'){
+  //    imageUploader2($file_name,$file_tmp,$file_size,450,"images/user-submitted/thumb/");
+  //  }
+  
    //Unsetting all sessions after upload
-  if(isset($_SESSION["img_errors"])){ unset($_SESSION["img_errors"]); }
+  // if(isset($_SESSION["img_errors"])){ 
+  //   unset($_SESSION["img_errors"]); 
+  //  }
   }else{
-  echo $img_errors;
-  App::get('database')->query('DELETE FROM `ads` WHERE user_id=:user_id AND custom_id=:custom_id', array(':user_id'=> isLoggedIn(),':custom_id'=>$_SESSION['ad_id']));
-  App::get('database')->query('DELETE FROM `images` WHERE user_id=:user_id AND ad_id=:ad_id', array(':user_id'=> isLoggedIn(),':ad_id'=>$_SESSION['ad_id']));
+    echo $img_errors;
+    App::get('database')->query('DELETE FROM `ads` WHERE user_id=:user_id AND custom_id=:custom_id', array(':user_id'=> isLoggedIn(),':custom_id'=>$_SESSION['ad_id']));
+    App::get('database')->query('DELETE FROM `images` WHERE user_id=:user_id AND ad_id=:ad_id', array(':user_id'=> isLoggedIn(),':ad_id'=>$_SESSION['ad_id']));
   //Unsetting all sessions on upload fail
   if(isset($_SESSION["img_errors"])){ 
       unset($_SESSION["img_errors"]);
     }
-  }
+   }
   }
    }else { $img_errors = 'Please select at least 1 photo for your ad'; }
  }
@@ -2231,7 +2296,7 @@ if(!isset($errors)){
 
    ':user_id' => $user_id,':custom_id'=>$unique_id,':uri'=>$url,':poster_name' => $posterName,':poster_mobile' => $posterMobile));
   echo "Success";
- }else{
+ } else {
    $delete_img = App::get('database')->query('SELECT * FROM images WHERE user_id=:userid  AND ad_id=:adid', array(':userid'=>$user_id,':adid'=>$unique_id));
    $img_count = 0;
  foreach($delete_img as $delete){
@@ -2241,7 +2306,7 @@ if(!isset($errors)){
     if(unlink($path_small)){
      if(unlink($path_big)){/*echo "Deleted"; */}else { /*echo "fail"; */ }
     }else{   /*echo "fail"; */ }
-   }
+  }
   if($img_count == sizeof($delete_img)){
       App::get('database')->removeAds2('images',$unique_id);
    }
@@ -2252,7 +2317,7 @@ if(!isset($errors)){
 }}
 
 
-public function validateUpload(){
+public function validateUpload($message){
 if($message == "Success"){
 if(App::get('database')->query('SELECT id FROM ads WHERE user_id=:userid  AND custom_id=:custom_id',array(':userid'=>$user_id,':custom_id'=>$unique_id))){
   echo  "Success";
@@ -2268,11 +2333,15 @@ public function appAdimages(){
   if(isset($_FILES['file']['tmp_name'])  && !empty($_FILES['file']['tmp_name'])){
      $file_name = $_FILES['file']['name'];
      $file_photo_tmp = $_FILES['file']['tmp_name'];
+     $image_size = $_FILES['file']['size'];
+
      $path = "images/user-submitted/thumb/";
      $store_thumb = "images/user-submitted/thumb/xs/";
+
      //Processing thumb images
      $width = 80;
      $height = 100;
+
     //Get new dimensions
      list($width_orig, $height_orig) = getimagesize($file_photo_tmp);
      $ratio_orig = $width_orig/$height_orig;
@@ -2281,6 +2350,7 @@ public function appAdimages(){
      } else {
       $height = $width/$ratio_orig;
      }
+
      // Resample $path
      $image_p = imagecreatetruecolor($width, $height);
      $image = imagecreatefromjpeg($file_photo_tmp);
@@ -2291,20 +2361,20 @@ public function appAdimages(){
     $img_rename =  time().'_'.rand(1000,9999).'.'.$imgExt;
 
     if(in_array($imgExt, $valid_formats)){
-    if($Image_size < 5000000){
+    if($image_size < 5000000){
     if(move_uploaded_file($file_photo_tmp, $path.$img_rename)){
       // Output
       imagejpeg($image_p, $store_thumb.$img_rename, 100);
-    }
-    else{
-     $img_errors = 'Error! Please try again.3';
+    }else{
+      $img_errors = 'Error! Please try again.3';
     }
     }else {
      $img_errors = 'Sorry your selected image is too large,please resize it and try again.';
     }
-    }else {
+   }else {
      $img_errors = 'Sorry your selected image is not allowed';
-    }
+   }
+
  // Checking to see if ad image has been uploaded already, if it exits then we will remove it and re upload it to avoid conflict
  if(!App::get('database')->query('SELECT id FROM images WHERE user_id=:userid AND ad_id=:ad_id',array(':userid'=>$user_id,':ad_id'=>$ad_id))){
   if(!isset($img_errors)){
