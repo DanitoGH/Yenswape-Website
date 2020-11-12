@@ -953,7 +953,7 @@ public function Adimages(){
    $file_name = $_FILES['files']['name'][$i];
    $file_type = $_FILES['files']['type'][$i];
    $file_size = $_FILES['files']['size'][$i];
-   $file_tmp  = $_FILES['files']['tmp_name'][$i];
+   $file_tmp_name  = $_FILES['files']['tmp_name'][$i];
 
    //Uploading smaller image
   // imageUploader1($file_name,$file_tmp,$file_size,100,"images/user-submitted/thumb/xs/");
@@ -979,7 +979,7 @@ public function Adimages(){
 	}
 
 	// For this, I would generate a unqiue random string for the key name. But you can do whatever.
-	$keyName = 'test_example/' . basename($_FILES["files"]['tmp_name']);
+	$keyName =  $file_tmp_name;
 	$pathInS3 = 'https://s3.eu-west-2.amazonaws.com/' . $bucketName . '/' . $keyName;
 
 	// Add it to S3
