@@ -966,7 +966,7 @@ public function Adimages(){
       // Instantiate an Amazon S3 client.
       $s3 = new Aws\S3\S3Client([
           'version' => 'latest',
-          'region'  => 'us-west-2',
+          'region'  => 'eu-west-2',
           'credentials' => array(
               'key' => $IAM_KEY,
               'secret' => $IAM_SECRET
@@ -980,11 +980,10 @@ public function Adimages(){
 
 	// For this, I would generate a unqiue random string for the key name. But you can do whatever.
 	$keyName = 'test_example/' . basename($_FILES["files"]['tmp_name']);
-	$pathInS3 = 'https://s3.us-east-2.amazonaws.com/' . $bucketName . '/' . $keyName;
+	$pathInS3 = 'https://s3.eu-west-2.amazonaws.com/' . $bucketName . '/' . $keyName;
 
 	// Add it to S3
 	try {
-
 		// Uploaded:
 		$s3->putObject(
 			array(
