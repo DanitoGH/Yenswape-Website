@@ -989,7 +989,7 @@ public function Adimages(){
 			array(
             'Bucket' => $bucketName,
             'Key'    => $file_name,
-            'Body'   => fopen($file_tmp_name, 'r'),
+            'Body'   => fopen('ads_images/'.$file_tmp_name, 'r'),
             'ACL'    => 'public-read',
 			)
 		);
