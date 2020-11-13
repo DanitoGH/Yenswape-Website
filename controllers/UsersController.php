@@ -979,7 +979,7 @@ public function Adimages(){
 	}
 
 	// For this, I would generate a unqiue random string for the key name. But you can do whatever.
-	$keyName =  $file_tmp_name;
+  $keyName = 'ads_images/'.basename($_FILES["fileToUpload"]['tmp_name']);
 	$pathInS3 = 'https://s3.eu-west-2.amazonaws.com/'.$bucketName.'/'.$keyName;
 
 	// Add it to S3
@@ -988,15 +988,13 @@ public function Adimages(){
 		$s3->putObject(
 			array(
             'Bucket' => $bucketName,
-            'Key'    => $keyName,
-            'Body'   => $file_tmp_name,
+            'Key'    => $file_name,
+            'Body'   => fopen($file_tmp_name, 'r'),
             'ACL'    => 'public-read',
 			)
 		);
 
 	} catch (Aws\S3\Exception\S3Exception $e) {
-		die('Error:' . $e->getMessage());
-	} catch (Exception $e) {
 		die('Error:' . $e->getMessage());
 	}
 
