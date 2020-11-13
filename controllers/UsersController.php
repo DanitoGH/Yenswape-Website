@@ -987,7 +987,7 @@ public function Adimages(){
   $keyName = 'ads_images/'.basename($file_name);
   $pathInS3 = 'https://yenswape.s3.eu-west-2.amazonaws.com/'.$keyName;
 
-  $resized_image = Image::make($file_tmp_name)->resize(330,240);
+  $resized_image = Image::make($keyName)->resize(330,240);
   // $semi_high = Image::make($file)->resize(534,462)->encode($file_type);
 
 	// Add it to S3
