@@ -5,6 +5,9 @@
  ini_set('memory_limit','512M'); //Increasing Mysql memory size to handle more data and to avoid future errors
 
  require 'vendor/autoload.php';
+
+ // import the Intervention Image Manager Class
+use Intervention\Image\ImageManagerStatic as Image;
 	
  class UsersController{
 
@@ -945,6 +948,7 @@ public function Adimages(){
   $bucketName = 'yenswape';
   $IAM_KEY = 'AKIAVX5U2BG4LQKENW6E';
   $IAM_SECRET = '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';
+  
 
   $count = 0;
  if(isset($_FILES['files']['tmp_name']) && !empty($_FILES['files']['tmp_name'])){
@@ -954,6 +958,7 @@ public function Adimages(){
    $file_type = $_FILES['files']['type'][$i];
    $file_size = $_FILES['files']['size'][$i];
    $file_tmp_name  = $_FILES['files']['tmp_name'][$i];
+   $extension = pathinfo($_FILES['files']['name'][$i], PATHINFO_EXTENSION);
 
    //Uploading smaller image
   // imageUploader1($file_name,$file_tmp,$file_size,100,"images/user-submitted/thumb/xs/");
@@ -980,7 +985,10 @@ public function Adimages(){
 
 	// For this, I would generate a unqiue random string for the key name. But you can do whatever.
   $keyName = 'ads_images/'.basename($file_name);
-	$pathInS3 = 'https://s3.eu-west-2.amazonaws.com/'.$bucketName.'/'.$keyName;
+  $pathInS3 = 'https://yenswape.s3.eu-west-2.amazonaws.com/'.$keyName;
+
+  $resized_image = Image::make($file_tmp_name)->resize(330,240)->encode($extension);
+  // $semi_high = Image::make($file)->resize(534,462)->encode($file_type);
 
 	// Add it to S3
 	try {
@@ -989,7 +997,7 @@ public function Adimages(){
 			array(
             'Bucket' => $bucketName,
             'Key'    => $keyName,
-            'Body'   => fopen($file_tmp_name, 'r+'),
+            'Body'   => fopen($resized_image, 'r+'),
             'ACL'    => 'public-read',
 			)
 		);
@@ -1020,8 +1028,9 @@ public function Adimages(){
     echo $img_errors;
     App::get('database')->query('DELETE FROM `ads` WHERE user_id=:user_id AND custom_id=:custom_id', array(':user_id'=> isLoggedIn(),':custom_id'=>$_SESSION['ad_id']));
     App::get('database')->query('DELETE FROM `images` WHERE user_id=:user_id AND ad_id=:ad_id', array(':user_id'=> isLoggedIn(),':ad_id'=>$_SESSION['ad_id']));
-  //Unsetting all sessions on upload fail
-  if(isset($_SESSION["img_errors"])){ 
+  
+    //Unsetting all sessions on upload fail
+   if(isset($_SESSION["img_errors"])){ 
       unset($_SESSION["img_errors"]);
     }
    }
