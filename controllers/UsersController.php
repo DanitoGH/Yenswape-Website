@@ -390,6 +390,7 @@ public function chatPhoto(){
   $session = htmlspecialchars(trim($_POST['session']));
   $buyer = htmlspecialchars(trim($_POST['buyer_id']));
   $time = htmlspecialchars(trim($_POST['time']));
+
   //Image upload function 1 (source at boostrap file 'core/boostrap')
   imageUploader1($_FILES['file']['name'],$_FILES['file']['tmp_name'],$_FILES['file']['size'],169,"images/user-submitted/thumb/xs/");
 
@@ -403,7 +404,7 @@ public function chatPhoto(){
         // echo "error";
        }
      }else {
-       echo $img_errors;
+      //  echo $img_errors;
    }
 }
 
@@ -905,7 +906,7 @@ public function Business_info(){
 
   :surface_size,:bedrooms,:bathrooms,:broker_fee,:make,:model,:year,:transmission,:car_type,:miles,:moto_make,:city_town,:region,:listing_type,:wishlist,:item_condit,
 
-  :description,:value,:negotiable, :datetime, :user_id,:custom_id,:uri,status,:poster_name,:poster_mobile)',
+  :description,:value,:negotiable, :datetime, :user_id,:custom_id,:uri,:status,:poster_name,:poster_mobile)',
 
   array(':title'=>$title,':main_cat'=>$main_cat,':subcategory'=>$subcategory,
 
@@ -927,7 +928,7 @@ public function Business_info(){
 
   ':description' => $description, ':value'=> $value,':negotiable'=>$negotiable,':datetime'=>date('Y-m-d H:i:s'),
 
-  ':user_id'=>isLoggedIn(),':custom_id'=>$unique_id,':uri'=>$url,':poster_name' => $posterName,':poster_mobile' => $posterMobile));
+  ':user_id'=>isLoggedIn(),':custom_id'=>$unique_id,':uri'=>$url,':status' => 1,':poster_name' => $posterName,':poster_mobile' => $posterMobile));
   echo $unique_id;
   }else {
    App::get('database')->query('DELETE FROM `images` WHERE user_id=:user_id AND ad_id=:ad_id', array(':user_id'=> isLoggedIn(),':ad_id'=>$unique_id));
@@ -983,8 +984,8 @@ public function Adimages(){
      }
   
    // unqiue random string for the key name.
-   $thumb_keyName = 'ads_images/thumbs/'.basename($file_name);
-   $large_keyName = 'ads_images/'.basename($file_name);
+   $thumb_keyName = 'ads_images/thumbs/'.basename($file_name).'_'.time().'.'.$extension;
+   $large_keyName = 'ads_images/'.basename($file_name).'_'.time().'.'.$extension;
    
    $thumbPathInS3 = 'https://yenswape.s3.eu-west-2.amazonaws.com/'.$thumb_keyName ;
    $largePathInS3 = 'https://yenswape.s3.eu-west-2.amazonaws.com/'.$large_keyName;
@@ -1002,9 +1003,6 @@ public function Adimages(){
    $img_large->resize(534, null, function ($constraint) {
      $constraint->aspectRatio();
    })->encode($extension);
-  
-   //  $resized_image->save($filepath);
-   // $semi_high = Image::make($file)->resize(534,462)->encode($file_type);
   
      // Add it to S3
   
@@ -1816,7 +1814,7 @@ public function itemCatandSub(){
      $priceFormat = array();
    foreach ($Cat_Sub_ads as $Cat_Sub_ad){
        $custom_id = $Cat_Sub_ad->custom_id;
-       $adInfo[] = $item_category;
+       $adInfo[] = $Cat_Sub_ad;
        $postDate[] = formatTimeAgo($Cat_Sub_ad->datetime);
        $priceFormat[] = number_format_drop_zero_decimals($Cat_Sub_ad->value, 2);
        $imgs = App::get('database')->App_latest_ads_imgs($custom_id);
@@ -2332,14 +2330,14 @@ if(!isset($errors)){
 }}
 
 
-public function validateUpload($message){
-if($message == "Success"){
-if(App::get('database')->query('SELECT id FROM ads WHERE user_id=:userid  AND custom_id=:custom_id',array(':userid'=>$user_id,':custom_id'=>$unique_id))){
-  echo  "Success";
- }else {
-  echo "Error";
- }}
-}
+// public function validateUpload($message){
+// if($message == "Success"){
+// if(App::get('database')->query('SELECT id FROM ads WHERE user_id=:userid  AND custom_id=:custom_id',array(':userid'=>$user_id,':custom_id'=>$unique_id))){
+//   echo  "Success";
+//  }else {
+//   echo "Error";
+//  }}
+// }
 
 public function appAdimages(){
   $ad_id =  htmlspecialchars(trim($_POST['ad_id']));

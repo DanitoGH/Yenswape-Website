@@ -172,7 +172,7 @@
 
  <div class="col l3 values " style="padding-top:5px;"><span  style='color:#828485;'><i class="fa fa-eye" aria-hidden="true"></i>   <?php echo @$views_update;?></span></div>
  <div class="col l3 values" style="padding-top:5px;"><span  style='color:#828485;'><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> <span id="likes_count"><?php echo count($ad_likes);?></span></span></div>
- <div class="col l6 values" style="" id="shares"></div>
+ <div class="col l6 values" id="shares"></div>
   <!-- Google adsense div wrapper -->
  <div style="height:auto"  class="hide-on-med-and-down">
    <!-- Google adsense Code goes here -->
@@ -215,7 +215,7 @@ setTimeout(function(){
 //Js socials sharing plugin for facebook
 var ad_title = $("#ad_title").val();
  $("#shares").jsSocials({
-   url: "https://www.yenswape.com<?php echo $get_uri;?>",
+   url: "https://yenswape.herokuapp.com<?php echo $get_uri;?>",
    text: ad_title,
    shareIn: "popup",
    showLabel: false,
