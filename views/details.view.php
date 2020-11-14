@@ -29,11 +29,16 @@
   <?php $ad_likes = App::get('database')->query('SELECT * FROM likes WHERE ad_id=:adid ', array(':adid'=>$item->custom_id)); ?>
   <div class='card'>
    <?php foreach($images as $image){
-    echo "<div class='details-card-image'><img  id='det_img'  calss='blur'  src='../images/user-submitted/thumb/xs/$image->images' class='responsive-img' alt='$item->title'></div>";
+    echo "<div class='details-card-image'>
+          <img  id='det_img'  calss='blur'  src='../images/user-submitted/thumb/xs/$image->images' class='responsive-img' alt='$item->title'>
+      </div>";
     }?>
   <div class='card-content'>
    <div class=''>
-     <?php foreach($thumbs as $thumb){ echo" <a href='../images/user-submitted/thumb/$thumb->images' data-lightbox='items' data-title='$item->title'> <img class='item_thumb' src='../images/user-submitted/thumb/xs/$thumb->images' alt='$item->title'  width='50'  height='50'></a>"; }?>
+     <?php foreach($thumbs as $thumb){ 
+       echo" <a href='../images/user-submitted/thumb/$thumb->images' data-lightbox='items' data-title='$item->title'>
+         <img class='item_thumb' src='../images/user-submitted/thumb/xs/$thumb->images' alt='$item->title'  width='50'  height='50'></a>"; 
+      }?>
     </div>
    </div>
   </div>
@@ -42,17 +47,17 @@
    if($item->main_cat =='vehicles' && $item->subcategory =='cars'){
    echo"
    <div class='details-item-specs  z-depth-1'>
-   <div class='col l6 xl6'>
-   <div class=''><span class=''>Make:</span> $item->make</div>
-   <div class=''><span class=''>Type of car:</span> $item->car_type</div>
-   <div class=''><span class=''>Mileage:</span>$item->miles km</div>
-   <div class=''><span class=''>Condition:</span> $item->item_condit</div>
-   </div>
-   <div class='col l6 xl6'>
-   <div class=''><span class=''>Model:</span> $item->model</div>
-   <div class=''><span class=''>Transm:</span> $item->transmission</div>
-   <div class=''><span class=''>Year:</span> $item->year</div>
-   </div>
+    <div class='col l6 xl6'>
+      <div class=''><span class=''>Make:</span> $item->make</div>
+        <div class=''><span class=''>Type of car:</span> $item->car_type</div>
+          <div class=''><span class=''>Mileage:</span>$item->miles km</div>
+          <div class=''><span class=''>Condition:</span> $item->item_condit</div>
+          </div>
+          <div class='col l6 xl6'>
+          <div class=''><span class=''>Model:</span> $item->model</div>
+        <div class=''><span class=''>Transm:</span> $item->transmission</div>
+      <div class=''><span class=''>Year:</span> $item->year</div>
+    </div>
   </div>
    ";
  }elseif($item->main_cat =='vehicles' && $item->subcategory =='motorcycles'){
