@@ -951,7 +951,7 @@ public function Adimages(){
   
   $count = 0;
  if(isset($_FILES['files']['tmp_name']) && !empty($_FILES['files']['tmp_name'])){
-  foreach($_FILES['files'] as $key => $image){
+  foreach($_FILES['files']['tmp_name'] as $key => $image){
 
     $file_name = $_FILES['files']['name'][$key];
     $file_type = $_FILES['files']['type'][$key];
