@@ -205,7 +205,7 @@ demo = {
          })
         },
        error:function(data){
-          alert(data.message)
+        //   alert(data.message)
        }
      })
     }
