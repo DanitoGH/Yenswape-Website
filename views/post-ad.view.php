@@ -386,25 +386,25 @@
 $(document).ready(function(){
   function Congratulations_alert(){
   swal({
-  title:"Congratulations",
-  text:"Your ad has been submitted successfully, you will be notified via SMS when it goes live.",
-  type:"success",
-  showCancelButton: true,
-  confirmButtonColor:"#DD6B55",
-  confirmButtonText:"Post new ad",
-  cancelButtonText:"No",
-  closeOnConfirm: true,
-  closeOnCancel: true
-  },
+      title:"Congratulations",
+      text:"Your ad has been submitted successfully, you will be notified via SMS when it goes live.",
+      type:"success",
+      showCancelButton: true,
+      confirmButtonColor:"#DD6B55",
+      confirmButtonText:"Post new ad",
+      cancelButtonText:"No",
+      closeOnConfirm: true,
+      closeOnCancel: true
+   },
   function(isConfirm){
-  if (isConfirm) {
-    location.reload();
-    return true;
-  } else {
-    window.location.href='/user-account';
-    return true;
-  }
-});
+    if (isConfirm) {
+      location.reload();
+      return true;
+    } else {
+      window.location.href='/user-account';
+      return true;
+    }
+  });
 }
 
 // Modal initialization
@@ -413,12 +413,10 @@ $('.login_modal,.report_modal,.mobile_filter,.results_modal').modal({
     opacity:.7 // Opacity of modal background
  });
 
-
  $('.register_user,.maincat_model,.category_submodal,.upload_form').modal({
      dismissible:false, // Modal can be dismissed by clicking outside of the modal
      opacity:.7 // Opacity of modal background
  });
-
 
  Materialize.updateTextFields();
  $(".button-collapse").sideNav();
@@ -450,7 +448,8 @@ $('.login_modal,.report_modal,.mobile_filter,.results_modal').modal({
      if(localStorage.callback === ""){
        Congratulations_alert(); // alert user when upload is complete
      }else{
-      swal("Post Ad Error","Unknwon error has occured, please try again!","error");
+      swal("Post Ad Error",JSON.stringify(e),"error");
+      console.log("Post error: "+json.stringify(e))
      }
    }
  });
