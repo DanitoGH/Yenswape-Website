@@ -449,7 +449,8 @@ $('.login_modal,.report_modal,.mobile_filter,.results_modal').modal({
        Congratulations_alert(); // alert user when upload is complete
      }else{
       swal("Post Ad Error",JSON.stringify(e),"error");
-      console.log("Post error: "+json.stringify(e))
+      console.log("Post error1: "+JSON.stringify(localStorage.callback))
+      console.log("Post error2: "+JSON.stringify(localStorage))
      }
    }
  });
