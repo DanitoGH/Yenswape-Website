@@ -386,25 +386,25 @@
 $(document).ready(function(){
   function Congratulations_alert(){
   swal({
-      title:"Congratulations",
-      text:"Your ad has been submitted successfully, you will be notified via SMS when it goes live.",
-      type:"success",
-      showCancelButton: true,
-      confirmButtonColor:"#DD6B55",
-      confirmButtonText:"Post new ad",
-      cancelButtonText:"No",
-      closeOnConfirm: true,
-      closeOnCancel: true
-   },
+    title:"Congratulations",
+    text:"Your ad has been submitted successfully, you will be notified via SMS when it goes live.",
+    type:"success",
+    showCancelButton: true,
+    confirmButtonColor:"#DD6B55",
+    confirmButtonText:"Post new ad",
+    cancelButtonText:"No",
+    closeOnConfirm: true,
+    closeOnCancel: true
+  },
   function(isConfirm){
-    if (isConfirm) {
-      location.reload();
-      return true;
-    } else {
-      window.location.href='/user-account';
-      return true;
-    }
-  });
+  if (isConfirm) {
+    location.reload();
+    return true;
+  } else {
+    window.location.href='/user-account';
+    return true;
+  }
+});
 }
 
 // Modal initialization
@@ -448,9 +448,7 @@ $('.login_modal,.report_modal,.mobile_filter,.results_modal').modal({
      if(localStorage.callback === ""){
        Congratulations_alert(); // alert user when upload is complete
      }else{
-      swal("Post Ad Error",JSON.stringify(e),"error");
-      console.log("Post error1: "+JSON.stringify(localStorage.callback))
-      console.log("Post error2: "+JSON.stringify(localStorage))
+      swal("Post Ad Error","Unknwon error has occured, please try again!","error");
      }
    }
  });
