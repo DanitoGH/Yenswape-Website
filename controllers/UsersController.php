@@ -949,93 +949,103 @@ public function Adimages(){
   $IAM_KEY = 'AKIAVX5U2BG4LQKENW6E';
   $IAM_SECRET = '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';
   
-
   $count = 0;
  if(isset($_FILES['files']['tmp_name']) && !empty($_FILES['files']['tmp_name'])){
-  foreach($_FILES['files'] as $i => $image){
 
-   $file_name = $_FILES['files']['name'][$i];
-   $file_type = $_FILES['files']['type'][$i];
-   $file_size = $_FILES['files']['size'][$i];
-   $file_tmp_name = $_FILES['files']['tmp_name'][$i];
-   $extension = pathinfo($_FILES['files']['name'][$i], PATHINFO_EXTENSION);
+  foreach($_FILES['files'] as $key => $image){
 
-   //Uploading smaller image
-  // imageUploader1($file_name,$file_tmp,$file_size,100,"images/user-submitted/thumb/xs/");
-  // $img_errors = @$_SESSION['img_errors'];
-
-  	// Connect to AWS
-	try {
-		// You may need to change the region. It will say in the URL when the bucket is open
-        // and on creation.
-      // Instantiate an Amazon S3 client.
-      $s3 = new Aws\S3\S3Client([
-          'version' => 'latest',
-          'region'  => 'eu-west-2',
-          'credentials' => array(
-              'key' => $IAM_KEY,
-              'secret' => $IAM_SECRET
+    $file_name = $_FILES['files']['name'][$key];
+    $file_type = $_FILES['files']['type'][$key];
+    $file_size = $_FILES['files']['size'][$key];
+    $file_tmp_name = $_FILES['files']['tmp_name'][$key];
+    $extension = pathinfo($_FILES['files']['name'][$key], PATHINFO_EXTENSION);
+  
+    //Uploading smaller image
+   // imageUploader1($file_name,$file_tmp,$file_size,100,"images/user-submitted/thumb/xs/");
+   // $keymg_errors = @$_SESSION['img_errors'];
+  
+       // Connect to AWS
+     try {
+         // You may need to change the region. It will say in the URL when the bucket is open
+         // and on creation.
+       // Instantiate an Amazon S3 client.
+       $s3 = new Aws\S3\S3Client([
+           'version' => 'latest',
+           'region'  => 'eu-west-2',
+           'credentials' => array(
+               'key' => $IAM_KEY,
+               'secret' => $IAM_SECRET
+           )
+       ]);
+     } catch (Exception $e) {
+         // We use a die, so if this fails. It stops here. Typically this is a REST call so this would
+         // return a json object.
+         die("Error: " . $e->getMessage());
+     }
+  
+   // unqiue random string for the key name.
+   $thumb_keyName = 'ads_images/thumbs/'.basename($file_name);
+   $large_keyName = 'ads_images/'.basename($file_name);
+   
+   $thumbPathInS3 = 'https://yenswape.s3.eu-west-2.amazonaws.com/'.$thumb_keyName ;
+   $largePathInS3 = 'https://yenswape.s3.eu-west-2.amazonaws.com/'.$large_keyName;
+  
+   //image instance
+   $img_thumb = Image::make($image);
+   $img_large = Image::make($image);
+  
+   // resize the image to a width of 100 and constrain aspect ratio (auto height)
+   $img_thumb->resize(100, null, function ($constraint) {
+     $constraint->aspectRatio();
+   })->encode($extension);
+  
+   // resize the image to a width of 534 and constrain aspect ratio (auto height)
+   $img_large->resize(534, null, function ($constraint) {
+     $constraint->aspectRatio();
+   })->encode($extension);
+  
+   //  $resized_image->save($filepath);
+   // $semi_high = Image::make($file)->resize(534,462)->encode($file_type);
+  
+     // Add it to S3
+  
+     /**Upload image thumbs */
+     try {
+         $s3->putObject(
+             array(
+             'Bucket' => $bucketName,
+             'Key'    => $thumb_keyName,
+             'Body'   => $img_thumb,
+             'ACL'    => 'public-read',
+             )
+         );
+     } catch (Aws\S3\Exception\S3Exception $e) {
+         die('Error:' . $e->getMessage());
+     }
+  
+     /**Upload image large*/
+     try {
+      $s3->putObject(
+          array(
+          'Bucket' => $bucketName,
+          'Key'    => $large_keyName,
+          'Body'   => $img_large,
+          'ACL'    => 'public-read',
           )
-      ]);
-	} catch (Exception $e) {
-		// We use a die, so if this fails. It stops here. Typically this is a REST call so this would
-		// return a json object.
-		die("Error: " . $e->getMessage());
-	}
-
-	// For this, I would generate a unqiue random string for the key name. But you can do whatever.
-  $keyName = 'ads_images/'.basename($file_name);
-  $pathInS3 = 'https://yenswape.s3.eu-west-2.amazonaws.com/'.$keyName;
-
-  $resized_image = Image::make($image)->resize(330,240);
-  // $semi_high = Image::make($file)->resize(534,462)->encode($file_type);
-
-	// Add it to S3
-	try {
-		// Uploaded:
-		$s3->putObject(
-			array(
-            'Bucket' => $bucketName,
-            'Key'    => $keyName,
-            'Body'   => fopen($resized_image, 'r+'),
-            'ACL'    => 'public-read',
-			)
-		);
-
-	} catch (Aws\S3\Exception\S3Exception $e) {
-		die('Error:' . $e->getMessage());
-	}
-
-	// echo 'Done';
+      );
+     } catch (Aws\S3\Exception\S3Exception $e) {
+        die('Error:' . $e->getMessage());
+     }
 
   $img_errors = "";
- if(!$img_errors){
+ if($img_errors != ""){
   App::get('database')->query('INSERT INTO images VALUES (id,:user_id,:ad_id,:images
     )', array('user_id' => isLoggedIn(),':ad_id' => $_SESSION['ad_id'],
-    ':images'=> $_SESSION['image_new_name']));
-    $uploaded = 'true';
-
-  //Uploading large image image
-  // if($uploaded == 'true'){
-  //    imageUploader2($file_name,$file_tmp,$file_size,450,"images/user-submitted/thumb/");
-  //  }
-  
-   //Unsetting all sessions after upload
-  // if(isset($_SESSION["img_errors"])){ 
-  //   unset($_SESSION["img_errors"]); 
-  //  }
-  }else{
-    echo $img_errors;
-    App::get('database')->query('DELETE FROM `ads` WHERE user_id=:user_id AND custom_id=:custom_id', array(':user_id'=> isLoggedIn(),':custom_id'=>$_SESSION['ad_id']));
-    App::get('database')->query('DELETE FROM `images` WHERE user_id=:user_id AND ad_id=:ad_id', array(':user_id'=> isLoggedIn(),':ad_id'=>$_SESSION['ad_id']));
-  
-    //Unsetting all sessions on upload fail
-   if(isset($_SESSION["img_errors"])){ 
-      unset($_SESSION["img_errors"]);
-    }
+    ':images'=> basename($file_name)));
    }
+ }}else {
+     $img_errors = 'Please select at least 1 photo for your ad'; 
   }
-   }else { $img_errors = 'Please select at least 1 photo for your ad'; }
  }
 
 
