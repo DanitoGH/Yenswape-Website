@@ -97,7 +97,6 @@
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-
                               <table class="table">
                                 <thead class=" text-primary">
                                   <th >
@@ -117,7 +116,7 @@
                                 <?php foreach($pending_Ads as $pending_ads):?>
                                   <tr>
                                     <td class="text-left">
-                                      <?php echo $pending_ads->title;?>
+                                      <?php echo $pending_ads->title; ?>
                                     </td>
                                     <td>
                                       <?php
@@ -153,7 +152,7 @@
                                      }
                                     },
                                    error:function(data) {
-                                      alert(data.message)
+                                      // alert(data.message)
                                    }
                                  })
                                 }
@@ -177,7 +176,7 @@
                         <script>
                             document.write(new Date().getFullYear())
                         </script>, Designed and Coded by
-                        <a href="#" target="_blank">Vison 360 IT SOLUTIONS</a>.
+                        <a href="#" target="_blank">Vison 360 IT SOLUTIONS</a>
                     </div>
                 </div>
             </footer>
