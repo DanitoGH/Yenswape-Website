@@ -951,7 +951,6 @@ public function Adimages(){
   
   $count = 0;
  if(isset($_FILES['files']['tmp_name']) && !empty($_FILES['files']['tmp_name'])){
-
   foreach($_FILES['files'] as $key => $image){
 
     $file_name = $_FILES['files']['name'][$key];
@@ -1035,7 +1034,7 @@ public function Adimages(){
       );
      } catch (Aws\S3\Exception\S3Exception $e) {
         die('Error:' . $e->getMessage());
-     }
+    }
 
   $img_errors = "";
  if($img_errors != ""){
