@@ -1,6 +1,9 @@
-{
+{   "name": "yenswape/website",
+    "description": "Yenswape webiste",
     "require": {
-        "aws/aws-sdk-php": "^3.158",
-        "intervention/image": "^2.5"
+        "php": "^7.1.3",
+        "ext-gd": "*",
+        "intervention/image": "^2.5",
+        "aws/aws-sdk-php": "^3.161"
     }
 }
