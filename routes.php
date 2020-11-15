@@ -290,9 +290,9 @@ $router->post("get_user_data",'UsersController@appactiveUsers');
      
 $router->get('yenswape-mini-admin', 'PagesController@yenswapeAdmin');
 
-$router->get('send-sms', 'PagesController@sendSMS');
-
 $router->post("change-upload-state",'UsersController@Approve');
+
+$router->post("delete-ad",'UsersController@deleteAd');
 
 $router->post("send-sms",'UsersController@sendSMS');
 
