@@ -865,6 +865,7 @@ public function Business_info(){
   $posterName = htmlspecialchars(trim($_POST['poster_name']));
   $posterMobile = htmlspecialchars(trim($_POST['poster_mobile']));
   $unique_id = htmlspecialchars(trim($_POST['code']));
+  
   //Change from Trade to Swap and from Job_Offere to Job_Offer
   if($listing_type == "Trade"){
     $listing_type = "Swap";
@@ -907,7 +908,7 @@ public function Business_info(){
 
   :surface_size,:bedrooms,:bathrooms,:broker_fee,:make,:model,:year,:transmission,:car_type,:miles,:moto_make,:city_town,:region,:listing_type,:wishlist,:item_condit,
 
-  :description,:value,:negotiable, :datetime, :user_id,:custom_id,:uri,:status,:poster_name,:poster_mobile)',
+  :description,:value,:negotiable, :datetime, :user_id,:custom_id,:uri,status,:poster_name,:poster_mobile)',
 
   array(':title'=>$title,':main_cat'=>$main_cat,':subcategory'=>$subcategory,
 
@@ -929,7 +930,7 @@ public function Business_info(){
 
   ':description' => $description, ':value'=> $value,':negotiable'=>$negotiable,':datetime'=>date('Y-m-d H:i:s'),
 
-  ':user_id'=>isLoggedIn(),':custom_id'=>$unique_id,':uri'=>$url,':status' => 1,':poster_name' => $posterName,':poster_mobile' => $posterMobile));
+  ':user_id'=>isLoggedIn(),':custom_id'=>$unique_id,':uri'=>$url,':poster_name' => $posterName,':poster_mobile' => $posterMobile));
   echo $unique_id;
   }else {
    App::get('database')->query('DELETE FROM `images` WHERE user_id=:user_id AND ad_id=:ad_id', array(':user_id'=> isLoggedIn(),':ad_id'=>$unique_id));
