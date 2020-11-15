@@ -168,7 +168,6 @@
                                   window.open("https://yenswape.herokuapp.com/item/"+url+"",'_blank');
                               }
 
-
                               function deleteAd(customid){
                                   $.ajax({
                                    url: "../delete-ad",
@@ -176,7 +175,7 @@
                                    data:{custom_id:customid},
                                    success:function(data){
                                     if(data == "success"){
-                                       alert("Ad has been approved!");
+                                       alert("Ad has been DELETED!");
                                         location.reload();
                                      }else {
                                        alert(data)
