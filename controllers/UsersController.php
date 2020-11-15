@@ -915,7 +915,12 @@ public function Business_info(){
     ':moto_make' =>$motomake, ':city_town' => $city_town,':region'=>$region,':listing_type'=>$listing_type,':wishlist' =>$wishes,':item_condit'=>$condition,
     ':description' => $description, ':value'=> $value,':negotiable'=>$negotiable,':datetime'=>date('Y-m-d H:i:s'),
     ':user_id'=>isLoggedIn(),':custom_id'=>$unique_id,':uri'=>$url,':status' => '1',':poster_name' => $posterName,':poster_mobile' => $posterMobile));
-     echo $unique_id;
+     
+  
+    $get = App::get('database')->query('SELECT * FROM `ads` WHERE custom_id=:custom_id', array(':custom_id'=>$unique_id));
+    echo $get;
+    echo $unique_id;
+    
   }
 }
 
