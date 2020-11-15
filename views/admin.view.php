@@ -111,6 +111,9 @@
                                   <th>
                                     <strong>Approve</strong>
                                   </th>
+                                  <th>
+                                    <strong>Delete</strong>
+                                  </th>
                                 </thead>
                                 <tbody>
                                 <?php foreach($pending_Ads as $pending_ads):?>
@@ -135,9 +138,13 @@
                                     <td>
                                      <button  onclick="Action(<?php echo $pending_ads->custom_id;?>)"  type="button" class="btn bg-primary waves-effect">Approve</button>
                                     </td>
+                                    <td>
+                                     <button  onclick="deleteAd(<?php echo $pending_ads->custom_id;?>)"  type="button" class="btn bg-secondary waves-effect">Delete</button>
+                                    </td>
                                   </tr>
                                 </tbody>
                                 <script>
+
                                function Action(customid){
                                   $.ajax({
                                    url: "../change-upload-state",
@@ -158,11 +165,32 @@
                                 }
 
                               function preview(url){
-                                  window.open("http://www.yenswape.com/item/"+url+"",'_blank');
-                                 }
-                                </script>
-                                <?php endforeach; ?>
-                              </table>
+                                  window.open("https://yenswape.herokuapp.com/item/"+url+"",'_blank');
+                              }
+
+
+                              function deleteAd(customid){
+                                  $.ajax({
+                                   url: "../delete-ad",
+                                   type: "POST",
+                                   data:{custom_id:customid},
+                                   success:function(data){
+                                    if(data == "success"){
+                                       alert("Ad has been approved!");
+                                        location.reload();
+                                     }else {
+                                       alert(data)
+                                     }
+                                    },
+                                   error:function(data) {
+                                      alert(data.message)
+                                   }
+                                 })
+                                }
+
+                              </script>
+                              <?php endforeach; ?>
+                            </table>
                             </div>
                         </div>
                       </div>

@@ -901,7 +901,7 @@ public function Business_info(){
   }else{ $errors = 'Please select a valid item category!'; }
   }else{ $errors = 'Please check your title length!'; }
   }else{ $errors = 'Please your item title is empty!'; }
-  
+
   if(!isset($errors)){
   App::get('database')->query('INSERT INTO `ads` VALUES (id,:title,:main_cat,:subcategory,:company_employer,:appli_deadline,:job_type,:min_qualific,:min_exp,:max_exp,:salary_from,:salary_to,
 
@@ -3114,6 +3114,12 @@ public function appSendchat(){
   public function Approve(){
     $ad_id =  htmlspecialchars(trim($_POST['custom_id']));
     App::get('database')->query('UPDATE ads SET status=:status WHERE custom_id=:ad_id', array(':status'=>1,'ad_id'=>$ad_id));
+    echo "success";
+  }
+
+  public function deleteAd(){
+    $ad_id =  htmlspecialchars(trim($_POST['custom_id']));
+    App::get('database')->query('DELETE FROM `ads` WHERE custom_id=:ad_id LIMIT 1', array(':custom_id'=>$ad_id));
     echo "success";
   }
 
