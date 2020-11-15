@@ -1074,7 +1074,7 @@ class QueryBuilder
 
   public function getNewsads()
   {
-   $statement = $this->pdo->prepare("SELECT * FROM `ads` WHERE status='0' ORDER by datetime desc");
+   $statement = $this->pdo->prepare("SELECT * FROM `ads` ORDER by datetime desc");
    $statement->execute();
    return  $statement->fetchAll(PDO::FETCH_CLASS);
   }
