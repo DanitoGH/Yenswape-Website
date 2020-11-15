@@ -8,9 +8,8 @@
   'connection' => 'mysql:host=bbj31ma8tye2kagi.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
   'options' => [
     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
-  ]
- ]
-  ]; 
+  ]]
+ ]; 
 
  //Localhost
 //  return [

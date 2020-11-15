@@ -823,9 +823,9 @@ public function Business_info(){
   public function postAd(){
 
   if(isset($_POST['negotiable'])){
-   $negotiable = ucfirst(trim(htmlspecialchars($_POST['negotiable'])));
+    $negotiable = ucfirst(trim(htmlspecialchars($_POST['negotiable'])));
   }else {
-   $negotiable = ""; 
+    $negotiable = ""; 
   }
 
   $title = ucfirst(strtolower(trim(htmlspecialchars($_POST['title']))));
@@ -901,6 +901,7 @@ public function Business_info(){
   }else{ $errors = 'Please select a valid item category!'; }
   }else{ $errors = 'Please check your title length!'; }
   }else{ $errors = 'Please your item title is empty!'; }
+  
   if(!isset($errors)){
   App::get('database')->query('INSERT INTO `ads` VALUES (id,:title,:main_cat,:subcategory,:company_employer,:appli_deadline,:job_type,:min_qualific,:min_exp,:max_exp,:salary_from,:salary_to,
 
@@ -960,10 +961,7 @@ public function Adimages(){
     $file_tmp_name = $_FILES['files']['tmp_name'][$key];
     $extension = pathinfo($_FILES['files']['name'][$key], PATHINFO_EXTENSION);
   
-    //Uploading smaller image
-   // imageUploader1($file_name,$file_tmp,$file_size,100,"images/user-submitted/thumb/xs/");
-   // $keymg_errors = @$_SESSION['img_errors'];
-  
+
        // Connect to AWS
      try {
          // You may need to change the region. It will say in the URL when the bucket is open
