@@ -865,6 +865,7 @@ public function Business_info(){
   $posterName = htmlspecialchars(trim($_POST['poster_name']));
   $posterMobile = htmlspecialchars(trim($_POST['poster_mobile']));
   $unique_id = htmlspecialchars(trim($_POST['code']));
+
   //Change from Trade to Swap and from Job_Offere to Job_Offer
   if($listing_type == "Trade"){
     $listing_type = "Swap";
@@ -903,34 +904,18 @@ public function Business_info(){
   }else{ $errors = 'Please your item title is empty!'; }
 
   if(!isset($errors)){
-  App::get('database')->query('INSERT INTO `ads` VALUES (id,:title,:main_cat,:subcategory,:company_employer,:appli_deadline,:job_type,:min_qualific,:min_exp,:max_exp,:salary_from,:salary_to,
-
-  :surface_size,:bedrooms,:bathrooms,:broker_fee,:make,:model,:year,:transmission,:car_type,:miles,:moto_make,:city_town,:region,:listing_type,:wishlist,:item_condit,
-
-  :description,:value,:negotiable, :datetime, :user_id,:custom_id,:uri,:status,:poster_name,:poster_mobile)',
-
-  array(':title'=>$title,':main_cat'=>$main_cat,':subcategory'=>$subcategory,
-
-  ':company_employer'=>$employer,':appli_deadline'=>$application_deadline,
-
-  ':job_type'=>$job_type,':min_qualific'=>$qualification,':min_exp'=>$min_experience,
-
-  ':max_exp'=>$max_experience,':salary_from'=>$salary_from,':salary_to'=>$salary_to,
-
-  ':surface_size'=>$surface_size,':bedrooms'=>$bedrooms,':bathrooms'=>$bathrooms,
-
-  ':broker_fee'=>$broker_fee,':make'=>$make,':model' => $model,':year'=>$year,
-
-  ':transmission'=>$transmission,':car_type'=>$car_type,':miles'=>$miles,
-
-  ':moto_make' =>$motomake, ':city_town' => $city_town,':region'=>$region,
-
-  ':listing_type'=>$listing_type,':wishlist' =>$wishes,':item_condit'=>$condition,
-
-  ':description' => $description, ':value'=> $value,':negotiable'=>$negotiable,':datetime'=>date('Y-m-d H:i:s'),
-
-  ':user_id'=>isLoggedIn(),':custom_id'=>$unique_id,':uri'=>$url,':status' => 1,':poster_name' => $posterName,':poster_mobile' => $posterMobile));
-  echo $unique_id;
+  App::get('database')->query('INSERT INTO `ads` VALUES (id,:title,:main_cat,:subcategory,:company_employer,:appli_deadline,:job_type,:min_qualific,:min_exp,
+    :max_exp,:salary_from,:salary_to,:surface_size,:bedrooms,:bathrooms,:broker_fee,:make,:model,:year,:transmission,:car_type,:miles,:moto_make,:city_town,:region,
+    :listing_type,:wishlist,:item_condit,:description,:value,:negotiable, :datetime, :user_id,:custom_id,:uri,status,:poster_name,:poster_mobile)',
+  array(
+    ':title'=>$title,':main_cat'=>$main_cat,':subcategory'=>$subcategory,':company_employer'=>$employer,
+    ':appli_deadline'=>$application_deadline,':job_type'=>$job_type,':min_qualific'=>$qualification,':min_exp'=>$min_experience,
+    ':max_exp'=>$max_experience,':salary_from'=>$salary_from,':salary_to'=>$salary_to,':surface_size'=>$surface_size,':bedrooms'=>$bedrooms,':bathrooms'=>$bathrooms,
+    ':broker_fee'=>$broker_fee,':make'=>$make,':model' => $model,':year'=>$year,':transmission'=>$transmission,':car_type'=>$car_type,':miles'=>$miles,
+    ':moto_make' =>$motomake, ':city_town' => $city_town,':region'=>$region,':listing_type'=>$listing_type,':wishlist' =>$wishes,':item_condit'=>$condition,
+    ':description' => $description, ':value'=> $value,':negotiable'=>$negotiable,':datetime'=>date('Y-m-d H:i:s'),
+    ':user_id'=>isLoggedIn(),':custom_id'=>$unique_id,':uri'=>$url,':status' => '1',':poster_name' => $posterName,':poster_mobile' => $posterMobile));
+     echo $unique_id;
   }else {
    App::get('database')->query('DELETE FROM `images` WHERE user_id=:user_id AND ad_id=:ad_id', array(':user_id'=> isLoggedIn(),':ad_id'=>$unique_id));
    echo $errors;
@@ -961,8 +946,7 @@ public function Adimages(){
     $file_tmp_name = $_FILES['files']['tmp_name'][$key];
     $extension = pathinfo($_FILES['files']['name'][$key], PATHINFO_EXTENSION);
   
-
-       // Connect to AWS
+    // Connect to AWS
      try {
          // You may need to change the region. It will say in the URL when the bucket is open
          // and on creation.
@@ -1003,7 +987,6 @@ public function Adimages(){
    })->encode($extension);
   
      // Add it to S3
-  
      /**Upload image thumbs */
      try {
          $s3->putObject(
@@ -1037,6 +1020,7 @@ public function Adimages(){
   App::get('database')->query('INSERT INTO images VALUES (id,:user_id,:ad_id,:images
     )', array('user_id' => isLoggedIn(),':ad_id' => $_SESSION['ad_id'],
     ':images'=> basename($file_name)));
+    echo 'Ad id'.$_SESSION['ad_id'].'Image name'.basename($file_name);
    }
  }}else {
      $img_errors = 'Please select at least 1 photo for your ad'; 
