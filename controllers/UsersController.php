@@ -3119,7 +3119,7 @@ public function appSendchat(){
 
   public function deleteAd(){
     $ad_id =  htmlspecialchars(trim($_POST['custom_id']));
-    App::get('database')->query('DELETE FROM `ads` WHERE custom_id=:ad_id LIMIT 1', array(':custom_id'=>$ad_id));
+    App::get('database')->query('DELETE FROM `ads` WHERE custom_id=:ad_id LIMIT 1', array(':ad_id'=>$ad_id));
     echo "success";
   }
 
