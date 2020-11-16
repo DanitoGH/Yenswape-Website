@@ -15,7 +15,7 @@ class PagesController {
     $latestAds = App::get('database')->mob_latestadsInfo();
    return view('index-mobile',['latestAds' => $latestAds]);
    }else{
-     $latestAds = App::get('database')->latestadsInfo();
+     $latestAds = App::get('database')->latestadsInfo(11);
     return view('index',['latestAds' => $latestAds]);
    }
    }}
@@ -347,7 +347,7 @@ class PagesController {
        $latestAds = App::get('database')->mob_latestadsInfo();
       return view('index-mobile',['latestAds' => $latestAds]);
       }else{
-        $latestAds = App::get('database')->latestadsInfo();
+        $latestAds = App::get('database')->latestadsInfo(11);
        return view('index',['latestAds' => $latestAds]);
       }
     }

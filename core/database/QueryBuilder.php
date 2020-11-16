@@ -25,16 +25,14 @@ class QueryBuilder
 
   public function latestadsInfo($limit) // displaying current ads on the homepage
   {
-     //WHERE status=1 
-    $statement = $this->pdo->prepare("SELECT * FROM `ads` order by datetime desc LIMIT 0,{$limit}");
+    $statement = $this->pdo->prepare("SELECT * FROM `ads` WHERE status=1  order by datetime desc LIMIT 0,{$limit}");
     $statement->execute();
     return $statement->fetchAll(PDO::FETCH_CLASS);
   }
 
   public function Latestadsoffset($offset) // displaying current ads in the homepage with offset
   {
-   // WHERE status='1'
-  $statement = $this->pdo->prepare("SELECT * FROM `ads` order by datetime desc LIMIT 11 OFFSET {$offset}");
+  $statement = $this->pdo->prepare("SELECT * FROM `ads` WHERE status='1' order by datetime desc LIMIT 11 OFFSET {$offset}");
   $statement->execute();
   return  $statement->fetchAll(PDO::FETCH_CLASS);
   }
@@ -48,22 +46,19 @@ class QueryBuilder
 
   public function Views_all() // Views_all latest ads
   {
-   //WHERE status=1 
-  $statement = ("SELECT * FROM `ads` order by datetime desc");
+  $statement = ("SELECT * FROM `ads` WHERE status=1  order by datetime desc");
   return $statement;
   }
 
   public function view_allFilters_1($order) // View all filtres 1
   {
-   //WHERE status=1 
-   $statement = ("SELECT * FROM `ads` $order");
+   $statement = ("SELECT * FROM `ads` WHERE status=1  $order");
    return $statement;
   }
 
   public function view_allFilters_2($listings,$order) // View all filters 2
   {
-   // AND status=1
-   $statement = ("SELECT * FROM `ads` WHERE  listing_type='$listings' $order");
+   $statement = ("SELECT * FROM `ads` WHERE  listing_type='$listings' AND status=1 $order");
    return $statement;
   }
 
@@ -98,8 +93,7 @@ class QueryBuilder
 
   public function Views($user_id, $ad_id)
   {
-  //AND status=1
-  $statement = $this->pdo->prepare("SELECT * FROM views WHERE user_id='{$user_id}'");
+  $statement = $this->pdo->prepare("SELECT * FROM views WHERE user_id='{$user_id}' AND status=1");
   $statement->execute();
   return $statement->rowCount();
   }
@@ -142,8 +136,7 @@ class QueryBuilder
 
   public function Cat_filters2($category,$order) // Items categories only with filters
   {
-   //AND status=1
-  $statement = ("SELECT * FROM `ads` WHERE main_cat='$category' $order");
+  $statement = ("SELECT * FROM `ads` WHERE main_cat='$category' AND status=1 $order");
   return $statement;
   }
 
@@ -732,11 +725,9 @@ class QueryBuilder
     return  $statement->fetchAll(PDO::FETCH_CLASS);
    }
 
-
    public function latestadsInfo_Offset($offset) // displaying current ads in the homepage with offset
    {
-    // WHERE status='1'
-    $statement = $this->pdo->prepare("SELECT * FROM `ads` order by datetime desc LIMIT 20  OFFSET {$offset}");
+    $statement = $this->pdo->prepare("SELECT * FROM `ads` WHERE status='1' order by datetime desc LIMIT 20  OFFSET {$offset}");
     $statement->execute();
     return  $statement->fetchAll(PDO::FETCH_CLASS);
    }

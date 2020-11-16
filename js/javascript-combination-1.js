@@ -13270,30 +13270,32 @@ $(document).ready(function() {
         $('.button-collapse').sideNav('hide');
         $('#register_mod').modal('open')
     });
-    $(".close_account_model").click(function() {
-        let user_mob = document.getElementById('reg_mobile').value;
-        if (user_mob.length == 10) {
-            swal({
-                title: "WARNING",
-                text: "Your registration progress will be lost!",
-                type: "warning",
-                showCancelButton: !0,
-                confirmButtonColor: "#DD6B55",
-                confirmButtonText: "OK",
-                cancelButtonText: "CANCEL",
-                closeOnConfirm: !0,
-                closeOnCancel: !0
-            }, function(isConfirm) {
-                if (isConfirm) {
-                    $('#register_mod').modal('close');
-                    window.location.href = '/';
-                    return !0
-                }
-            })
-        } else {
-            $('#register_mod').modal('close')
-        }
-    });
+
+    // $(".close_account_model").click(function() {
+    //     let user_mob = document.getElementById('reg_mobile').value;
+    //     if (user_mob.length == 10) {
+    //         swal({
+    //             title: "WARNING",
+    //             text: "Your registration progress will be lost!",
+    //             type: "warning",
+    //             showCancelButton: !0,
+    //             confirmButtonColor: "#DD6B55",
+    //             confirmButtonText: "OK",
+    //             cancelButtonText: "CANCEL",
+    //             closeOnConfirm: !0,
+    //             closeOnCancel: !0
+    //         }, function(isConfirm) {
+    //             if (isConfirm) {
+    //                 $('#register_mod').modal('close');
+    //                 window.location.href = '/';
+    //                 return !0
+    //             }
+    //         })
+    //     } else {
+    //         $('#register_mod').modal('close')
+    //     }
+    // });
+
     $('#resend').click(function() {
         $('#register_mod').removeClass("register2_modal");
         $('#register_title').removeClass("register_title");
@@ -13869,7 +13871,7 @@ $(document).ready(function() {
                     }
                 },
                 error: function(data) {
-                    swal("Error", "Unknown error has occurred, please try again!", "warning");
+                    // swal("Error", "Unknown error has occurred, please try again!", "warning");
                     return !1
                 }
             })
@@ -13943,7 +13945,7 @@ $(document).ready(function() {
                 }
             },
             error: function(data) {
-                swal("Error", "Unknown error has occurred, please try again!", "warning")
+                // swal("Error", "Unknown error has occurred, please try again!", "warning")
             }
         })
     }
@@ -14014,12 +14016,12 @@ $(document).ready(function() {
                     } else if (data == 'error') {
                         $('#login_mod').modal('open')
                     } else {
-                        swal("Error", "Unknown error has occurred, please try again!", "warning");
+                        // swal("Error", "Unknown error has occurred, please try again!", "warning");
                         return !1
                     }
                 },
                 error: function(data) {
-                    swal("Error", "Unknown error has occurred, please try again!", "warning");
+                    // swal("Error", "Unknown error has occurred, please try again!", "warning");
                     return !1
                 }
             })
@@ -14099,13 +14101,13 @@ $(document).ready(function() {
                         mobile_error.innerHTML = '';
                         email_error.innerHTML = '';
                         comment_error.innerHTML = '';
-                        swal("Congratulations", "Your message has been sent successfully.", "success")
+                        // swal("Congratulations", "Your message has been sent successfully.", "success")
                     } else {
                         Materialize.toast(data, 5000, 'rounded')
                     }
                 },
                 error: function(data) {
-                    swal("Error", "Unknown error has occurred, please try again!", "warning");
+                    // swal("Error", "Unknown error has occurred, please try again!", "warning");
                     return !1
                 }
             })
@@ -14147,14 +14149,14 @@ $(document).ready(function() {
                             reason_error.innerHTML = '';
                             comment_error.innerHTML = '';
                             $('#report_ad').modal('close');
-                            swal("Congratulations", "Your report has been sent successfully.", "success")
+                            // swal("Congratulations", "Your report has been sent successfully.", "success")
                         } else {
                             Materialize.toast(data, 3000, 'rounded');
                             $('#report_ad').modal('close')
                         }
                     },
                     error: function(data) {
-                        swal("Error", "Unknown error has occurred, please try again!", "warning");
+                        // swal("Error", "Unknown error has occurred, please try again!", "warning");
                         return !1
                     }
                 })
@@ -14244,11 +14246,12 @@ $(document).ready(function() {
                 error: function(data) {
                     $("#login_spinner").removeClass("fa-spin fa-spinner");
                     animate('#login', 'shake');
-                    swal("Error", "Unknown error has occurred, please try again!", "warning")
+                    // swal("Error", "Unknown error has occurred, please try again!", "warning")
                 }
             })
         }
     });
+
     $(".send-pinbtn").click(function() {
         var number_filter = /[^0-9]/gi;
         var mobile = $("#mob_register").val().replace(number_filter, "");
@@ -14277,6 +14280,7 @@ $(document).ready(function() {
                     $('.send-pinbtn').removeAttr('disabled');
                     data_ = data;
                     var _data = data_.split("\\");
+                    console.log(data)
                     if (_data[0] == 'success') {
                         $('#register_mod').removeClass("register1_modal");
                         $('#register_title').addClass("register_title");
@@ -14304,7 +14308,7 @@ $(document).ready(function() {
                     animate('.send-pinbtn', 'shake');
                     $('.send-pinbtn').removeAttr('disabled');
                     $("#register-spinner").removeClass("fa-spin fa-spinner");
-                    swal("Error", "Unknown error has occurred, please try again!", "warning")
+                    // swal("Error", "Unknown error has occurred, please try again!", "warning")
                 }
             })
         }
@@ -14312,6 +14316,7 @@ $(document).ready(function() {
     $('.facebook_login').click(function() {
         Login()
     });
+
     $(".register-btn").click(function() {
         var alphabets_filter = /[^A-Za-z]/gi;
         var number_filter = /[^0-9]/gi;
@@ -14410,11 +14415,13 @@ $(document).ready(function() {
                     $("#register-spinner").removeClass("fa-spin fa-spinner");
                     $('.register-btn').removeAttr('disabled');
                     animate('.register-btn', 'shake');
-                    swal("Error", "Unknown error has occurred, please try again!", "warning")
+                     console.log(`Error: ` + JSON.stringify(data))
+                    // swal("Error", "Unknown error has occurred, please try again!", "warning")
                 }
             })
         }
     });
+
     $(".recover-btn").click(function() {
         var number_filter = /[^0-9]/gi;
         var mobile = $("#recover_mobile").val().replace(number_filter, "");
@@ -14456,7 +14463,7 @@ $(document).ready(function() {
                     $("#pin-rec_spinner").removeClass("fa-spin fa-spinner");
                     $('.recover-btn').removeAttr('disabled');
                     animate('.recover-btn', 'shake');
-                    swal("Error", "Unknown error has occurred, please try again!", "warning")
+                    // swal("Error", "Unknown error has occurred, please try again!", "warning")
                 }
             })
         }
@@ -14574,7 +14581,7 @@ $(document).ready(function() {
                             $("#post-ad_spinner").removeClass("fa-spin fa-spinner");
                             $('.post_ad-btn').removeAttr('disabled');
                             $('#form-2').modal('close');
-                            swal("Ad posting timeout!", "Please try again!", "warning")
+                            // swal("Ad posting timeout!", "Please try again!", "warning")
                         }
                     })
                 }, 2000);
@@ -14627,7 +14634,7 @@ $(document).ready(function() {
                                 $("#post-ad_spinner").removeClass("fa-spin fa-spinner");
                                 $('.post_ad-btn').removeAttr('disabled');
                                 $('#form-2').modal('close');
-                                swal("Ad posting timed out!", "Please try again!", "warning")
+                                // swal("Ad posting timed out!", "Please try again!", "warning")
                             }
                         },
                         error: function(data) {
@@ -14820,13 +14827,13 @@ $(document).ready(function() {
                                 return !0
                             }, 20000)
                         } else {
-                            swal("Error", data, "error");
+                            // swal("Error", data, "error");
                             $("#update-ad_spinner").removeClass("fa-spin fa-spinner");
                             $('.update_ad-btn').removeAttr('disabled')
                         }
                     },
                     error: function(data) {
-                        swal("Error", "Database connection timeout, please try again!", "warning");
+                        // swal("Error", "Database connection timeout, please try again!", "warning");
                         $("#update-ad_spinner").removeClass("fa-spin fa-spinner");
                         $('.update_ad-btn').removeAttr('disabled')
                     }
@@ -14887,7 +14894,7 @@ $(document).ready(function() {
                     error: function(data) {
                         $("#update-ad_spinner").removeClass("fa-spin fa-spinner");
                         $('.update_ad-btn').removeAttr('disabled');
-                        swal("Error", "Unknown error has occurred, please try again!", "warning")
+                        // swal("Error", "Unknown error has occurred, please try again!", "warning")
                     }
                 })
             }
@@ -14933,11 +14940,11 @@ $(document).ready(function() {
                                                             location.reload()
                                                         }, 3000)
                                                     } else {
-                                                        swal("Error", "Unknown error has occurred, please try again!", "warning")
+                                                        // swal("Error", "Unknown error has occurred, please try again!", "warning")
                                                     }
                                                 },
                                                 error: function(data) {
-                                                    swal("Error", "Unknown error has occurred, please try again!", "warning")
+                                                    // swal("Error", "Unknown error has occurred, please try again!", "warning")
                                                 }
                                             })
                                         } else {
@@ -14968,41 +14975,43 @@ $(document).ready(function() {
             Materialize.toast("Invalid entry!", 4000)
         }
     });
-    $("#account_delete").click(function() {
-        swal({
-            title: "!!! WARNING !!!",
-            text: "Do you really want to delete your account ?",
-            type: "warning",
-            showCancelButton: !0,
-            confirmButtonColor: "#DD6B55",
-            confirmButtonText: "Yes, I do",
-            cancelButtonText: "No,cancel",
-            closeOnConfirm: !1,
-            closeOnCancel: !0
-        }, function(isConfirm) {
-            if (isConfirm) {
-                $.ajax({
-                    url: "../delete-user",
-                    timeout: 200000,
-                    type: "POST",
-                    data: {},
-                    success: function(data) {
-                        if (data == 'deleted') {
-                            location.reload()
-                        } else {
-                            swal("Error", "Unknown error has occurred, please try again!", "warning")
-                        }
-                    },
-                    error: function(data) {
-                        swal("Error", "Unknown error has occurred, please try again!", "warning");
-                        return !1
-                    }
-                })
-            } else {
-                return !0
-            }
-        })
-    });
+
+    // $("#account_delete").click(function() {
+    //     swal({
+    //         title: "!!! WARNING !!!",
+    //         text: "Do you really want to delete your account ?",
+    //         type: "warning",
+    //         showCancelButton: !0,
+    //         confirmButtonColor: "#DD6B55",
+    //         confirmButtonText: "Yes, I do",
+    //         cancelButtonText: "No,cancel",
+    //         closeOnConfirm: !1,
+    //         closeOnCancel: !0
+    //     }, function(isConfirm) {
+    //         if (isConfirm) {
+    //             $.ajax({
+    //                 url: "../delete-user",
+    //                 timeout: 200000,
+    //                 type: "POST",
+    //                 data: {},
+    //                 success: function(data) {
+    //                     if (data == 'deleted') {
+    //                         location.reload()
+    //                     } else {
+    //                         swal("Error", "Unknown error has occurred, please try again!", "warning")
+    //                     }
+    //                 },
+    //                 error: function(data) {
+    //                     swal("Error", "Unknown error has occurred, please try again!", "warning");
+    //                     return !1
+    //                 }
+    //             })
+    //         } else {
+    //             return !0
+    //         }
+    //     })
+    // });
+
     $("#logout,#mob-logout").click(function() {
         $.ajax({
             url: "../logout",
@@ -15013,11 +15022,11 @@ $(document).ready(function() {
                 if (data == 'success') {
                     location.reload()
                 } else {
-                    swal("Error", "Unknown error has occurred, please try again!", "warning")
+                    // swal("Error", "Unknown error has occurred, please try again!", "warning")
                 }
             },
             error: function(data) {
-                swal("Error", "Unknown error has occurred, please try again!", "warning");
+                // swal("Error", "Unknown error has occurred, please try again!", "warning");
                 return !1
             }
         })

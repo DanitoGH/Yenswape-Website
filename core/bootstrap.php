@@ -8,7 +8,7 @@ require 'core/Request.php';
 require 'core/database/QueryBuilder.php';
 require 'core/database/Connection.php';
 require 'views/partials/Mobile_Detect.php';
-// require 'views/auto-approve.php';
+require 'views/auto-approve.php';
 //end  of Required classes
 
 App::bind('config',  require 'config.php');
@@ -26,9 +26,9 @@ function  view($name, $data = [])
   return require "views/{$name}.view.php";
 }
 
-// Redirecting to a pge after performing an operation
+// Redirecting to a page after performing an operation
  function redirect($path){
-  // header("Location: /{$path}");
+   header("Location: /{$path}");
  }
 
  // checking for mobile,tablet and computer
@@ -527,7 +527,7 @@ function isLoggedIn()
   }}
 
   //Upload images 1 (is for uploading single image files)
-  function imageUploader1($file_name,$file_photo_tmp,$file_size,$width,$store_image_path){
+  function imageUploader1 ($file_name,$file_photo_tmp,$file_size,$width,$store_image_path){
     $imgExt = strtolower(pathinfo($file_name, PATHINFO_EXTENSION));
     $valid_formats = array("jpg","JPG", "jpeg","png","PNG","gif");
     if(in_array($imgExt, $valid_formats)){
@@ -646,7 +646,7 @@ function isLoggedIn()
     foreach ($user_info as $row){
       $fname =  $row->fname;
       $lname = $row->lname;
-      return $fullname = $fname.'  '.$lname;
+      return  $fname.'  '.$lname;
     }
   }
 
