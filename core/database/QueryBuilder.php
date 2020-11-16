@@ -500,7 +500,7 @@ class QueryBuilder
 
   public function userAds($id)
   {
-  $statement = $this->pdo->prepare("SELECT * FROM  `ads` WHERE user_id='{$id}' AND `status` IN ('0','1','2') order by datetime desc");
+  $statement = $this->pdo->prepare("SELECT * FROM  `ads` WHERE user_id='{$id}' AND `status` IN (0,1,2) order by datetime desc");
   $statement->execute();
   return  $statement->fetchAll(PDO::FETCH_CLASS);
   }
