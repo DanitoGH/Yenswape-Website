@@ -905,7 +905,7 @@ public function Business_info(){
   if(!isset($errors)){
   App::get('database')->query('INSERT INTO `ads` VALUES (id,:title,:main_cat,:subcategory,:company_employer,:appli_deadline,:job_type,:min_qualific,:min_exp,
     :max_exp,:salary_from,:salary_to,:surface_size,:bedrooms,:bathrooms,:broker_fee,:make,:model,:year,:transmission,:car_type,:miles,:moto_make,:city_town,:region,
-    :listing_type,:wishlist,:item_condit,:description,:value,:negotiable, :datetime, :user_id,:custom_id,:uri,:status,:poster_name,:poster_mobile)',
+    :listing_type,:wishlist,:item_condit,:description,:value,:negotiable, :datetime, :user_id,:custom_id,:uri,status,:poster_name,:poster_mobile)',
   array(
     ':title'=>$title,':main_cat'=>$main_cat,':subcategory'=>$subcategory,':company_employer'=>$employer,
     ':appli_deadline'=>$application_deadline,':job_type'=>$job_type,':min_qualific'=>$qualification,':min_exp'=>$min_experience,
@@ -913,7 +913,7 @@ public function Business_info(){
     ':broker_fee'=>$broker_fee,':make'=>$make,':model' => $model,':year'=>$year,':transmission'=>$transmission,':car_type'=>$car_type,':miles'=>$miles,
     ':moto_make' =>$motomake, ':city_town' => $city_town,':region'=>$region,':listing_type'=>$listing_type,':wishlist' =>$wishes,':item_condit'=>$condition,
     ':description' => $description, ':value'=> $value,':negotiable'=>$negotiable,':datetime'=>date('Y-m-d H:i:s'),
-    ':user_id'=>isLoggedIn(),':custom_id'=>$unique_id,':uri'=>$url,':status' => 1,':poster_name' => $posterName,':poster_mobile' => $posterMobile));
+    ':user_id'=>isLoggedIn(),':custom_id'=>$unique_id,':uri'=>$url,':poster_name' => $posterName,':poster_mobile' => $posterMobile));
      
     echo $unique_id;
   }else{
