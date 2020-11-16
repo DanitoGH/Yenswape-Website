@@ -8,7 +8,7 @@ require 'core/Request.php';
 require 'core/database/QueryBuilder.php';
 require 'core/database/Connection.php';
 require 'views/partials/Mobile_Detect.php';
-require 'views/auto-approve.php';
+// require 'views/auto-approve.php';
 //end  of Required classes
 
 App::bind('config',  require 'config.php');
