@@ -918,9 +918,9 @@ public function Business_info(){
      
   
     $get = App::get('database')->query('SELECT * FROM `ads` WHERE custom_id=:custom_id', array(':custom_id'=>$unique_id));
-    echo $get;
+    echo $get[1];
     echo $unique_id;
-    
+
   }
 }
 
