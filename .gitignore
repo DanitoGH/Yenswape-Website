@@ -15,6 +15,10 @@ yarn-error.log
 *.sqlite
 /s3-fileuploader
 /credential.php
+
+# php classes to ignore
+ /controllers
+
 # ignore compiled files
 *.com
 *.class
