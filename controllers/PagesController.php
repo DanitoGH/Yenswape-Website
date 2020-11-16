@@ -12,10 +12,10 @@ class PagesController {
   }else {
     // redirecting to homepge if not loggedin
   if(deviceDetector() == 'Mobile' || deviceDetector() == 'Tablet'){
-    $latestAds = App::get('database')->mob_latestadsInfo();
+    $latestAds = App::get('database')->latestadsInfo(13);
    return view('index-mobile',['latestAds' => $latestAds]);
    }else{
-     $latestAds = App::get('database')->latestadsInfo(11);
+     $latestAds = App::get('database')->latestadsInfo(20);
     return view('index',['latestAds' => $latestAds]);
    }
    }}
@@ -343,10 +343,10 @@ class PagesController {
      // If not logged in and tries to get here
      // you will be take back home
      if(deviceDetector() == 'Mobile' || deviceDetector() == 'Tablet'){
-       $latestAds = App::get('database')->mob_latestadsInfo();
+       $latestAds = App::get('database')->latestadsInfo(20);
       return view('index-mobile',['latestAds' => $latestAds]);
       }else{
-        $latestAds = App::get('database')->latestadsInfo(11);
+        $latestAds = App::get('database')->latestadsInfo(20);
        return view('index',['latestAds' => $latestAds]);
       }
     }
@@ -361,10 +361,10 @@ class PagesController {
     // If not logged in and tries to get here
     // you will be taken back home
     if(deviceDetector() == 'Mobile' || deviceDetector() == 'Tablet'){
-      $latestAds = App::get('database')->mob_latestadsInfo();
+      $latestAds = App::get('database')->latestadsInfo(13);
      return view('index-mobile',['latestAds' => $latestAds]);
      }else{
-       $latestAds = App::get('database')->latestadsInfo();
+       $latestAds = App::get('database')->latestadsInfo(20);
       return view('index',['latestAds' => $latestAds]);
      }
     }
@@ -379,10 +379,10 @@ class PagesController {
      // If not logged in and tries to get here
      // you will be taken back home
      if(deviceDetector() == 'Mobile' || deviceDetector() == 'Tablet'){
-       $latestAds = App::get('database')->mob_latestadsInfo();
+       $latestAds = App::get('database')->latestadsInfo(13);
       return view('index-mobile',['latestAds' => $latestAds]);
       }else{
-        $latestAds = App::get('database')->latestadsInfo();
+        $latestAds = App::get('database')->latestadsInfo(20);
        return view('index',['latestAds' => $latestAds]);
      }
    }

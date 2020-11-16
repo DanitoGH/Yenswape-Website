@@ -25,7 +25,7 @@ class QueryBuilder
 
   public function latestadsInfo($limit) // displaying current ads on the homepage
   {
-    $statement = $this->pdo->prepare("SELECT * FROM `ads` WHERE status=1  order by datetime desc LIMIT 0,{$limit}");
+    $statement = $this->pdo->prepare("SELECT * FROM `ads` WHERE status=1 order by datetime desc LIMIT 0,{$limit}");
     $statement->execute();
     return $statement->fetchAll(PDO::FETCH_CLASS);
   }
