@@ -879,8 +879,6 @@ public function Business_info(){
   $url = seoUrl($url);
   $message = "";
 
-  $errors = array();
-
   if(!empty($title)){
   if(strlen($title) >= 6 && strlen($title) <= 45){
   if(!empty($main_cat)){
@@ -915,52 +913,15 @@ public function Business_info(){
     ':broker_fee'=>$broker_fee,':make'=>$make,':model' => $model,':year'=>$year,':transmission'=>$transmission,':car_type'=>$car_type,':miles'=>$miles,
     ':moto_make' =>$motomake, ':city_town' => $city_town,':region'=>$region,':listing_type'=>$listing_type,':wishlist' =>$wishes,':item_condit'=>$condition,
     ':description' => $description, ':value'=> $value,':negotiable'=>$negotiable,':datetime'=>date('Y-m-d H:i:s'),
-    ':user_id'=>isLoggedIn(),':custom_id'=>$unique_id,':uri'=>$url,':status' => '1',':poster_name' => $posterName,':poster_mobile' => $posterMobile));
+    ':user_id'=>isLoggedIn(),':custom_id'=>$unique_id,':uri'=>$url,':status' => 1,':poster_name' => $posterName,':poster_mobile' => $posterMobile));
      
     echo $unique_id;
+  }else{
+    print_r($errors);
   }
 }
+
 //End of info insert
-
-
-// public function Adimages(){
-  
-//   if(isset($_POST['unique'])){
-//     $Unique_id =  htmlspecialchars(trim($_POST['unique']));
-//     $_SESSION['ad_id'] = $Unique_id;
-//    }
-   
-//    $count = 0;
-//   if(isset($_FILES['files']['tmp_name']) && !empty($_FILES['files']['tmp_name'])){
-//    foreach($_FILES['files']['name'] as $i => $name){
-//     $file_name = $_FILES['files']['name'][$i];
-//     $file_type = $_FILES['files']['type'][$i];
-//     $file_size = $_FILES['files']['size'][$i];
-//     $file_tmp  = $_FILES['files']['tmp_name'][$i];
-//     //Uploading smaller image
-//    imageUploader1($file_name,$file_tmp,$file_size,100,"images/user-submitted/thumb/xs/");
-//    $img_errors = @$_SESSION['img_errors'];
-//   if(!isset($img_errors)){
-//    App::get('database')->query('INSERT INTO images VALUES (id,:user_id,:ad_id,:images
-//      )', array('user_id' => isLoggedIn(),':ad_id' => $_SESSION['ad_id'],
-//      ':images'=> $_SESSION['image_new_name']));
-//      $uploaded = 'true';
-//    //Uploading large image image
-//    if($uploaded == 'true'){
-//       imageUploader2($file_name,$file_tmp,$file_size,450,"images/user-submitted/thumb/");
-//     }
-//     //Unsetting all sessions after upload
-//    if(isset($_SESSION["img_errors"])){ unset($_SESSION["img_errors"]); }
-//    }else{
-//    echo $img_errors;
-//    App::get('database')->query('DELETE FROM `ads` WHERE user_id=:user_id AND custom_id=:custom_id', array(':user_id'=> isLoggedIn(),':custom_id'=>$_SESSION['ad_id']));
-//    App::get('database')->query('DELETE FROM `images` WHERE user_id=:user_id AND ad_id=:ad_id', array(':user_id'=> isLoggedIn(),':ad_id'=>$_SESSION['ad_id']));
-//    //Unsetting all sessions on upload fail
-//    if(isset($_SESSION["img_errors"])){ unset($_SESSION["img_errors"]); }
-//     }
-//    }}else { $img_errors = 'Please select at least 1 photo for your ad'; }
-//   }
- 
 
 public function Adimages(){
 

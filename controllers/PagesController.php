@@ -50,7 +50,6 @@ class PagesController {
    }
   }
 
-
  public function viewAll(){
     if(isset($_GET['view-all'])){
     $all_ads = htmlspecialchars($_GET['view-all']);
