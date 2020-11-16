@@ -949,7 +949,6 @@ public function Business_info(){
   ':user_id'=>isLoggedIn(),':custom_id'=>$unique_id,':uri'=>$url,':poster_name' => $posterName,':poster_mobile' => $posterMobile));
   
     echo $unique_id;
-
   }
 }
 
