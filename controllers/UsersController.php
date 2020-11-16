@@ -917,8 +917,8 @@ public function Business_info(){
     ':user_id'=>isLoggedIn(),':custom_id'=>$unique_id,':uri'=>$url,':status' => '1',':poster_name' => $posterName,':poster_mobile' => $posterMobile));
      
   
-    $get = App::get('database')->query('SELECT * FROM `ads` WHERE custom_id=:custom_id', array(':custom_id'=>$unique_id));
-    echo $get[1];
+    $title = App::get('database')->query('SELECT * FROM `ads` WHERE custom_id=:custom_id', array(':custom_id'=>$unique_id))[0]['user_id'];
+    echo $title;
     echo $unique_id;
 
   }
