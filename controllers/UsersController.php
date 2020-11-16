@@ -588,7 +588,7 @@ if(!strlen($message) < 5){
                         'code' =>password_hash($code, PASSWORD_BCRYPT),
                         'mobile' =>$mobile
                       ]);
-                      echo 'success'.'\\'.$code;    
+                      echo 'success';
                      }else {
                        echo 'Error occured, please try again.';
                      }
