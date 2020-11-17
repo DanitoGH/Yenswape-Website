@@ -129,9 +129,9 @@
           listing_type = "For Rent";
         }
         if(time =="" || time ==" "){
-          card +="<div class='col l4 xl3'><div class='thumbs card mason-item'><div  class='card-image'><a href='item/"+info.uri+"'><img  id='"+img.id+"' class=\"blur\" alt=\""+info.title+"\"  src='images/user-submitted/thumb/xs/"+img.images+"'  style='width:100%;'> </a><span class=\"card-title home-card\">"+listing_type+"</span></div><div class='card-content'><p class='item-title'><a title=\""+info.title+"\" href='item/"+info.uri+"'>"+info.title+"</a></p><p class='item-price'>₵ "+formatPrice+"</p></div></div></div>";
+          card +="<div class='col l4 xl3'><div class='thumbs card mason-item'><div  class='card-image'><a href='item/"+info.uri+"'><img  id='"+img.id+"' class=\"blur\" alt=\""+info.title+"\"  src='https://yenswape.s3.eu-west-2.amazonaws.com/ads_images/"+img.images+"'  style='width:100%;'> </a><span class=\"card-title home-card\">"+listing_type+"</span></div><div class='card-content'><p class='item-title'><a title=\""+info.title+"\" href='item/"+info.uri+"'>"+info.title+"</a></p><p class='item-price'>₵ "+formatPrice+"</p></div></div></div>";
         }else {
-          card +="<div class='col l4 xl3'><div class='thumbs card mason-item'><div  class='card-image'><a href='item/"+info.uri+"'><img id='"+img.id+"' class=\"blur\" alt=\""+info.title+"\" src='images/user-submitted/thumb/xs/"+img.images+"'  style='width:100%;'> </a><span class=\"card-title home-card\">"+listing_type+"</span></div><div class='card-content'><p class='item-title'><a title=\""+info.title+"\" href='item/"+info.uri+"'>"+info.title+"</a></p><p class='item-price'>₵ "+formatPrice+"<small  class='time_stamp'  style='float:right;text-align:right;'><i class=\"fa fa-clock-o\" aria-hidden=\"true\"></i> "+time+"</small></p></div></div></div>";
+          card +="<div class='col l4 xl3'><div class='thumbs card mason-item'><div  class='card-image'><a href='item/"+info.uri+"'><img id='"+img.id+"' class=\"blur\" alt=\""+info.title+"\" src='https://yenswape.s3.eu-west-2.amazonaws.com/ads_images/"+img.images+"'  style='width:100%;'> </a><span class=\"card-title home-card\">"+listing_type+"</span></div><div class='card-content'><p class='item-title'><a title=\""+info.title+"\" href='item/"+info.uri+"'>"+info.title+"</a></p><p class='item-price'>₵ "+formatPrice+"<small  class='time_stamp'  style='float:right;text-align:right;'><i class=\"fa fa-clock-o\" aria-hidden=\"true\"></i> "+time+"</small></p></div></div></div>";
         }}
         get_ad.innerHTML += card;
         card = ""; //clear card varible
@@ -148,7 +148,7 @@
 
     setTimeout(function() {
         for(var i=j=0; i < info_.length && j < image.length; i++, j++){
-          $("#"+image[j].id).attr("src","images/user-submitted/thumb/"+image[j].images);
+          $("#"+image[j].id).attr("src","https://yenswape.s3.eu-west-2.amazonaws.com/ads_images/thumbs/"+image[j].images);
           $("#"+image[j].id).removeClass('blur').addClass('noblur');
           }
           var $grid = $('#latest_ads_wrapper').masonry({
@@ -215,9 +215,9 @@
            listing_type = "For Rent";
          }
            if(time =="" || time ==" "){
-             scroll_card += "<div class='col l4 xl3'><div class='thumbs card mason-item'><div  class='card-image'><a href='item/"+info.uri+"'><img id='"+img.id+"' class=\"blur\"  alt=\""+info.title+"\"  src='images/user-submitted/thumb/xs/"+img.images+"'  style='width:100%;'> </a><span class=\"card-title home-card\">"+listing_type+"</span></div><div class='card-content'><p class='item-title'><a title=\""+info.title+"\" href='item/"+info.uri+"'>"+info.title+"</a></p><p class='item-price'>₵ "+formatPrice+"</p></div></div></div>";
+             scroll_card += "<div class='col l4 xl3'><div class='thumbs card mason-item'><div  class='card-image'><a href='item/"+info.uri+"'><img id='"+img.id+"' class=\"blur\"  alt=\""+info.title+"\"  src='https://yenswape.s3.eu-west-2.amazonaws.com/ads_images/thumbs/"+img.images+"'  style='width:100%;'> </a><span class=\"card-title home-card\">"+listing_type+"</span></div><div class='card-content'><p class='item-title'><a title=\""+info.title+"\" href='item/"+info.uri+"'>"+info.title+"</a></p><p class='item-price'>₵ "+formatPrice+"</p></div></div></div>";
            }else {
-             scroll_card += "<div class='col l4 xl3'><div class='thumbs card mason-item'><div  class='card-image'><a href='item/"+info.uri+"'><img id='"+img.id+"' class=\"blur\"  alt=\""+info.title+"\" src='images/user-submitted/thumb/xs/"+img.images+"'  style='width:100%;'> </a><span class=\"card-title home-card\">"+listing_type+"</span></div><div class='card-content'><p class='item-title'><a title=\""+info.title+"\" href='item/"+info.uri+"'>"+info.title+"</a></p><p class='item-price'>₵ "+formatPrice+"<small  class='time_stamp'  style='float:right;text-align:right;'><i class=\"fa fa-clock-o\" aria-hidden=\"true\"></i> "+time+"</small></p></div></div></div>";
+             scroll_card += "<div class='col l4 xl3'><div class='thumbs card mason-item'><div  class='card-image'><a href='item/"+info.uri+"'><img id='"+img.id+"' class=\"blur\"  alt=\""+info.title+"\" src='https://yenswape.s3.eu-west-2.amazonaws.com/ads_images/thumbs/"+img.images+"'  style='width:100%;'> </a><span class=\"card-title home-card\">"+listing_type+"</span></div><div class='card-content'><p class='item-title'><a title=\""+info.title+"\" href='item/"+info.uri+"'>"+info.title+"</a></p><p class='item-price'>₵ "+formatPrice+"<small  class='time_stamp'  style='float:right;text-align:right;'><i class=\"fa fa-clock-o\" aria-hidden=\"true\"></i> "+time+"</small></p></div></div></div>";
            }}
            get_ad.innerHTML += scroll_card;
            scroll_card = "";
@@ -234,30 +234,30 @@
 
         setTimeout(function() {
           for(var i=j=0; i < info_.length && j < image.length; i++, j++){
-             $("#"+image[j].id).attr("src","images/user-submitted/thumb/"+image[j].images);
+             $("#"+image[j].id).attr("src","https://yenswape.s3.eu-west-2.amazonaws.com/ads_images/thumbs/"+image[j].images);
              $("#"+image[j].id).removeClass('blur').addClass('noblur');
            }
          var $grid = $('#latest_ads_wrapper').masonry({
-          itemSelector:'.card',
-          columnWidth:'.mason-item',
-          percentPosition: true
+           itemSelector:'.card',
+           columnWidth:'.mason-item',
+           percentPosition: true
          });
          $grid.imagesLoaded().progress(function(){
          $grid.masonry('reloadItems');
          $grid.masonry('layout');
         })
-         }, 2000)
+        }, 2000)
         setTimeout(function(){
            working = false;
          },10000);
       }else {
-       btn_status.innerHTML = "No ad found!";
-       Materialize.toast("Sorry,no ad was found!",3000);
+        btn_status.innerHTML = "No ad found!";
+        Materialize.toast("Sorry,no ad was found!",3000);
       }
     },error:function (data){
-      btn_status.innerHTML = "Try again!";
-      Materialize.toast("Ads loading timeout, please try again",5000);
-   }})})
+       btn_status.innerHTML = "Try again!";
+       Materialize.toast("Ads loading timeout, please try again",5000);
+    }})})
 
    //Reload ads on loading timeout
    $('.reload-ads-btn').click(function(){
@@ -294,11 +294,11 @@
 
  //Changing banner image size for faster loading time
  setTimeout(function() {
-       $("#banner_img").attr("src","images/_Front-banner_.png");
-       $("#banner_img").removeClass('blur').addClass('noblur');
-   },1000)
-
-  });
+     $("#banner_img").attr("src","https://yenswape.s3.eu-west-2.amazonaws.com/static_images/_Front-banner_.png");
+     $("#banner_img").removeClass('blur').addClass('noblur');
+  },1000)
+ });
+ 
  </script>
  </body>
  </html>

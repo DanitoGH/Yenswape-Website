@@ -971,7 +971,7 @@ public function Adimages(){
    $thumb_keyName = 'ads_images/thumbs/'.$custom_filename;
    $large_keyName = 'ads_images/'.$custom_filename;
    
-   $thumbPathInS3 = 'https://yenswape.s3.eu-west-2.amazonaws.com/'.$thumb_keyName ;
+   $thumbPathInS3 = 'https://yenswape.s3.eu-west-2.amazonaws.com/'.$thumb_keyName;
    $largePathInS3 = 'https://yenswape.s3.eu-west-2.amazonaws.com/'.$large_keyName;
   
    //image instance

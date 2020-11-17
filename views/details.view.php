@@ -30,14 +30,14 @@
   <div class='card'>
    <?php foreach($images as $image){
     echo "<div class='details-card-image'>
-          <img  id='det_img'  calss='blur'  src='../images/user-submitted/thumb/xs/$image->images' class='responsive-img' alt='$item->title'>
-      </div>";
-    }?>
+          <img  id='det_img'  calss='blur'  src='https://yenswape.s3.eu-west-2.amazonaws.com/ads_images/$image->images' class='responsive-img' alt='$item->title'>
+     </div>";
+   }?>
   <div class='card-content'>
    <div class=''>
      <?php foreach($thumbs as $thumb){ 
-       echo" <a href='../images/user-submitted/thumb/$thumb->images' data-lightbox='items' data-title='$item->title'>
-         <img class='item_thumb' src='../images/user-submitted/thumb/xs/$thumb->images' alt='$item->title'  width='50'  height='50'></a>"; 
+       echo" <a href='https://yenswape.s3.eu-west-2.amazonaws.com/ads_images/thumbs/$thumb->images' data-lightbox='items' data-title='$item->title'>
+         <img class='item_thumb' src='https://yenswape.s3.eu-west-2.amazonaws.com/ads_images/thumbs/$thumb->images' alt='$item->title'  width='50'  height='50'></a>"; 
       }?>
     </div>
    </div>
@@ -183,7 +183,7 @@
 
  <!-- Side div content -->
 <div class="col l3 xl3  hide-on-med-and-down">
-   <img  src='../images/side_ad.jpg'  class='responsive-img' alt='$item->title'/>
+   <!-- <img  src='../images/side_ad.jpg'  class='responsive-img' alt='$item->title'/> -->
 </div>
 </div>
 
@@ -208,7 +208,7 @@
              Changing image src of timeout to help make the page load faster
          ========================================================================== */
 setTimeout(function(){
-    $("#det_img").attr("src","../images/user-submitted/thumb/<?php echo $image->images;?>");
+    $("#det_img").attr("src","https://yenswape.s3.eu-west-2.amazonaws.com/ads_images/thumbs/<?php echo $image->images;?>");
     $("#det_img").removeClass('blur').addClass('noblur');
 },3000)
 

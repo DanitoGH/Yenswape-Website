@@ -48,7 +48,7 @@
     <script>
      //Timeout to load large images making the page load faster
      setTimeout(function(){
-        $("#"+<?php echo $image->id ?>).attr("src","../images/user-submitted/thumb/<?php echo $image->images;?>");
+        $("#"+<?php echo $image->id ?>).attr("src","https://yenswape.s3.eu-west-2.amazonaws.com/ads_images/thumbs/<?php echo $image->images;?>");
         $("#"+<?php echo $image->id ?>).removeClass('blur').addClass('noblur');
      },6000)
      </script>
@@ -59,7 +59,7 @@
    <div class="col s12">
     <div class="row results-align valign-wrapper">
     <div  class="results_img">
-    <a  title="<?php echo htmlspecialchars_decode(stripslashes($title = $row['title']));?>"  href="../item/<?php echo $row['uri'];?>"><img  id="<?php echo $image->id ?>"  src="../images/user-submitted/thumb/xs/<?php echo $image->images ?>" alt="<?php echo htmlspecialchars_decode(stripslashes($title = $row['title']));?>" width="100%"  height="100%"></a>
+    <a  title="<?php echo htmlspecialchars_decode(stripslashes($title = $row['title']));?>"  href="../item/<?php echo $row['uri'];?>"><img  id="<?php echo $image->id ?>"  src="https://yenswape.s3.eu-west-2.amazonaws.com/ads_images/thumbs/<?php echo $image->images ?>" alt="<?php echo htmlspecialchars_decode(stripslashes($title = $row['title']));?>" width="100%"  height="100%"></a>
     </div>
     <div class="inner-text col s10">
      <div  class="col s12">
