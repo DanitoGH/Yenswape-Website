@@ -86,7 +86,7 @@ if(isset($custom_id) && $custom_id !== null && $custom_id !== "" && $custom_id !
   if(isset($custom_id) && $custom_id !== null && $custom_id !== "" && $custom_id !== "chat"){
   echo "<div class='item-chat z-depth-1'>
      <div class='col s2 m2 item_chat_imgdiv'>
-       <img src='../images/user-submitted/thumb/xs/$image->images' alt=''  class='item_chat_img'>
+       <img src='https://yenswape.s3.eu-west-2.amazonaws.com/ads_images/thumbs/$image->images' alt=''  class='item_chat_img'  height='40px' width='40px'>
      </div>
      <div class='col s9'  style='margin:0px !important'>
        <p class='active_chat_item'>

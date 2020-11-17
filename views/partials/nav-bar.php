@@ -2,7 +2,7 @@
  <nav class="nav">
     <div class="nav-wrapper">
       <a title="Go home"  href="/" class="brand-logo">
-        <img src="../images/glogo.png" alt="yenswape-logo"  id="logo_img"/>
+        <img src="https://yenswape.s3.eu-west-2.amazonaws.com/static_images/glogo.png" alt="yenswape-logo"  id="logo_img"/>
       </a>
       <a href="#!" data-activates="accordion" class="button-collapse"><i class="material-icons">menu</i></a>
        <ul class="right hide-on-med-and-down">

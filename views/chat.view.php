@@ -27,7 +27,7 @@
   <div class="messages">
         <div class="col s3 m2 l3 xl3 chat_item_imgdiv">
             <a  href="../chat-session/<?php echo $ad_info->uri;?>?port=<?php echo $chat_log->user_id;?>&session=<?php echo $chat_log->session_id;?>">
-            <img src='../images/user-submitted/thumb/xs/<?php echo $image->images; ?>' alt=""  class="chat_item_img">
+            <img src='https://yenswape.s3.eu-west-2.amazonaws.com/ads_images/thumbs/<?php echo $image->images; ?>' alt=""  class="chat_item_img" height="40px" width="40px">
            </a>
         </div>
         <div class="col s8 m8"  style="padding:0px !important; margin:0px !important">
@@ -138,7 +138,7 @@ if(isset($custom_id) && $custom_id !== null && $custom_id !== "" && $custom_id !
   if(isset($custom_id) && $custom_id !== null && $custom_id !== "" && $custom_id !== "chat"){
   echo "<div class='item-chat z-depth-1'>
      <div class='col s2 m2 l2 xl2  item_chat_imgdiv'>
-       <img src='../images/user-submitted/thumb/xs/$image->images' alt=''  class='item_chat_img'>
+       <img src='https://yenswape.s3.eu-west-2.amazonaws.com/ads_images/thumbs/$image->images' alt=''  class='item_chat_img' height='40px' width='40px'/>
      </div>
      <div class='col s9'  style='margin:0px !important'>
        <p class='active_chat_item'>
