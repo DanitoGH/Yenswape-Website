@@ -35,8 +35,10 @@
     <?php foreach ($images as $image):?>
     <div class='card-image'>
       <?php $item_title = htmlspecialchars_decode(stripslashes($item->title));?>
-      <a href='../images/user-submitted/thumb/<?php echo $image->images;?>' data-lightbox='items' data-title=''><img  id='det_img'  calss='blur'  alt="<?php echo htmlspecialchars_decode(stripslashes($item->title));?>" src='../images/user-submitted/thumb/xs/<?php echo $image->images;?>' style="width:100%;  height:90%;"></a>
-   <?php
+      <a href='https://yenswape.s3.eu-west-2.amazonaws.com/ads_images/thumbs/<?php echo $image->images;?>' data-lightbox='items' data-title=''>
+       <img  id='det_img'  calss='blur'  alt="<?php echo htmlspecialchars_decode(stripslashes($item->title));?>" src='../images/user-submitted/thumb/xs/<?php echo $image->images;?>' style="width:100%;  height:90%;">
+    </a>
+    <?php
      $listing_type = $item->listing_type;
      if ($item->listing_type === 'Job_Offer' || $item->listing_type === 'Job_Offere'){
         $listing_type = "Job Offer";
@@ -53,7 +55,7 @@
       <span class="card-title home-card">₵ <?php echo number_format_drop_zero_decimals($item->value,2); ?> [<?php echo $listing_type;?>]</span>
     </div>
   <?php endforeach;?>
-  <?php foreach ($thumbs as $thumb){ echo "<a href='../images/user-submitted/thumb/$thumb->images' data-lightbox='items' data-title='$item_title'></a>"; } ?>
+  <?php foreach ($thumbs as $thumb){ echo "<a href='https://yenswape.s3.eu-west-2.amazonaws.com/ads_images/thumbs/$thumb->images' data-lightbox='items' data-title='$item_title'></a>"; } ?>
    <div class='mob-details-item-title'>
     <h5><?php echo htmlspecialchars_decode(stripslashes($item->title));?></h5>
     <?php if($item->listing_type !=='Sell' && $item->listing_type !== 'Job_Offer' && $item->listing_type !== 'Job_Offere' && $item->listing_type !== 'Rent'){ echo "<span style='color:#828485;'>Wishlist: </span><span  style='color:#828485; font-weight:bold;'>$item->wishes</span>";}?>
@@ -177,7 +179,7 @@
      Changing image src of timeout to help make the page load faster
  ========================================================================== */
 setTimeout(function() {
-  $("#det_img").attr("src","../images/user-submitted/thumb/<?php echo $image->images;?>");
+  $("#det_img").attr("src","https://yenswape.s3.eu-west-2.amazonaws.com/ads_images/<?php echo $image->images;?>");
   $("#det_img").removeClass('blur').addClass('noblur');
 },3000)
 

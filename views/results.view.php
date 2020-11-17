@@ -48,7 +48,7 @@
     <script>
      //Timeout to load large images making the page load faster
      setTimeout(function(){
-        $("#"+<?php echo $image->id ?>).attr("src","https://yenswape.s3.eu-west-2.amazonaws.com/ads_images/<?php echo $image->images;?>");
+        $("#"+<?php echo $image->id ?>).attr("src","https://yenswape.s3.eu-west-2.amazonaws.com/ads_images/thumbs/<?php echo $image->images;?>");
         $("#"+<?php echo $image->id ?>).removeClass('blur').addClass('noblur');
      },6000)
      </script>
