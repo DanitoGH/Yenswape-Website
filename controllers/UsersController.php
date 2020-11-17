@@ -967,7 +967,7 @@ public function Adimages(){
      }
   
    // unqiue random string for the key name.
-   $custom_filename = basename($file_name).'_'.time().'.'.$extension;
+   $custom_filename = $file_name.'_'.time().'.'.$extension;
    $thumb_keyName = 'ads_images/thumbs/'.$custom_filename;
    $large_keyName = 'ads_images/'.$custom_filename;
    
