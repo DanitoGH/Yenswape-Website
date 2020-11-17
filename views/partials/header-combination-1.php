@@ -19,7 +19,7 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!--Import materialize.css-->
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-  <link rel="icon" href="../images/favicon.png" sizes="16x16 32x32 64x64" type="image/png">
+  <link rel="icon" href="https://yenswape.s3.eu-west-2.amazonaws.com/static_images/favicon.png" sizes="16x16 32x32 64x64" type="image/png">
   <link type="text/css" rel="stylesheet" href="../css/css-combination1.css"  media="screen,projection"/>
   <link href="../css/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
   <!--Let browser know website is optimized for mobile-->

@@ -34,15 +34,15 @@
    <div class="col s6 m6 l3">
         <h6 class="footer_headings grey-text text-darken-2">Download our app</h6>
         <ul>
-          <li><img   class="app-image"  src="../images/appstore.png"/></li>
-          <li><a  href="https://play.google.com/store/apps/details?id=yenswape.android.app"><img   class="app-image"  src="../images/google-playbadge.png"/></a></li>
+          <li><img   class="app-image"  src="https://yenswape.s3.eu-west-2.amazonaws.com/static_images/appstore.png"/></li>
+          <li><a  href="https://play.google.com/store/apps/details?id=yenswape.android.app"><img   class="app-image"  src="https://yenswape.s3.eu-west-2.amazonaws.com/static_images/google-playbadge.png"/></a></li>
         </ul>
     </div>
   </div>
 </div>
 <div style="margin-left:9%"  class="_container">
  <div class="col s12 m2 l2 ">
-© Yenswape 2018. All Rights Reserved.
+   © Yenswape 2018-2020. All Rights Reserved.
   </div>
 </div>
 </footer>

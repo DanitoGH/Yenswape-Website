@@ -29,7 +29,7 @@
   <div class="messages">
         <div class="col s3 m2 l3 xl3 chat_item_imgdiv">
             <a  href="../mob-chat-session/<?php echo $ad_info->uri;?>?port=<?php echo $chat_log->user_id;?>&session=<?php echo $chat_log->session_id;?>">
-            <img src='../images/user-submitted/thumb/xs/<?php echo $image->images; ?>' alt=""  class="chat_item_img">
+            <img src='https://yenswape.s3.eu-west-2.amazonaws.com/ads_images/thumbs/<?php echo $image->images; ?>' alt=""  class="chat_item_img"  height="40px" width="40px">
            </a>
         </div>
         <div class="col s8 m8"  style="padding:0px !important; margin:0px !important">
