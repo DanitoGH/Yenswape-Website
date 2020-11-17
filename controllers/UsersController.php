@@ -1022,7 +1022,6 @@ public function Adimages(){
     App::get('database')->query('INSERT INTO images VALUES (id,:user_id,:ad_id,:images
       )', array('user_id' => isLoggedIn(),':ad_id' => $_SESSION['ad_id'],
       ':images'=> basename($file_name)));
-      echo 'Ad id'.$_SESSION['ad_id'].'Image name'.basename($file_name);
   }else{
      echo $img_upload_errors;
   }
