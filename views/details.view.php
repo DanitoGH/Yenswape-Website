@@ -30,14 +30,14 @@
   <div class='card'>
    <?php foreach($images as $image){
     echo "<div class='details-card-image'>
-          <img  id='det_img'  calss='blur'  src='https://yenswape.s3.eu-west-2.amazonaws.com/ads_images/$image->images' class='responsive-img' alt='$item->title'>
+          <img  id='det_img'  calss='blur'  src='https://yenswape.s3.eu-west-2.amazonaws.com/ads_images/thumbs/$image->images' class='responsive-img' alt='$item->title'>
      </div>";
    }?>
   <div class='card-content'>
    <div class=''>
      <?php foreach($thumbs as $thumb){ 
        echo" <a href='https://yenswape.s3.eu-west-2.amazonaws.com/ads_images/thumbs/$thumb->images' data-lightbox='items' data-title='$item->title'>
-         <img class='item_thumb' src='https://yenswape.s3.eu-west-2.amazonaws.com/ads_images/thumbs/$thumb->images' alt='$item->title'  width='50'  height='50'></a>"; 
+         <img class='item_thumb' src='https://yenswape.s3.eu-west-2.amazonaws.com/ads_images/$thumb->images' alt='$item->title'  width='50'  height='50'></a>"; 
       }?>
     </div>
    </div>
@@ -208,7 +208,7 @@
              Changing image src of timeout to help make the page load faster
          ========================================================================== */
 setTimeout(function(){
-    $("#det_img").attr("src","https://yenswape.s3.eu-west-2.amazonaws.com/ads_images/thumbs/<?php echo $image->images;?>");
+    $("#det_img").attr("src","https://yenswape.s3.eu-west-2.amazonaws.com/ads_images/<?php echo $image->images;?>");
     $("#det_img").removeClass('blur').addClass('noblur');
 },3000)
 
