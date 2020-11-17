@@ -967,8 +967,9 @@ public function Adimages(){
      }
   
    // unqiue random string for the key name.
-   $thumb_keyName = 'ads_images/thumbs/'.basename($file_name).'_'.time().'.'.$extension;
-   $large_keyName = 'ads_images/'.basename($file_name).'_'.time().'.'.$extension;
+   $custom_filename = basename($file_name).'_'.time().'.'.$extension;
+   $thumb_keyName = 'ads_images/thumbs/'.$custom_filename;
+   $large_keyName = 'ads_images/'.$custom_filename;
    
    $thumbPathInS3 = 'https://yenswape.s3.eu-west-2.amazonaws.com/'.$thumb_keyName ;
    $largePathInS3 = 'https://yenswape.s3.eu-west-2.amazonaws.com/'.$large_keyName;
@@ -1021,13 +1022,12 @@ public function Adimages(){
  if($img_upload_errors == ""){
     App::get('database')->query('INSERT INTO images VALUES (id,:user_id,:ad_id,:images
       )', array('user_id' => isLoggedIn(),':ad_id' => $_SESSION['ad_id'],
-      ':images'=> basename($file_name)));
+      ':images'=> $custom_filename));
   }else{
      echo $img_upload_errors;
-  }
- } 
+  }} 
  }else {
-   $img_upload_errors = 'Please select at least 1 photo for your ad'; 
+    $img_upload_errors = 'Please select at least 1 photo for your ad'; 
   }
  }
 

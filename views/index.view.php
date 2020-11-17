@@ -110,8 +110,6 @@
        var image = _data.userData[1];
        var priceFormat = _data.userData[2];
        var timeStamp = _data.userData[3];
-
-       console.log("Info:" +info_ + "Images:" + image + "Format:" +priceFormat + "TimeStamp:" + timeStamp)
        for(var i=j=t=p=0; i < info_.length && j < image.length && t < timeStamp.length && p < priceFormat.length; i++,j++,t++,p++){
         var info = info_[i];
         var img = image[j];
