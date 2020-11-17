@@ -25,14 +25,14 @@ class QueryBuilder
 
   public function latestadsInfo($limit) // displaying current ads on the homepage
   {
-    $statement = $this->pdo->prepare("SELECT * FROM `ads` WHERE status='1' order by datetime desc LIMIT 0,{$limit}");
+    $statement = $this->pdo->prepare("SELECT * FROM `ads` WHERE status=1 order by datetime desc LIMIT 0,{$limit}");
     $statement->execute();
     return $statement->fetchAll(PDO::FETCH_CLASS);
   }
 
   public function Latestadsoffset($offset) // displaying current ads in the homepage with offset
   {
-  $statement = $this->pdo->prepare("SELECT * FROM `ads` WHERE status='1' order by datetime desc LIMIT 11 OFFSET {$offset}");
+  $statement = $this->pdo->prepare("SELECT * FROM `ads` WHERE status=1 order by datetime desc LIMIT 11 OFFSET {$offset}");
   $statement->execute();
   return  $statement->fetchAll(PDO::FETCH_CLASS);
   }

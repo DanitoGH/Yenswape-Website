@@ -53,15 +53,16 @@
   <!-- Google ads div-->
   <br/>
   <div class="center-align">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> -->
 <!-- homepage-ad -->
-<ins class="adsbygoogle"
+ <!-- <ins class="adsbygoogle"
     style="display:inline-block;width:728px;height:90px"
     data-ad-client="ca-pub-8233825381055176"
-    data-ad-slot="2478454102"></ins>
+    data-ad-slot="2478454102">
+  </ins>
   <script>
       (adsbygoogle = window.adsbygoogle || []).push({});
-  </script>
+  </script> -->
   </div>
   <div class="retry-ads-load visiblity-off">
     <a class="btn-floating  reload-ads-btn waves-effect"><i class="material-icons">refresh</i></a>
@@ -104,11 +105,13 @@
        $('.index_spinner_div').addClass('visiblity-off');
        $('.more-ads-loading-div').removeClass('visiblity-off');
        offset += 20;
-       var data = jQuery.parseJSON(data);
-       var info_ = data.userData[0];
-       var image = data.userData[1];
-       var priceFormat = data.userData[2];
-       var timeStamp = data.userData[3];
+       var _data = jQuery.parseJSON(data);
+       var info_ = _data.userData[0];
+       var image = _data.userData[1];
+       var priceFormat = _data.userData[2];
+       var timeStamp = _data.userData[3];
+
+       console.log("Info:" +info_ + "Images:" + image + "Format:" +priceFormat + "TimeStamp:" + timeStamp)
        for(var i=j=t=p=0; i < info_.length && j < image.length && t < timeStamp.length && p < priceFormat.length; i++,j++,t++,p++){
         var info = info_[i];
         var img = image[j];
