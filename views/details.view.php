@@ -36,8 +36,8 @@
   <div class='card-content'>
    <div class=''>
      <?php foreach($thumbs as $thumb){ 
-       echo" <a href='https://yenswape.s3.eu-west-2.amazonaws.com/ads_images/thumbs/$thumb->images' data-lightbox='items' data-title='$item->title'>
-         <img class='item_thumb' src='https://yenswape.s3.eu-west-2.amazonaws.com/ads_images/$thumb->images' alt='$item->title'  width='50'  height='50'></a>"; 
+       echo" <a href='https://yenswape.s3.eu-west-2.amazonaws.com/ads_images/$thumb->images' data-lightbox='items' data-title='$item->title'>
+         <img class='item_thumb' src='https://yenswape.s3.eu-west-2.amazonaws.com/ads_images/thumbs/$thumb->images' alt='$item->title'  width='50'  height='50'></a>"; 
       }?>
     </div>
    </div>
