@@ -15,8 +15,8 @@ use Intervention\Image\ImageManagerStatic as Image;
  public function Latestlistings(){
    
    $limit = (deviceDetector() == "Computer") ? 20 : 13;
-
-   if($latest_ads = App::get('database')->latestadsInfo($limit)){
+   $latest_ads = App::get('database')->latestadsInfo($limit);
+   if($latest_ads){
        $adInfo = array();
        $adImges = array();
        $postDate = array();
@@ -28,7 +28,7 @@ use Intervention\Image\ImageManagerStatic as Image;
        $priceFormat[] = number_format_drop_zero_decimals($latest->value, 2);
        $imgs = App::get('database')->App_latest_ads_imgs($custom_id);
     foreach ($imgs as $img){
-       $adImges[] = $img;
+        $adImges[] = $img;
       }}
        echo '{"userData":'.json_encode(array($adInfo,$adImges,$priceFormat,$postDate)).'}';
      }
@@ -936,6 +936,7 @@ public function Adimages(){
   $IAM_SECRET = 'CtPSKk+txX6kdyDUsiCvBadad/nlXq0REnEFASfI';
   
   $count = 0;
+  $img_upload_errors = "";
  if(isset($_FILES['files']['tmp_name']) && !empty($_FILES['files']['tmp_name'])){
   foreach($_FILES['files']['tmp_name'] as $key => $image){
 
@@ -961,7 +962,8 @@ public function Adimages(){
      } catch (Exception $e) {
          // We use a die, so if this fails. It stops here. Typically this is a REST call so this would
          // return a json object.
-         die("Error: " . $e->getMessage());
+        //  die("Error: " . $e->getMessage());
+         $img_upload_errors = $e->getMessage();
      }
   
    // unqiue random string for the key name.
@@ -997,7 +999,8 @@ public function Adimages(){
              )
          );
      } catch (Aws\S3\Exception\S3Exception $e) {
-         die('Error:' . $e->getMessage());
+        //  die('Error:' . $e->getMessage());
+         $img_upload_errors = $e->getMessage();
      }
   
      /**Upload image large*/
@@ -1011,18 +1014,19 @@ public function Adimages(){
           )
       );
      } catch (Aws\S3\Exception\S3Exception $e) {
-        die('Error:' . $e->getMessage());
+        // die('Error:' . $e->getMessage());
+        $img_upload_errors = $e->getMessage();
     }
 
-  $img_errors = "";
- if($img_errors != ""){
+ if($img_upload_errors != ""){
   App::get('database')->query('INSERT INTO images VALUES (id,:user_id,:ad_id,:images
     )', array('user_id' => isLoggedIn(),':ad_id' => $_SESSION['ad_id'],
     ':images'=> basename($file_name)));
     echo 'Ad id'.$_SESSION['ad_id'].'Image name'.basename($file_name);
    }
- }}else {
-     $img_errors = 'Please select at least 1 photo for your ad'; 
+ } 
+ }else {
+   $img_upload_errors = 'Please select at least 1 photo for your ad'; 
   }
  }
 
