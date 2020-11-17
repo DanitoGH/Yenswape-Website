@@ -247,7 +247,7 @@
            default:
                text = "Status Error";
            }
-            card += "<div class=\"col l5 xl6 user_ads_div\"><div class=\"thumbs card shop-mason-item\"><div class=\"card-image  waves-effect waves-block waves-light\"><a href=\"../item/"+info.uri+"\"><img id="+img.id+" class=\"activator  blur\" src='../images/user-submitted/thumb/xs/"+img.images+"' alt=\""+info.title+"\" style=\"width:100%;\"></a><span class=\"card-title home-card\">₵ "+formatPrice+"</span></div><div class=\"card-content\"><span class=\"card-title activator item-title\"><a href=\"../item/"+info.uri+"\"> "+info.title+"</a><i class=\"material-icons right\">more_vert</i></span><span class=\"item-price\">"+item_status+"</span><span class=\"item-price\"><small></small></span></div><div class=\"card-reveal thumbs\"><div class=\"card-title grey-text text-darken-4\"><span class=\"card-reveal-listing-type-span\">"+listing_type+"</span> <span class=\"close-reveal-span\"><i class=\"material-icons right\">close</i></span></div><div class=\"row\"><div  class=\"col s12 user_actions_div\"><div  class=\"col s12 user_actions_div-holder\"><a  id='"+info.custom_id+"' class=\"btn update user_ad_action1\"><i class=\"fa fa-edit\" aria-hidden=\"true\"></i> <span>Update</span></a></div><div  class=\"col s12 user_actions_div-holder\"><a  id='"+info.custom_id+"' class=\"btn delete user_ad_action2\"><i class=\"fa fa-trash\" aria-hidden=\"true\"></i> <span>Delete</span></a></div><div  class=\"col s12  user_actions_div-holder\"><a  id='"+info.custom_id+"' class=\" btn sold user_ad_action4\"><i class=\"fa fa-cart-arrow-down\" aria-hidden=\"true\"></i> <span>Sold</span></a></div></div></div></div></div></div>";
+            card += "<div class=\"col l5 xl6 user_ads_div\"><div class=\"thumbs card shop-mason-item\"><div class=\"card-image  waves-effect waves-block waves-light\"><a href=\"../item/"+info.uri+"\"><img id="+img.id+" class=\"activator  blur\" src='https://yenswape.s3.eu-west-2.amazonaws.com/ads_images/thumbs/"+img.images+"' alt=\""+info.title+"\" style=\"width:100%;\"></a><span class=\"card-title home-card\">₵ "+formatPrice+"</span></div><div class=\"card-content\"><span class=\"card-title activator item-title\"><a href=\"../item/"+info.uri+"\"> "+info.title+"</a><i class=\"material-icons right\">more_vert</i></span><span class=\"item-price\">"+item_status+"</span><span class=\"item-price\"><small></small></span></div><div class=\"card-reveal thumbs\"><div class=\"card-title grey-text text-darken-4\"><span class=\"card-reveal-listing-type-span\">"+listing_type+"</span> <span class=\"close-reveal-span\"><i class=\"material-icons right\">close</i></span></div><div class=\"row\"><div  class=\"col s12 user_actions_div\"><div  class=\"col s12 user_actions_div-holder\"><a  id='"+info.custom_id+"' class=\"btn update user_ad_action1\"><i class=\"fa fa-edit\" aria-hidden=\"true\"></i> <span>Update</span></a></div><div  class=\"col s12 user_actions_div-holder\"><a  id='"+info.custom_id+"' class=\"btn delete user_ad_action2\"><i class=\"fa fa-trash\" aria-hidden=\"true\"></i> <span>Delete</span></a></div><div  class=\"col s12  user_actions_div-holder\"><a  id='"+info.custom_id+"' class=\" btn sold user_ad_action4\"><i class=\"fa fa-cart-arrow-down\" aria-hidden=\"true\"></i> <span>Sold</span></a></div></div></div></div></div></div>";
            }
          my_ads.innerHTML += card;
 
@@ -341,7 +341,7 @@
     ============================================================================= */
   setTimeout(function(){
       for(var i=j=0; i < info_.length && j < image.length; i++, j++){
-         $("#"+image[j].id).attr("src","../images/user-submitted/thumb/"+image[j].images);
+         $("#"+image[j].id).attr("src","https://yenswape.s3.eu-west-2.amazonaws.com/ads_images/thumbs/"+image[j].images);
          $("#"+image[j].id).removeClass('blur').addClass('noblur');
        }
      var $grid = $('#my_ads').masonry({
@@ -426,9 +426,9 @@
             }
 
            if(time =="" || time ==" "){
-             card +="<div class=\"col l5 xl4\"><div class='thumbs card shop-mason-item'><div  class='card-image'><a href='../item/"+info.uri+"'><img id="+img.id+" class=\"blur\"  src='../images/user-submitted/thumb/xs/"+img.images+"'  alt=\""+info.title+"\" style='width:100%;'> </a><span class=\"card-title home-card\">"+listing_type+"</span></div><div class='card-content'><p class='item-title'><a href='../item/"+info.uri+"'>"+info.title+"</a></p><span class='item-price'>₵ "+formatPrice+"</span></div></div></div>";
+             card +="<div class=\"col l5 xl4\"><div class='thumbs card shop-mason-item'><div  class='card-image'><a href='../item/"+info.uri+"'><img id="+img.id+" class=\"blur\"  src='https://yenswape.s3.eu-west-2.amazonaws.com/ads_images/thumbs/"+img.images+"'  alt=\""+info.title+"\" style='width:100%;'> </a><span class=\"card-title home-card\">"+listing_type+"</span></div><div class='card-content'><p class='item-title'><a href='../item/"+info.uri+"'>"+info.title+"</a></p><span class='item-price'>₵ "+formatPrice+"</span></div></div></div>";
            }else{
-             card +="<div class=\"col l5 xl4\"><div class='thumbs card shop-mason-item'><div  class='card-image'><a href='../item/"+info.uri+"'><img id="+img.id+" class=\"blur\" src='../images/user-submitted/thumb/xs/"+img.images+"'  alt=\""+info.title+"\"  style='width:100%;'> </a><span class=\"card-title home-card\">"+listing_type+"</span></div><div class='card-content'><p class='item-title'><a href='../item/"+info.uri+"'>"+info.title+"</a></p><span class='item-price'>₵ "+formatPrice+"<small  class='time_stamp'  style='float:right; padding-top:4px; text-align:right;'><i class=\"fa fa-clock-o\" aria-hidden=\"true\"></i> "+time+"</small></span></div></div></div>";
+             card +="<div class=\"col l5 xl4\"><div class='thumbs card shop-mason-item'><div  class='card-image'><a href='../item/"+info.uri+"'><img id="+img.id+" class=\"blur\" src='https://yenswape.s3.eu-west-2.amazonaws.com/ads_images/thumbs/"+img.images+"'  alt=\""+info.title+"\"  style='width:100%;'> </a><span class=\"card-title home-card\">"+listing_type+"</span></div><div class='card-content'><p class='item-title'><a href='../item/"+info.uri+"'>"+info.title+"</a></p><span class='item-price'>₵ "+formatPrice+"<small  class='time_stamp'  style='float:right; padding-top:4px; text-align:right;'><i class=\"fa fa-clock-o\" aria-hidden=\"true\"></i> "+time+"</small></span></div></div></div>";
            }}
            my_ads.innerHTML += card;
            card = "";
@@ -448,7 +448,7 @@
           ============================================================================= */
       setTimeout(function(){
         for(var i=j=0; i < info_.length && j < image.length; i++, j++){
-            $("#"+image[j].id).attr("src","../images/user-submitted/thumb/"+image[j].images);
+            $("#"+image[j].id).attr("src","https://yenswape.s3.eu-west-2.amazonaws.com/ads_images/thumbs/"+image[j].images);
             $("#"+image[j].id).removeClass('blur').addClass('noblur');
           }
        var $grid = $('#my_ads').masonry({
@@ -519,9 +519,9 @@
                    listing_type = "Error";
               }
              if(time =="" || time ==" "){
-               card +="<div class=\"col l5 xl4\"><div class='thumbs card shop-mason-item'><div  class='card-image'><a href='../item/"+info.uri+"'><img id="+img.id+" class=\"blur\" src='../images/user-submitted/thumb/"+img.images+"'  alt=\""+info.title+"\" style='width:100%;'> </a><span class=\"card-title home-card\">"+listing_type+"</span></div><div class='card-content'><p class='item-title'><a href='../item/"+info.uri+"'>"+info.title+"</a></p><span class='item-price'>₵ "+formatPrice+"</span></div></div></div>";
+               card +="<div class=\"col l5 xl4\"><div class='thumbs card shop-mason-item'><div  class='card-image'><a href='../item/"+info.uri+"'><img id="+img.id+" class=\"blur\" src='https://yenswape.s3.eu-west-2.amazonaws.com/ads_images/thumbs/"+img.images+"'  alt=\""+info.title+"\" style='width:100%;'> </a><span class=\"card-title home-card\">"+listing_type+"</span></div><div class='card-content'><p class='item-title'><a href='../item/"+info.uri+"'>"+info.title+"</a></p><span class='item-price'>₵ "+formatPrice+"</span></div></div></div>";
              }else{
-               card +="<div class=\"col l5 xl4\"><div class='thumbs card shop-mason-item'><div  class='card-image'><a href='../item/"+info.uri+"'><img id="+img.id+" class=\"blur\"  src='../images/user-submitted/thumb/"+img.images+"'  alt=\""+info.title+"\"  style='width:100%;'> </a><span class=\"card-title home-card\">"+listing_type+"</span></div><div class='card-content'><p class='item-title'><a href='../item/"+info.uri+"'>"+info.title+"</a></p><span class='item-price'>₵ "+formatPrice+"<small  class='time_stamp'  style='float:right; padding-top:4px; text-align:right;'><i class=\"fa fa-clock-o\" aria-hidden=\"true\"></i> "+time+"</small></span></div></div></div>";
+               card +="<div class=\"col l5 xl4\"><div class='thumbs card shop-mason-item'><div  class='card-image'><a href='../item/"+info.uri+"'><img id="+img.id+" class=\"blur\"  src='https://yenswape.s3.eu-west-2.amazonaws.com/ads_images/thumbs/"+img.images+"'  alt=\""+info.title+"\"  style='width:100%;'> </a><span class=\"card-title home-card\">"+listing_type+"</span></div><div class='card-content'><p class='item-title'><a href='../item/"+info.uri+"'>"+info.title+"</a></p><span class='item-price'>₵ "+formatPrice+"<small  class='time_stamp'  style='float:right; padding-top:4px; text-align:right;'><i class=\"fa fa-clock-o\" aria-hidden=\"true\"></i> "+time+"</small></span></div></div></div>";
              }}
              my_ads.innerHTML += card;
              card = ""; // clearing varible to prevent duplicate ad loads
@@ -541,7 +541,7 @@
             ============================================================================= */
         setTimeout(function(){
           for(var i=j=0; i < info_.length && j < image.length; i++, j++){
-              $("#"+image[j].id).attr("src","../images/user-submitted/thumb/"+image[j].images);
+              $("#"+image[j].id).attr("src","https://yenswape.s3.eu-west-2.amazonaws.com/ads_images/thumbs/"+image[j].images);
               $("#"+image[j].id).removeClass('blur').addClass('noblur');
             }
          var $grid = $('#my_ads').masonry({
@@ -619,7 +619,7 @@
          echo "<div class='col s6 m6 l4 xl3'>
          <div class='thumbs card'>
           <div class='card-image'>
-          <a href='../item/$ad->uri'><img src='../images/user-submitted/thumb/$likeImage->images' style='width:100%; height:120px;'></a>
+          <a href='../item/$ad->uri'><img src='https://yenswape.s3.eu-west-2.amazonaws.com/ads_images/thumbs/$likeImage->images' style='width:100%; height:120px;'></a>
           </div>
           <div class='card-content'>
             <p class='item-title'><a href='../item/$ad->uri'>$ad->title</a></p>
@@ -664,7 +664,7 @@
           <?php $Viewer_fname = App::get('database')->query('SELECT `fname` FROM `users` WHERE id=:id', array(':id'=>$viewsTracker_->user_id));?>
            <?php foreach($Viewer_fname as $viewer_fname){}?>
           <tr>
-            <td><img src="../images/user-submitted/thumb/xs/<?php echo $ad_image[0];?>" alt="<?php echo $viewer_fname[0];?>"/></td>
+            <td><img src="https://yenswape.s3.eu-west-2.amazonaws.com/ads_images/thumbs/<?php echo $ad_image[0];?>" alt="<?php echo $viewer_fname[0];?>"  height="40px"  width="40px"/></td>
             <td><?php echo $viewer_fname[0];?></td>
             <td><?php $time = strtotime($viewsTracker_->datetime); echo $mytimeFormat = date("d M Y", $time);?></td>
             <td><a class="btn-floating btn-small" onClick="callViewer(<?php echo $viewsTracker_->user_id;?>)" href="#"><i class=" material-icons">phone</i></a></td>
