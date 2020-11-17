@@ -12,7 +12,7 @@
  <!-- Counting and getting visitors info -->
  <?php countVisitors();?>
  <div style="margin-left:50px" class="col l12 x112 details-breadcrumb-div-wrapper">
-  <a href="https://www.yenswape.com">Home</a> <i class="fa fa-angle-right"></i><a href="/<?php echo $item->main_cat; ?>"><?php echo $item->main_cat; ?></a><i class="fa fa-angle-right"></i><a href="/<?php echo $item->main_cat."/".$item->subcategory; ?>"> <?php echo $item->subcategory; ?></a>
+  <a href="https://yenswape.herokuapp.com">Home</a> <i class="fa fa-angle-right"></i><a href="/<?php echo $item->main_cat; ?>"><?php echo $item->main_cat; ?></a><i class="fa fa-angle-right"></i><a href="/<?php echo $item->main_cat."/".$item->subcategory; ?>"> <?php echo $item->subcategory; ?></a>
   <i class="fa fa-angle-right"></i><a class="black-text  active-category"> <?php echo $item->title; ?> </a>
  </div>
  <!-- PC side-menu ends here -->

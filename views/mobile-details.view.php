@@ -186,7 +186,7 @@ setTimeout(function() {
   var ad_title = $("#ad_title").val();
   $("#mobile_shares").jsSocials({
     text: ad_title,
-    url: "https://www.yenswape.com<?php echo $get_uri;?>",
+    url: "https://yenswape.herokuapp.com<?php echo $get_uri;?>",
     shareIn: "popup",
     showLabel:false,
     showCount:false,
