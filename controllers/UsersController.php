@@ -971,15 +971,12 @@ public function Adimages(){
    $thumb_keyName = 'ads_images/thumbs/'.$custom_filename;
    $large_keyName = 'ads_images/'.$custom_filename;
    
-   $thumbPathInS3 = 'https://yenswape.s3.eu-west-2.amazonaws.com/'.$thumb_keyName;
-   $largePathInS3 = 'https://yenswape.s3.eu-west-2.amazonaws.com/'.$large_keyName;
-  
    //image instance
    $img_thumb = Image::make($image);
    $img_large = Image::make($image);
   
    // resize the image to a width of 100 and constrain aspect ratio (auto height)
-   $img_thumb->resize(100, null, function ($constraint) {
+   $img_thumb->resize(311, null, function ($constraint) {
      $constraint->aspectRatio();
    })->encode($extension);
   
@@ -1020,9 +1017,8 @@ public function Adimages(){
     }
 
  if($img_upload_errors == ""){
-    App::get('database')->query('INSERT INTO images VALUES (id,:user_id,:ad_id,:images
-      )', array('user_id' => isLoggedIn(),':ad_id' => $_SESSION['ad_id'],
-      ':images'=> $custom_filename));
+    App::get('database')->query('INSERT INTO images VALUES (id,:user_id,:ad_id,:images)',
+    array('user_id' => isLoggedIn(),':ad_id' => $_SESSION['ad_id'],':images'=> $custom_filename));
   }else{
      echo $img_upload_errors;
   }} 
