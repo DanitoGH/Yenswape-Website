@@ -27,6 +27,7 @@
   <?php @$userInfo = App::get('database')->fetchUserinfo($item->user_id); ?>
   <?php foreach($userInfo as $user_info):?>
   <?php $ad_likes = App::get('database')->query('SELECT * FROM likes WHERE ad_id=:adid ', array(':adid'=>$item->custom_id)); ?>
+  
   <div class='card'>
    <?php foreach($images as $image){
     echo "<div class='details-card-image'>
@@ -34,7 +35,7 @@
      </div>";
    }?>
   <div class='card-content'>
-   <div class=''>
+   <div >
      <?php foreach($thumbs as $thumb){ 
        echo" <a href='https://yenswape.s3.eu-west-2.amazonaws.com/ads_images/$thumb->images' data-lightbox='items' data-title='$item->title'>
          <img class='item_thumb' src='https://yenswape.s3.eu-west-2.amazonaws.com/ads_images/thumbs/$thumb->images' alt='$item->title'  width='50'  height='50'></a>"; 
@@ -42,6 +43,7 @@
     </div>
    </div>
   </div>
+
   </div>
    <?php
    if($item->main_cat =='vehicles' && $item->subcategory =='cars'){
