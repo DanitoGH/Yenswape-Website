@@ -928,7 +928,7 @@ public function Adimages(){
     $_SESSION['ad_id'] = $Unique_id;
   }
   
-  require __DIR__. 'vendor/autoload.php';
+  require __DIR__. '/vendor/autoload.php';
 
   //Load AWS Info from .evn
   $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
