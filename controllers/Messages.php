@@ -4,8 +4,13 @@
 // To run under docker:
 // docker run -v $PWD:/code php:7.3.2-alpine php /code/code_sample.php
 
-$username = 'Yenswape';
-$password = 'yenswape';
+//Load .env file into config file
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
+$dotenv->required(['BULK_SMS_USER','BULK_SMS_PASS']);
+
+$username = $_ENV['BULK_SMS_USER'];
+$password = $_ENV['BULK_SMS_PASS'];
 
 /*
 * Your phone number, including country code, i.e. +44123123123 in this case:

@@ -921,30 +921,32 @@ public function Business_info(){
   }
 }
 
-//End of info insert
+
 
 public function Adimages(){
 
  if(isset($_POST['unique'])){
-   $Unique_id =  htmlspecialchars(trim($_POST['unique']));
-   $_SESSION['ad_id'] = $Unique_id;
+    $Unique_id =  htmlspecialchars(trim($_POST['unique']));
+    $_SESSION['ad_id'] = $Unique_id;
   }
-
-  // AWS Info
-  $bucketName = 'yenswape';
-  $IAM_KEY = 'AKIAVX5U2BG4LQKENW6E';
-  $IAM_SECRET = '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';
   
-  $count = 0;
+  //Load AWS Info from .evn
+  $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+  $dotenv->load();
+  $dotenv->required(['AWS_BUCKET','AWS_ACCESS_KEY_ID','AWS_SECRET_ACCESS_KEY','AWS_DEFAULT_REGION']);
+
+  $AWS_BUCKET_NAME = $_ENV['AWS_BUCKET'];
+  $AWS_ACCESS_KEY_ID = $_ENV['AWS_ACCESS_KEY_ID'];
+  $AWS_SECRET_ACCESS_KEY = $_ENV['AWS_SECRET_ACCESS_KEY'];
+  $AWS_DEFAULT_REGION = $_ENV['AWS_DEFAULT_REGION'];
+  
   $img_upload_errors = "";
+
  if(isset($_FILES['files']['tmp_name']) && !empty($_FILES['files']['tmp_name'])){
   foreach($_FILES['files']['tmp_name'] as $key => $image){
-
-    $file_name = $_FILES['files']['name'][$key];
-    $file_type = $_FILES['files']['type'][$key];
-    $file_size = $_FILES['files']['size'][$key];
-    $file_tmp_name = $_FILES['files']['tmp_name'][$key];
-    $extension = pathinfo($_FILES['files']['name'][$key], PATHINFO_EXTENSION);
+    
+      $file_name = $_FILES['files']['name'][$key];
+      $extension = pathinfo($_FILES['files']['name'][$key], PATHINFO_EXTENSION);
   
     // Connect to AWS
      try {
@@ -953,10 +955,10 @@ public function Adimages(){
        // Instantiate an Amazon S3 client.
        $s3 = new Aws\S3\S3Client([
            'version' => 'latest',
-           'region'  => 'eu-west-2',
+           'region'  => $AWS_DEFAULT_REGION,
            'credentials' => array(
-               'key' => $IAM_KEY,
-               'secret' => $IAM_SECRET
+               'key' => $AWS_ACCESS_KEY_ID,
+               'secret' => $AWS_SECRET_ACCESS_KEY
            )
        ]);
      } catch (Exception $e) {
@@ -975,7 +977,7 @@ public function Adimages(){
    $img_thumb = Image::make($image);
    $img_large = Image::make($image);
   
-   // resize the image to a width of 100 and constrain aspect ratio (auto height)
+   // resize the image to a width of 311 and constrain aspect ratio (auto height)
    $img_thumb->resize(311, null, function ($constraint) {
      $constraint->aspectRatio();
    })->encode($extension);
@@ -990,7 +992,7 @@ public function Adimages(){
      try {
          $s3->putObject(
              array(
-             'Bucket' => $bucketName,
+             'Bucket' => $AWS_BUCKET_NAME,
              'Key'    => $thumb_keyName,
              'Body'   => $img_thumb,
              'ACL'    => 'public-read',
@@ -1005,7 +1007,7 @@ public function Adimages(){
      try {
       $s3->putObject(
           array(
-          'Bucket' => $bucketName,
+          'Bucket' => $AWS_BUCKET_NAME,
           'Key'    => $large_keyName,
           'Body'   => $img_large,
           'ACL'    => 'public-read',
@@ -2395,6 +2397,7 @@ public function appAdimages(){
   }
    }else { $img_errors = 'Please select at least 1 photo for your ad'; }
  }
+
 
 
  public function appLikes(){
