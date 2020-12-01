@@ -1,9 +1,8 @@
 <?php
-
- require __DIR__. 'vendor/autoload.php';
+//  require __DIR__. 'vendor/autoload.php';
 
  //Load .env file into config file
- $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+ $dotenv = Dotenv\Dotenv::createImmutable('.env');
  $dotenv->load();
  $dotenv->required(['DB_CONNECTION','DB_HOST','DB_NAME','DB_USER','DB_PASS']);
 
