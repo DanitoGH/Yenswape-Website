@@ -2,11 +2,10 @@
  session_start();
  header('Access-Control-Allow-Origin: *');
  header('Access-Control-Allow-Methods: POST, GET, OPTIONS');
- ini_set('memory_limit','512M'); //Increasing Mysql memory size to handle more data and to avoid future errors
+ ini_set('memory_limit','128M'); //Increasing Mysql memory size to handle more data and to avoid future errors
 
  require 'vendor/autoload.php';
  
-
  // import the Intervention Image Manager Class
 use Intervention\Image\ImageManagerStatic as Image;
 	
@@ -932,7 +931,7 @@ public function Adimages(){
   }
   
   require __DIR__. 'vendor/autoload.php';
-  
+
   //Load AWS Info from .evn
   $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
   $dotenv->load();
