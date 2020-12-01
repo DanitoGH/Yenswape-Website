@@ -1,6 +1,12 @@
 <?php
+
+   //Load .env file into config file
+   $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+   $dotenv->load();
+   $dotenv->required(['DB_CONNECTION','DB_HOST','DB_NAME','DB_USER','DB_PASS']);
+
    //Remote Host
-   $host = 'bbj31ma8tye2kagi.cbetxkdyhwsb.us-east-1.rds.amazonaws.com'; 
-   $user = 'ln8hqwxsvbmutick'; 
-   $pass = 'rjj3w9o0vu818a36'; 
-   $db = 'qb4rm7jtklubtn2t';
+   $host = $_ENV['DB_HOST']; 
+   $user = $_ENV['DB_USER']; 
+   $pass = $_ENV['DB_PASS']; 
+   $db =   $_ENV['DB_NAME'];

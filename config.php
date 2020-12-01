@@ -1,12 +1,18 @@
 <?php
- //Remote Host
+//Load .env file into config file
+ $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+ $dotenv->load();
+ $dotenv->required(['DB_CONNECTION','DB_HOST','DB_NAME','DB_USER','DB_PASS']);
+
+//Remote Host
  return [
   'database' => [
-  'name' => 'qb4rm7jtklubtn2t',
-  'username' => 'ln8hqwxsvbmutick',
-  'password' => 'rjj3w9o0vu818a36',
-  'connection' => 'mysql:host=bbj31ma8tye2kagi.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
+  'name' => $_ENV['DB_NAME'],
+  'username' => $_ENV['DB_USER'],
+  'password' => $_ENV['DB_PASS'],
+  'connection' => $_ENV['DB_CONNECTION'].':'.'host='.$_ENV['DB_HOST'],
   'options' => [
     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
-  ]]
- ];
+  ]
+ ] 
+];
