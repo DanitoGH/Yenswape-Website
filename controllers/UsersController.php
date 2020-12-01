@@ -5,6 +5,7 @@
  ini_set('memory_limit','512M'); //Increasing Mysql memory size to handle more data and to avoid future errors
 
  require 'vendor/autoload.php';
+ require __DIR__. 'vendor/autoload.php';
 
  // import the Intervention Image Manager Class
 use Intervention\Image\ImageManagerStatic as Image;
