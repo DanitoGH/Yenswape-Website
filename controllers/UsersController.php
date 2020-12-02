@@ -2,7 +2,9 @@
  session_start();
  header('Access-Control-Allow-Origin: *');
  header('Access-Control-Allow-Methods: POST, GET, OPTIONS');
- ini_set('memory_limit','512M'); //Increasing Mysql memory size to handle more data and to avoid future errors
+  //Increasing Mysql memory size to handle more data and to avoid future errors
+//  ini_set('memory_limit','512M'); 
+
 
  // import the Intervention Image Manager Class
 use Intervention\Image\ImageManagerStatic as Image;
