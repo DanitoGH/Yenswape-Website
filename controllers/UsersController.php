@@ -5,6 +5,7 @@
   //Increasing Mysql memory size to handle more data and to avoid future errors
  ini_set('memory_limit','512M'); 
 
+ require __DIR__. '../vendor/autoload.php';
 
  // import the Intervention Image Manager Class
 use Intervention\Image\ImageManagerStatic as Image;
@@ -922,7 +923,6 @@ public function Business_info(){
 }
 
 
-
 public function Adimages(){
   
  if(isset($_POST['unique'])){
@@ -930,12 +930,12 @@ public function Adimages(){
     $_SESSION['ad_id'] = $Unique_id;
   }
   
-  require __DIR__. '../vendor/autoload.php';
-
   //Load AWS Info from .evn
   $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
-  $dotenv->load();
-  $dotenv->required(['AWS_BUCKET','AWS_ACCESS_KEY_ID','AWS_SECRET_ACCESS_KEY','AWS_DEFAULT_REGION']);
+  if(file_exists(".env")) {
+    $dotenv->load();
+    $dotenv->required(['AWS_BUCKET','AWS_ACCESS_KEY_ID','AWS_SECRET_ACCESS_KEY','AWS_DEFAULT_REGION']);
+  }
 
   $AWS_BUCKET_NAME = $_ENV['AWS_BUCKET'];
   $AWS_ACCESS_KEY_ID = $_ENV['AWS_ACCESS_KEY_ID'];

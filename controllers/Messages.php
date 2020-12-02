@@ -7,8 +7,10 @@ require __DIR__. '../vendor/autoload.php';
 
 //Load .env file into config file
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
-$dotenv->load();
-$dotenv->required(['BULK_SMS_USER','BULK_SMS_PASS']);
+if(file_exists(".env")) {
+  $dotenv->load();
+  $dotenv->required(['BULK_SMS_USER','BULK_SMS_PASS']);
+}
 
 $username = $_ENV['BULK_SMS_USER'];
 $password = $_ENV['BULK_SMS_PASS'];
