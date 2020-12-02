@@ -3,7 +3,7 @@
  header('Access-Control-Allow-Origin: *');
  header('Access-Control-Allow-Methods: POST, GET, OPTIONS');
   //Increasing Mysql memory size to handle more data and to avoid future errors
-//  ini_set('memory_limit','512M'); 
+ ini_set('memory_limit','512M'); 
 
 
  // import the Intervention Image Manager Class
