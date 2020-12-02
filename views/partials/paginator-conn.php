@@ -1,9 +1,7 @@
 <?php
-
-require __DIR__. '../vendor/autoload.php';
+require __DIR__. '/../vendor/autoload.php';
 
 //Load .env file into config file
-
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 if(file_exists(".env")) {
    $dotenv->load();
