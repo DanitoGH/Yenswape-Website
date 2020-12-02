@@ -3,7 +3,7 @@
 // include by default.
 // To run under docker:
 // docker run -v $PWD:/code php:7.3.2-alpine php /code/code_sample.php
-require __DIR__. 'vendor/autoload.php';
+require __DIR__. '../vendor/autoload.php';
 
 //Load .env file into config file
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
